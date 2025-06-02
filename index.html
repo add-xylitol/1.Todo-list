@@ -12,120 +12,148 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #fff;
             min-height: 100vh;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 5rem 1.5rem;
         }
         
         .header {
             text-align: center;
-            color: white;
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
         }
         
         .header h1 {
-            font-size: 3rem;
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #000;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -0.03em;
         }
         
         .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1rem;
+            color: #666;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
         }
         
         .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
+            background: transparent;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e5e5;
+            text-align: left;
+            transition: border-color 0.2s ease;
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
+            border-color: #000;
         }
         
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            display: block;
+            color: #000;
         }
         
         .feature-card h3 {
-            color: #667eea;
+            color: #000;
             margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
         
         .download-section {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
+            background: transparent;
+            padding: 4rem 0;
+            border-top: 1px solid #e5e5e5;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .download-section h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .download-section p {
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
         }
         
         .download-buttons {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-bottom: 3rem;
         }
         
         .download-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: #667eea;
-            color: white;
+            padding: 0.875rem 1.25rem;
+            background: #000;
+            color: #fff;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+            border: 1px solid #000;
         }
         
         .download-btn:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
+            background: #333;
         }
         
         .github-link {
-            margin-top: 2rem;
+            margin-top: 0;
         }
         
         .github-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: #24292e;
-            color: white;
+            padding: 0.75rem 1rem;
+            background: transparent;
+            color: #666;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 400;
+            font-size: 0.85rem;
+            border: 1px solid #e5e5e5;
+            transition: all 0.2s ease;
         }
         
         .github-btn:hover {
-            background: #1a1e22;
-            transform: translateY(-2px);
+            color: #000;
+            border-color: #000;
         }
         
         /* 弹窗样式 */
@@ -137,85 +165,84 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0,0,0,0.2);
+            backdrop-filter: blur(2px);
         }
         
         .modal-content {
-            background-color: white;
-            margin: 10% auto;
+            background-color: #fff;
+            margin: 8% auto;
             padding: 2rem;
-            border-radius: 15px;
             width: 90%;
-            max-width: 500px;
+            max-width: 480px;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            animation: modalSlideIn 0.3s ease;
+            border: 1px solid #e5e5e5;
+            animation: modalFadeIn 0.2s ease;
         }
         
-        @keyframes modalSlideIn {
+        @keyframes modalFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
         
         .close-btn {
             position: absolute;
-            right: 1rem;
-            top: 1rem;
-            font-size: 2rem;
+            right: 1.25rem;
+            top: 1.25rem;
+            font-size: 1.5rem;
             cursor: pointer;
             color: #999;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
+            line-height: 1;
         }
         
         .close-btn:hover {
-            color: #333;
+            color: #000;
         }
         
         .modal-actions {
             margin-top: 2rem;
             display: flex;
-            gap: 1rem;
-            justify-content: center;
+            gap: 0.75rem;
+            justify-content: flex-end;
             flex-wrap: wrap;
         }
         
         .modal-btn {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 0.9rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         
         .modal-btn.primary {
-            background: #667eea;
-            color: white;
+            background: #000;
+            color: #fff;
+            border: 1px solid #000;
         }
         
         .modal-btn.primary:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
+            background: #333;
         }
         
         .modal-btn.secondary {
-            background: #e2e8f0;
-            color: #4a5568;
+            background: transparent;
+            color: #666;
+            border: 1px solid #e5e5e5;
         }
         
         .modal-btn.secondary:hover {
-            background: #cbd5e0;
+            color: #000;
+            border-color: #000;
         }
         
         @media (max-width: 768px) {
@@ -566,37 +593,37 @@
         function startWebTodoDemo() {
             // 创建演示界面
             const demoHTML = `
-                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 10000; overflow-y: auto;">
-                    <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 2px solid #667eea; padding-bottom: 15px;">
-                            <h2 style="color: #667eea; margin: 0;">🌐 TodoList Pro - Web演示版</h2>
-                            <button onclick="closeTodoDemo()" style="background: #ff4757; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">✕ 关闭演示</button>
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 10000; overflow-y: auto;">
+                    <div style="max-width: 700px; margin: 0 auto; padding: 40px 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid #e5e5e5; padding-bottom: 20px;">
+                            <h2 style="color: #000; margin: 0; font-weight: 500; letter-spacing: -0.02em;">TodoList Pro - Web版</h2>
+                            <button onclick="closeTodoDemo()" style="background: transparent; color: #666; border: 1px solid #e5e5e5; padding: 8px 12px; cursor: pointer; font-size: 14px;">关闭</button>
                         </div>
                         
-                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-                            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-                                <input type="text" id="demoTaskInput" placeholder="输入新任务..." style="flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px;">
-                                <select id="demoPriority" style="padding: 12px; border: 2px solid #ddd; border-radius: 5px;">
+                        <div style="margin-bottom: 30px;">
+                            <div style="display: flex; gap: 8px; margin-bottom: 0;">
+                                <input type="text" id="demoTaskInput" placeholder="添加新任务..." style="flex: 1; padding: 12px 15px; border: 1px solid #e5e5e5; font-size: 15px; outline: none;">
+                                <select id="demoPriority" style="padding: 12px; border: 1px solid #e5e5e5; background: #fff; font-size: 14px;">
                                     <option value="low">低优先级</option>
                                     <option value="medium">中优先级</option>
                                     <option value="high">高优先级</option>
                                 </select>
-                                <button onclick="addDemoTask()" style="background: #667eea; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">➕ 添加</button>
+                                <button onclick="addDemoTask()" style="background: #000; color: #fff; border: 1px solid #000; padding: 12px 15px; cursor: pointer; font-weight: 500; font-size: 14px;">添加</button>
                             </div>
                         </div>
                         
-                        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-                            <button onclick="filterDemoTasks('all')" class="demo-filter-btn" style="padding: 8px 16px; border: 2px solid #667eea; background: #667eea; color: white; border-radius: 5px; cursor: pointer;">全部</button>
-                            <button onclick="filterDemoTasks('pending')" class="demo-filter-btn" style="padding: 8px 16px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 5px; cursor: pointer;">待完成</button>
-                            <button onclick="filterDemoTasks('completed')" class="demo-filter-btn" style="padding: 8px 16px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 5px; cursor: pointer;">已完成</button>
+                        <div style="display: flex; gap: 8px; margin-bottom: 25px;">
+                            <button onclick="filterDemoTasks('all')" class="demo-filter-btn" style="padding: 8px 15px; border: 1px solid #000; background: #000; color: white; cursor: pointer; font-size: 14px;">全部</button>
+                            <button onclick="filterDemoTasks('pending')" class="demo-filter-btn" style="padding: 8px 15px; border: 1px solid #e5e5e5; background: white; color: #666; cursor: pointer; font-size: 14px;">待完成</button>
+                            <button onclick="filterDemoTasks('completed')" class="demo-filter-btn" style="padding: 8px 15px; border: 1px solid #e5e5e5; background: white; color: #666; cursor: pointer; font-size: 14px;">已完成</button>
                         </div>
                         
                         <div id="demoTaskList" style="min-height: 200px;">
                             <!-- 任务列表将在这里显示 -->
                         </div>
                         
-                        <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; border-left: 4px solid #2196f3;">
-                            <p style="margin: 0; color: #1976d2;">💡 <strong>演示说明：</strong>这是一个功能完整的Web版TodoList演示，支持添加、完成、删除任务，以及优先级设置和筛选功能。</p>
+                        <div style="margin-top: 30px; padding: 15px; border: 1px solid #e5e5e5;">
+                            <p style="margin: 0; color: #666; font-size: 14px;">💡 <strong>演示说明：</strong>这是一个功能完整的Web版TodoList演示，支持添加、完成、删除任务，以及优先级设置和筛选功能。</p>
                         </div>
                     </div>
                 </div>
@@ -677,10 +704,12 @@
             // 更新按钮样式
             document.querySelectorAll('.demo-filter-btn').forEach(btn => {
                 btn.style.background = 'white';
-                btn.style.color = '#667eea';
+                btn.style.color = '#666';
+                btn.style.borderColor = '#e5e5e5';
             });
-            event.target.style.background = '#667eea';
+            event.target.style.background = '#000';
             event.target.style.color = 'white';
+            event.target.style.borderColor = '#000';
             
             renderDemoTasks();
         }
@@ -698,9 +727,9 @@
             }
             
             const priorityColors = {
-                high: '#ff4757',
-                medium: '#ffa502',
-                low: '#2ed573'
+                high: '#000',
+                medium: '#666',
+                low: '#999'
             };
             
             const priorityNames = {
@@ -710,16 +739,16 @@
             };
             
             container.innerHTML = filteredTasks.map(task => `
-                <div style="display: flex; align-items: center; padding: 15px; margin-bottom: 10px; background: ${task.completed ? '#f1f3f4' : 'white'}; border: 2px solid #e0e0e0; border-radius: 8px; ${task.completed ? 'opacity: 0.7;' : ''}">
-                    <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleDemoTask(${task.id})" style="margin-right: 15px; transform: scale(1.2);">
-                    <span style="flex: 1; ${task.completed ? 'text-decoration: line-through;' : ''} font-size: 16px;">${task.text}</span>
-                    <span style="background: ${priorityColors[task.priority]}; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; margin-right: 10px;">${priorityNames[task.priority]}优先级</span>
-                    <button onclick="deleteDemoTask(${task.id})" style="background: #ff4757; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">🗑️</button>
+                <div style="display: flex; align-items: center; padding: 15px; margin-bottom: 8px; background: ${task.completed ? '#f9f9f9' : '#fff'}; border: 1px solid #e5e5e5; ${task.completed ? 'opacity: 0.6;' : ''}">
+                    <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleDemoTask(${task.id})" style="margin-right: 15px; transform: scale(1.1);">
+                    <span style="flex: 1; ${task.completed ? 'text-decoration: line-through;' : ''} font-size: 15px; color: ${task.completed ? '#999' : '#000'};">${task.text}</span>
+                    <span style="color: ${priorityColors[task.priority]}; padding: 4px 8px; font-size: 12px; margin-right: 10px; border: 1px solid ${priorityColors[task.priority]};">${priorityNames[task.priority]}</span>
+                    <button onclick="deleteDemoTask(${task.id})" style="background: transparent; color: #999; border: 1px solid #e5e5e5; padding: 6px 8px; cursor: pointer; font-size: 12px;">删除</button>
                 </div>
             `).join('');
             
             if (filteredTasks.length === 0) {
-                container.innerHTML = '<div style="text-align: center; padding: 40px; color: #999; font-size: 18px;">📝 暂无任务</div>';
+                container.innerHTML = '<div style="text-align: center; padding: 60px 20px; color: #999; font-size: 16px;">暂无任务</div>';
             }
         }
         
