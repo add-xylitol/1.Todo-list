@@ -12,148 +12,194 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.5;
-            color: #1a1a1a;
-            background: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             min-height: 100vh;
         }
         
         .container {
-            max-width: 960px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 5rem 1.5rem;
+            padding: 4rem 2rem;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
         }
         
         .header h1 {
-            font-size: 2.25rem;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
         }
         
         .header p {
-            font-size: 1rem;
-            color: #666;
+            font-size: 1.2rem;
+            color: #64748b;
             font-weight: 400;
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto;
+            line-height: 1.7;
         }
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
         }
         
         .feature-card {
-            background: transparent;
-            padding: 1.5rem;
-            border-bottom: 1px solid #e5e5e5;
-            text-align: left;
-            transition: border-color 0.2s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         
         .feature-card:hover {
-            border-color: #000;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: rgba(102, 126, 234, 0.3);
         }
         
         .feature-icon {
-            font-size: 1.75rem;
-            margin-bottom: 1.25rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
             display: block;
-            color: #000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .feature-card h3 {
-            color: #000;
+            color: #1f2937;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
-            font-weight: 500;
+            font-size: 1.5rem;
+            font-weight: 600;
             letter-spacing: -0.01em;
         }
         
         .feature-card p {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.6;
         }
         
         .download-section {
-            background: transparent;
-            padding: 4rem 0;
-            border-top: 1px solid #e5e5e5;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 24px;
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
         
         .download-section h2 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: #000;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1f2937;
             margin-bottom: 1rem;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
         }
         
         .download-section p {
-            color: #666;
-            margin-bottom: 3rem;
-            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
         
         .download-buttons {
             display: flex;
             justify-content: center;
-            gap: 0.75rem;
+            gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
         
         .download-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.25rem;
-            background: #000;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: background-color 0.2s ease;
-            border: 1px solid #000;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
         
         .download-btn:hover {
-            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
         }
         
         .github-link {
-            margin-top: 0;
+            margin-top: 1rem;
         }
         
         .github-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: transparent;
-            color: #666;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            color: #64748b;
             text-decoration: none;
-            font-weight: 400;
-            font-size: 0.85rem;
-            border: 1px solid #e5e5e5;
-            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid rgba(100, 116, 139, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
         
         .github-btn:hover {
-            color: #000;
-            border-color: #000;
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(100, 116, 139, 0.4);
+            color: #374151;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #374151;
+            text-decoration: none;
+            border: 1px solid rgba(55, 65, 81, 0.2);
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(102, 126, 234, 0.4);
+            color: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
         }
         
         /* 弹窗样式 */
@@ -165,22 +211,26 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.2);
-            backdrop-filter: blur(2px);
+            background-color: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            animation: modalBackdropFadeIn 0.3s ease;
         }
         
         .modal-content {
-            background-color: #fff;
-            margin: 8% auto;
-            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            margin: 5% auto;
+            padding: 2.5rem;
             width: 90%;
-            max-width: 480px;
+            max-width: 520px;
             position: relative;
-            border: 1px solid #e5e5e5;
-            animation: modalFadeIn 0.2s ease;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        @keyframes modalFadeIn {
+        @keyframes modalBackdropFadeIn {
             from {
                 opacity: 0;
             }
@@ -189,60 +239,87 @@
             }
         }
         
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
         .close-btn {
             position: absolute;
-            right: 1.25rem;
-            top: 1.25rem;
-            font-size: 1.5rem;
+            right: 1.5rem;
+            top: 1.5rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(100, 116, 139, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
             cursor: pointer;
-            color: #999;
-            transition: color 0.2s ease;
+            color: #64748b;
+            transition: all 0.3s ease;
             line-height: 1;
+            border: none;
         }
         
         .close-btn:hover {
-            color: #000;
+            background: rgba(100, 116, 139, 0.2);
+            color: #374151;
+            transform: scale(1.1);
         }
         
         .modal-actions {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             display: flex;
-            gap: 0.75rem;
+            gap: 1rem;
             justify-content: flex-end;
             flex-wrap: wrap;
         }
         
         .modal-btn {
-            padding: 0.75rem 1.25rem;
+            padding: 1rem 1.75rem;
             cursor: pointer;
-            font-weight: 500;
-            font-size: 0.9rem;
+            font-weight: 600;
+            font-size: 1rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.2s ease;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .modal-btn.primary {
-            background: #000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
-            border: 1px solid #000;
+            border: none;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
         
         .modal-btn.primary:hover {
-            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
         }
         
         .modal-btn.secondary {
-            background: transparent;
-            color: #666;
-            border: 1px solid #e5e5e5;
+            background: rgba(255, 255, 255, 0.8);
+            color: #64748b;
+            border: 1px solid rgba(100, 116, 139, 0.2);
         }
         
         .modal-btn.secondary:hover {
-            color: #000;
-            border-color: #000;
+            background: rgba(255, 255, 255, 1);
+            color: #374151;
+            border-color: rgba(100, 116, 139, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         @media (max-width: 768px) {
@@ -593,37 +670,37 @@
         function startWebTodoDemo() {
             // 创建演示界面
             const demoHTML = `
-                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 10000; overflow-y: auto;">
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); z-index: 10000; overflow-y: auto;">
                     <div style="max-width: 700px; margin: 0 auto; padding: 40px 20px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid #e5e5e5; padding-bottom: 20px;">
-                            <h2 style="color: #000; margin: 0; font-weight: 500; letter-spacing: -0.02em;">TodoList Pro - Web版</h2>
-                            <button onclick="closeTodoDemo()" style="background: transparent; color: #666; border: 1px solid #e5e5e5; padding: 8px 12px; cursor: pointer; font-size: 14px;">关闭</button>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); padding-bottom: 20px;">
+                            <h2 style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0; font-weight: 600; letter-spacing: -0.02em; font-size: 1.8rem;">TodoList Pro - Web版</h2>
+                            <button onclick="closeTodoDemo()" style="background: rgba(255, 255, 255, 0.8); color: #64748b; border: 1px solid rgba(100, 116, 139, 0.2); padding: 10px 16px; cursor: pointer; font-size: 14px; border-radius: 8px; transition: all 0.3s ease;">关闭</button>
                         </div>
                         
                         <div style="margin-bottom: 30px;">
-                            <div style="display: flex; gap: 8px; margin-bottom: 0;">
-                                <input type="text" id="demoTaskInput" placeholder="添加新任务..." style="flex: 1; padding: 12px 15px; border: 1px solid #e5e5e5; font-size: 15px; outline: none;">
-                                <select id="demoPriority" style="padding: 12px; border: 1px solid #e5e5e5; background: #fff; font-size: 14px;">
+                            <div style="display: flex; gap: 10px; margin-bottom: 0;">
+                                <input type="text" id="demoTaskInput" placeholder="添加新任务..." style="flex: 1; padding: 14px 18px; border: 1px solid rgba(100, 116, 139, 0.2); border-radius: 12px; font-size: 15px; outline: none; background: rgba(255, 255, 255, 0.8); transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);">
+                                <select id="demoPriority" style="padding: 14px; border: 1px solid rgba(100, 116, 139, 0.2); border-radius: 12px; background: rgba(255, 255, 255, 0.8); font-size: 14px; outline: none; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);">
                                     <option value="low">低优先级</option>
                                     <option value="medium">中优先级</option>
                                     <option value="high">高优先级</option>
                                 </select>
-                                <button onclick="addDemoTask()" style="background: #000; color: #fff; border: 1px solid #000; padding: 12px 15px; cursor: pointer; font-weight: 500; font-size: 14px;">添加</button>
+                                <button onclick="addDemoTask()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border: none; border-radius: 12px; padding: 14px 20px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">添加</button>
                             </div>
                         </div>
                         
-                        <div style="display: flex; gap: 8px; margin-bottom: 25px;">
-                            <button onclick="filterDemoTasks('all')" class="demo-filter-btn" style="padding: 8px 15px; border: 1px solid #000; background: #000; color: white; cursor: pointer; font-size: 14px;">全部</button>
-                            <button onclick="filterDemoTasks('pending')" class="demo-filter-btn" style="padding: 8px 15px; border: 1px solid #e5e5e5; background: white; color: #666; cursor: pointer; font-size: 14px;">待完成</button>
-                            <button onclick="filterDemoTasks('completed')" class="demo-filter-btn" style="padding: 8px 15px; border: 1px solid #e5e5e5; background: white; color: #666; cursor: pointer; font-size: 14px;">已完成</button>
+                        <div style="display: flex; gap: 10px; margin-bottom: 30px;">
+                            <button onclick="filterDemoTasks('all')" class="demo-filter-btn" style="padding: 10px 18px; border: 1px solid #667eea; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; cursor: pointer; font-size: 14px; border-radius: 8px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);">全部</button>
+                            <button onclick="filterDemoTasks('pending')" class="demo-filter-btn" style="padding: 10px 18px; border: 1px solid rgba(100, 116, 139, 0.2); background: rgba(255, 255, 255, 0.8); color: #64748b; cursor: pointer; font-size: 14px; border-radius: 8px; font-weight: 500; transition: all 0.3s ease;">待完成</button>
+                            <button onclick="filterDemoTasks('completed')" class="demo-filter-btn" style="padding: 10px 18px; border: 1px solid rgba(100, 116, 139, 0.2); background: rgba(255, 255, 255, 0.8); color: #64748b; cursor: pointer; font-size: 14px; border-radius: 8px; font-weight: 500; transition: all 0.3s ease;">已完成</button>
                         </div>
                         
                         <div id="demoTaskList" style="min-height: 200px;">
                             <!-- 任务列表将在这里显示 -->
                         </div>
                         
-                        <div style="margin-top: 30px; padding: 15px; border: 1px solid #e5e5e5;">
-                            <p style="margin: 0; color: #666; font-size: 14px;">💡 <strong>演示说明：</strong>这是一个功能完整的Web版TodoList演示，支持添加、完成、删除任务，以及优先级设置和筛选功能。</p>
+                        <div style="margin-top: 30px; padding: 20px; border: 1px solid rgba(100, 116, 139, 0.2); border-radius: 12px; background: rgba(255, 255, 255, 0.7); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
+                            <p style="margin: 0; color: #64748b; font-size: 14px; line-height: 1.6;"><strong style="color: #1f2937;">演示说明：</strong>这是一个功能完整的Web版TodoList演示，支持添加、完成、删除任务，以及优先级设置和筛选功能。</p>
                         </div>
                     </div>
                 </div>
@@ -703,13 +780,15 @@
             
             // 更新按钮样式
             document.querySelectorAll('.demo-filter-btn').forEach(btn => {
-                btn.style.background = 'white';
-                btn.style.color = '#666';
-                btn.style.borderColor = '#e5e5e5';
+                btn.style.background = 'rgba(255, 255, 255, 0.8)';
+                btn.style.color = '#64748b';
+                btn.style.borderColor = 'rgba(100, 116, 139, 0.2)';
+                btn.style.boxShadow = 'none';
             });
-            event.target.style.background = '#000';
+            event.target.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
             event.target.style.color = 'white';
-            event.target.style.borderColor = '#000';
+            event.target.style.borderColor = '#667eea';
+            event.target.style.boxShadow = '0 2px 8px rgba(102, 126, 234, 0.3)';
             
             renderDemoTasks();
         }
@@ -727,9 +806,9 @@
             }
             
             const priorityColors = {
-                high: '#000',
-                medium: '#666',
-                low: '#999'
+                high: '#ef4444',
+                medium: '#f59e0b',
+                low: '#10b981'
             };
             
             const priorityNames = {
@@ -739,16 +818,16 @@
             };
             
             container.innerHTML = filteredTasks.map(task => `
-                <div style="display: flex; align-items: center; padding: 15px; margin-bottom: 8px; background: ${task.completed ? '#f9f9f9' : '#fff'}; border: 1px solid #e5e5e5; ${task.completed ? 'opacity: 0.6;' : ''}">
-                    <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleDemoTask(${task.id})" style="margin-right: 15px; transform: scale(1.1);">
-                    <span style="flex: 1; ${task.completed ? 'text-decoration: line-through;' : ''} font-size: 15px; color: ${task.completed ? '#999' : '#000'};">${task.text}</span>
-                    <span style="color: ${priorityColors[task.priority]}; padding: 4px 8px; font-size: 12px; margin-right: 10px; border: 1px solid ${priorityColors[task.priority]};">${priorityNames[task.priority]}</span>
-                    <button onclick="deleteDemoTask(${task.id})" style="background: transparent; color: #999; border: 1px solid #e5e5e5; padding: 6px 8px; cursor: pointer; font-size: 12px;">删除</button>
+                <div style="display: flex; align-items: center; padding: 18px; margin-bottom: 12px; background: ${task.completed ? 'rgba(248, 250, 252, 0.8)' : 'rgba(255, 255, 255, 0.9)'}; border: 1px solid ${task.completed ? 'rgba(100, 116, 139, 0.1)' : 'rgba(100, 116, 139, 0.2)'}; border-radius: 12px; ${task.completed ? 'opacity: 0.7;' : ''} transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); backdrop-filter: blur(10px);">
+                    <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleDemoTask(${task.id})" style="margin-right: 16px; transform: scale(1.2); accent-color: #667eea;">
+                    <span style="flex: 1; ${task.completed ? 'text-decoration: line-through;' : ''} font-size: 15px; color: ${task.completed ? '#94a3b8' : '#1f2937'}; font-weight: 500;">${task.text}</span>
+                    <span style="color: ${priorityColors[task.priority]}; background: ${priorityColors[task.priority]}20; padding: 6px 12px; font-size: 12px; margin-right: 12px; border-radius: 20px; font-weight: 600;">${priorityNames[task.priority]}</span>
+                    <button onclick="deleteDemoTask(${task.id})" style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); padding: 8px 12px; cursor: pointer; font-size: 12px; border-radius: 6px; transition: all 0.3s ease; font-weight: 500;">删除</button>
                 </div>
             `).join('');
             
             if (filteredTasks.length === 0) {
-                container.innerHTML = '<div style="text-align: center; padding: 60px 20px; color: #999; font-size: 16px;">暂无任务</div>';
+                container.innerHTML = '<div style="text-align: center; padding: 80px 20px; color: #94a3b8; font-size: 16px; background: rgba(255, 255, 255, 0.6); border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.1);">暂无任务</div>';
             }
         }
         
