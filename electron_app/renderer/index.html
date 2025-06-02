@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList Pro - 桌面版</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tasks"></i> TodoList Pro</h1>
+            <div class="header-actions">
+                <button id="syncBtn" class="sync-btn" title="同步数据">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button id="settingsBtn" class="settings-btn" title="设置">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </header>
+        
+        <div class="input-section">
+            <div class="input-container">
+                <input type="text" id="taskInput" placeholder="添加新任务..." maxlength="100">
+                <select id="prioritySelect" class="priority-select">
+                    <option value="low">低优先级</option>
+                    <option value="medium" selected>中优先级</option>
+                    <option value="high">高优先级</option>
+                </select>
+                <input type="date" id="dueDateInput" class="due-date-input">
+                <button id="addBtn" class="add-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="pending">待完成</button>
+            <button class="filter-btn" data-filter="completed">已完成</button>
+            <button class="filter-btn" data-filter="high">高优先级</button>
+            <button class="filter-btn" data-filter="overdue">已逾期</button>
+        </div>
+        
+        <div class="search-section">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="搜索任务...">
+                <button id="clearSearch" class="clear-search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">总计:</span>
+                <span id="totalTasks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">已完成:</span>
+                <span id="completedTasks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">待完成:</span>
+                <span id="pendingTasks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">逾期:</span>
+                <span id="overdueTasks" class="stat-value">0</span>
+            </div>
+        </div>
+        
+        <div class="task-list" id="taskList">
+            <!-- 任务项将在这里动态生成 -->
+        </div>
+        
+        <div class="empty-state" id="emptyState">
+            <i class="fas fa-clipboard-list"></i>
+            <p>还没有任务，添加一个开始吧！</p>
+        </div>
+        
+        <div class="actions">
+            <button id="clearCompleted" class="clear-btn">
+                <i class="fas fa-trash"></i> 清除已完成
+            </button>
+            <button id="exportData" class="export-btn">
+                <i class="fas fa-download"></i> 导出数据
+            </button>
+            <button id="importData" class="import-btn">
+                <i class="fas fa-upload"></i> 导入数据
+            </button>
+        </div>
+    </div>
+    
+    <!-- 任务编辑模态框 -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">编辑任务</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modalTaskTitle">任务标题</label>
+                    <input type="text" id="modalTaskTitle" placeholder="输入任务标题...">
+                </div>
+                <div class="form-group">
+                    <label for="modalTaskDescription">任务描述</label>
+                    <textarea id="modalTaskDescription" placeholder="输入任务描述..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modalTaskPriority">优先级</label>
+                        <select id="modalTaskPriority">
+                            <option value="low">低优先级</option>
+                            <option value="medium">中优先级</option>
+                            <option value="high">高优先级</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalTaskDueDate">截止日期</label>
+                        <input type="date" id="modalTaskDueDate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="modalTaskTags">标签</label>
+                    <input type="text" id="modalTaskTags" placeholder="用逗号分隔多个标签...">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalCancel" class="btn-secondary">取消</button>
+                <button id="modalSave" class="btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 设置模态框 -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>设置</h3>
+                <button class="modal-close" id="settingsModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h4>外观</h4>
+                    <div class="setting-item">
+                        <label for="themeSelect">主题</label>
+                        <select id="themeSelect">
+                            <option value="auto">跟随系统</option>
+                            <option value="light">浅色模式</option>
+                            <option value="dark">深色模式</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4>通知</h4>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="enableNotifications"> 启用桌面通知
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="enableSounds"> 启用提示音
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4>数据</h4>
+                    <div class="setting-item">
+                        <button id="clearAllData" class="btn-danger">清除所有数据</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="settingsCancel" class="btn-secondary">取消</button>
+                <button id="settingsSave" class="btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="renderer.js"></script>
+</body>
+</html>
