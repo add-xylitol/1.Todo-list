@@ -457,214 +457,28 @@
             }
         }
         
-        // 移动应用按钮 - 提供移动端UI演示
+        // 移动应用按钮 - 直接跳转到下载
         document.getElementById('mobile-app-btn').onclick = function(e) {
             e.preventDefault();
-            showModal(
-                '📱 移动应用演示',
-                '体验移动端界面设计和交互效果',
-                [
-                    {
-                        text: '📱 查看移动端演示',
-                        onclick: function() {
-                            hideModal();
-                            showMobileDemo();
-                        },
-                        type: 'primary'
-                    },
-                    {
-                        text: '📋 了解技术栈',
-                        onclick: function() {
-                            hideModal();
-                            showTechInfo('mobile');
-                        },
-                        type: 'secondary'
-                    }
-                ]
-            );
+            // 直接跳转到移动应用下载页面或应用商店
+            window.open('https://github.com/add-xylitol/1.Todo-list/releases', '_blank');
         };
         
-        // 桌面应用按钮 - 提供桌面端功能演示
+        // 桌面应用按钮 - 直接跳转到下载
         document.getElementById('desktop-app-btn').onclick = function(e) {
             e.preventDefault();
-            showModal(
-                '🖥️ 桌面应用演示',
-                '体验完整的桌面端任务管理功能',
-                [
-                    {
-                        text: '💻 启动桌面演示',
-                        onclick: function() {
-                            hideModal();
-                            showDesktopDemo();
-                        },
-                        type: 'primary'
-                    },
-                    {
-                        text: '⚙️ 查看功能特性',
-                        onclick: function() {
-                            hideModal();
-                            showTechInfo('desktop');
-                        },
-                        type: 'secondary'
-                    }
-                ]
-            );
+            // 直接跳转到桌面应用下载页面
+            window.open('https://github.com/add-xylitol/1.Todo-list/releases', '_blank');
         };
         
-        // 在线版本按钮 - 提供Web端功能演示
+        // 在线版本按钮 - 直接进入体验
         document.getElementById('web-app-btn').onclick = function(e) {
             e.preventDefault();
-            showModal(
-                '🌐 在线版本演示',
-                '立即体验Web端任务管理功能',
-                [
-                    {
-                        text: '🚀 开始在线体验',
-                        onclick: function() {
-                            hideModal();
-                            showWebDemo();
-                        },
-                        type: 'primary'
-                    },
-                    {
-                        text: '🔧 API接口说明',
-                        onclick: function() {
-                            hideModal();
-                            showTechInfo('web');
-                        },
-                        type: 'secondary'
-                    }
-                ]
-            );
+            // 直接启动Web演示
+            startWebTodoDemo();
         };
         
-        // 移动端演示功能
-        function showMobileDemo() {
-            showModal(
-                '📱 移动端界面演示',
-                '这是移动端的主要功能界面：',
-                [
-                    {
-                        text: '✅ 添加任务',
-                        onclick: function() {
-                            alert('📝 移动端支持:\n• 快速添加任务\n• 语音输入\n• 拍照记录\n• 位置提醒\n• 手势操作');
-                        },
-                        type: 'primary'
-                    },
-                    {
-                        text: '📊 查看统计',
-                        onclick: function() {
-                            alert('📈 移动端数据统计:\n• 每日完成率\n• 任务分类图表\n• 时间分布分析\n• 效率趋势\n• 成就系统');
-                        },
-                        type: 'secondary'
-                    },
-                    {
-                        text: '🔄 同步数据',
-                        onclick: function() {
-                            alert('☁️ 云端同步功能:\n• 实时数据同步\n• 离线模式支持\n• 多设备协同\n• 数据备份\n• 冲突解决');
-                        },
-                        type: 'secondary'
-                    }
-                ]
-            );
-        }
-        
-        // 桌面端演示功能
-        function showDesktopDemo() {
-            showModal(
-                '🖥️ 桌面端功能演示',
-                '体验完整的桌面端任务管理：',
-                [
-                    {
-                        text: '📋 任务管理',
-                        onclick: function() {
-                            alert('🎯 桌面端任务功能:\n• 拖拽排序\n• 批量操作\n• 快捷键支持\n• 多窗口模式\n• 自定义分类');
-                        },
-                        type: 'primary'
-                    },
-                    {
-                        text: '⏰ 时间管理',
-                        onclick: function() {
-                            alert('⏱️ 时间管理工具:\n• 番茄钟计时\n• 时间追踪\n• 专注模式\n• 休息提醒\n• 效率报告');
-                        },
-                        type: 'secondary'
-                    },
-                    {
-                        text: '🔧 高级设置',
-                        onclick: function() {
-                            alert('⚙️ 桌面端设置:\n• 主题自定义\n• 快捷键配置\n• 通知设置\n• 数据导入导出\n• 插件扩展');
-                        },
-                        type: 'secondary'
-                    }
-                ]
-            );
-        }
-        
-        // Web端演示功能
-        function showWebDemo() {
-            showModal(
-                '🌐 在线版本体验',
-                '立即开始使用Web版任务管理：',
-                [
-                    {
-                        text: '🚀 开始体验',
-                        onclick: function() {
-                            hideModal();
-                            startWebTodoDemo();
-                        },
-                        type: 'primary'
-                    },
-                    {
-                        text: '👥 团队协作',
-                        onclick: function() {
-                            alert('🤝 团队协作功能:\n• 共享任务列表\n• 成员权限管理\n• 实时协作编辑\n• 评论和讨论\n• 进度跟踪');
-                        },
-                        type: 'secondary'
-                    },
-                    {
-                        text: '📊 数据分析',
-                        onclick: function() {
-                            alert('📈 数据分析功能:\n• 个人效率分析\n• 团队绩效报告\n• 任务完成趋势\n• 时间分配统计\n• 自定义报表');
-                        },
-                        type: 'secondary'
-                    }
-                ]
-            );
-        }
-        
-        // 技术信息展示
-        function showTechInfo(platform) {
-            let title, content;
-            
-            switch(platform) {
-                case 'mobile':
-                    title = '📱 移动端技术栈';
-                    content = '🛠️ 技术实现:\n\n• Flutter 跨平台框架\n• Dart 编程语言\n• Provider 状态管理\n• SQLite 本地存储\n• HTTP 网络请求\n• 原生插件集成';
-                    break;
-                case 'desktop':
-                    title = '🖥️ 桌面端技术栈';
-                    content = '⚡ 技术实现:\n\n• Electron 跨平台框架\n• HTML/CSS/JavaScript\n• Node.js 后端集成\n• 原生系统API调用\n• 自动更新机制\n• 系统托盘集成';
-                    break;
-                case 'web':
-                    title = '🌐 Web端技术栈';
-                    content = '🔧 技术实现:\n\n• Node.js + Express 后端\n• RESTful API 设计\n• JWT 身份认证\n• MongoDB 数据库\n• WebSocket 实时通信\n• PWA 渐进式应用';
-                    break;
-            }
-            
-            showModal(title, content, [
-                {
-                    text: '📋 查看源码',
-                    href: 'https://github.com/add-xylitol/1.Todo-list',
-                    target: '_blank',
-                    type: 'primary'
-                },
-                {
-                    text: '🔙 返回',
-                    onclick: hideModal,
-                    type: 'secondary'
-                }
-            ]);
-        }
+        // 已删除不再使用的演示函数
         
         // Web版TodoList演示
         function startWebTodoDemo() {
