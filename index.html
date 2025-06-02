@@ -457,26 +457,38 @@
             }
         }
         
-        // 移动应用按钮 - 直接跳转到下载
-        document.getElementById('mobile-app-btn').onclick = function(e) {
-            e.preventDefault();
-            // 直接跳转到移动应用下载页面或应用商店
-            window.open('https://github.com/add-xylitol/1.Todo-list/releases', '_blank');
-        };
-        
-        // 桌面应用按钮 - 直接跳转到下载
-        document.getElementById('desktop-app-btn').onclick = function(e) {
-            e.preventDefault();
-            // 直接跳转到桌面应用下载页面
-            window.open('https://github.com/add-xylitol/1.Todo-list/releases', '_blank');
-        };
-        
-        // 在线版本按钮 - 直接进入体验
-        document.getElementById('web-app-btn').onclick = function(e) {
-            e.preventDefault();
-            // 直接启动Web演示
-            startWebTodoDemo();
-        };
+        // 等待DOM加载完成后绑定按钮事件
+        document.addEventListener('DOMContentLoaded', function() {
+            // 移动应用按钮 - 直接跳转到下载
+            const mobileBtn = document.getElementById('mobile-app-btn');
+            if (mobileBtn) {
+                mobileBtn.onclick = function(e) {
+                    e.preventDefault();
+                    // 直接跳转到移动应用下载页面或应用商店
+                    window.open('https://github.com/add-xylitol/1.Todo-list/releases', '_blank');
+                };
+            }
+            
+            // 桌面应用按钮 - 直接跳转到下载
+            const desktopBtn = document.getElementById('desktop-app-btn');
+            if (desktopBtn) {
+                desktopBtn.onclick = function(e) {
+                    e.preventDefault();
+                    // 直接跳转到桌面应用下载页面
+                    window.open('https://github.com/add-xylitol/1.Todo-list/releases', '_blank');
+                };
+            }
+            
+            // 在线版本按钮 - 直接进入体验
+            const webBtn = document.getElementById('web-app-btn');
+            if (webBtn) {
+                webBtn.onclick = function(e) {
+                    e.preventDefault();
+                    // 直接启动Web演示
+                    startWebTodoDemo();
+                };
+            }
+        });
         
         // 已删除不再使用的演示函数
         
