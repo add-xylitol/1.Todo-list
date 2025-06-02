@@ -128,6 +128,96 @@
             transform: translateY(-2px);
         }
         
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-btn {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            color: #333;
+        }
+        
+        .modal-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .modal-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-btn.primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .modal-btn.primary:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        .modal-btn.secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .modal-btn.secondary:hover {
+            background: #cbd5e0;
+        }
+        
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
@@ -136,6 +226,16 @@
             .download-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .modal-content {
+                margin: 20% auto;
+                width: 95%;
+                padding: 1.5rem;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
             }
         }
     </style>
@@ -172,15 +272,27 @@
             <p>选择适合您的平台，立即开始高效的任务管理之旅</p>
             
             <div class="download-buttons">
-                <a href="#" class="download-btn">
+                <a href="#" class="download-btn" id="mobile-app-btn">
                     📱 移动应用
                 </a>
-                <a href="#" class="download-btn">
+                <a href="#" class="download-btn" id="desktop-app-btn">
                     🖥️ 桌面应用
                 </a>
-                <a href="#" class="download-btn">
+                <a href="#" class="download-btn" id="web-app-btn">
                     🌐 在线版本
                 </a>
+            </div>
+            
+            <!-- 弹窗 -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h3 id="modal-title">标题</h3>
+                    <p id="modal-message">消息内容</p>
+                    <div id="modal-actions" class="modal-actions">
+                        <!-- 动态添加按钮 -->
+                    </div>
+                </div>
             </div>
             
             <div class="github-link">
@@ -193,5 +305,142 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        // 弹窗控制
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalActions = document.getElementById('modal-actions');
+        const closeBtn = document.querySelector('.close-btn');
+        
+        // 显示弹窗
+        function showModal(title, message, actions = []) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            
+            // 清空之前的按钮
+            modalActions.innerHTML = '';
+            
+            // 添加新按钮
+            actions.forEach(action => {
+                const btn = document.createElement('a');
+                btn.className = `modal-btn ${action.type || 'secondary'}`;
+                btn.textContent = action.text;
+                btn.href = action.href || '#';
+                if (action.target) btn.target = action.target;
+                if (action.onclick) btn.onclick = action.onclick;
+                modalActions.appendChild(btn);
+            });
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // 隐藏弹窗
+        function hideModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // 关闭按钮事件
+        closeBtn.onclick = hideModal;
+        
+        // 点击背景关闭弹窗
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                hideModal();
+            }
+        }
+        
+        // 移动应用按钮
+        document.getElementById('mobile-app-btn').onclick = function(e) {
+            e.preventDefault();
+            showModal(
+                '📱 移动应用下载',
+                'TodoList Pro 移动应用正在开发中，敬请期待！\n\n您可以：',
+                [
+                    {
+                        text: '📋 查看开发进度',
+                        href: 'https://github.com/add-xylitol/1.Todo-list/tree/main/flutter_app',
+                        target: '_blank',
+                        type: 'primary'
+                    },
+                    {
+                        text: '⭐ 关注项目',
+                        href: 'https://github.com/add-xylitol/1.Todo-list',
+                        target: '_blank',
+                        type: 'secondary'
+                    }
+                ]
+            );
+        };
+        
+        // 桌面应用按钮
+        document.getElementById('desktop-app-btn').onclick = function(e) {
+            e.preventDefault();
+            showModal(
+                '🖥️ 桌面应用下载',
+                'TodoList Pro 桌面应用正在开发中！\n\n当前支持的平台：Windows、macOS、Linux',
+                [
+                    {
+                        text: '💻 查看源码',
+                        href: 'https://github.com/add-xylitol/1.Todo-list/tree/main/electron_app',
+                        target: '_blank',
+                        type: 'primary'
+                    },
+                    {
+                        text: '📥 下载开发版',
+                        onclick: function() {
+                            alert('开发版本即将发布，请关注 GitHub 仓库获取最新信息！');
+                            hideModal();
+                        },
+                        type: 'secondary'
+                    }
+                ]
+            );
+        };
+        
+        // 在线版本按钮
+        document.getElementById('web-app-btn').onclick = function(e) {
+            e.preventDefault();
+            showModal(
+                '🌐 在线版本',
+                'Web 版本正在开发中，将提供完整的在线任务管理功能！\n\n预计功能：',
+                [
+                    {
+                        text: '🚀 体验演示版',
+                        onclick: function() {
+                            alert('演示版本即将上线，敬请期待！\n\n您可以先查看项目源码了解更多详情。');
+                            hideModal();
+                        },
+                        type: 'primary'
+                    },
+                    {
+                        text: '📖 查看文档',
+                        href: 'https://github.com/add-xylitol/1.Todo-list#readme',
+                        target: '_blank',
+                        type: 'secondary'
+                    }
+                ]
+            );
+        };
+        
+        // ESC键关闭弹窗
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                hideModal();
+            }
+        });
+        
+        // 页面加载完成后的欢迎提示
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                console.log('🎉 欢迎访问 TodoList Pro！');
+                console.log('📱 移动应用、🖥️ 桌面应用和🌐 在线版本正在开发中...');
+                console.log('⭐ 欢迎关注我们的 GitHub 仓库获取最新进展！');
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
