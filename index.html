@@ -353,47 +353,53 @@
             }
         }
         
-        // 移动应用按钮
+        // 移动应用按钮 - 提供移动端UI演示
         document.getElementById('mobile-app-btn').onclick = function(e) {
             e.preventDefault();
             showModal(
-                '📱 移动应用下载',
-                'TodoList Pro 移动应用正在开发中，敬请期待！\n\n您可以：',
+                '📱 移动应用演示',
+                '体验移动端界面设计和交互效果',
                 [
                     {
-                        text: '📋 查看开发进度',
-                        href: 'https://github.com/add-xylitol/1.Todo-list/tree/main/flutter_app',
-                        target: '_blank',
+                        text: '📱 查看移动端演示',
+                        onclick: function() {
+                            hideModal();
+                            showMobileDemo();
+                        },
                         type: 'primary'
                     },
                     {
-                        text: '⭐ 关注项目',
-                        href: 'https://github.com/add-xylitol/1.Todo-list',
-                        target: '_blank',
+                        text: '📋 了解技术栈',
+                        onclick: function() {
+                            hideModal();
+                            showTechInfo('mobile');
+                        },
                         type: 'secondary'
                     }
                 ]
             );
         };
         
-        // 桌面应用按钮
+        // 桌面应用按钮 - 提供桌面端功能演示
         document.getElementById('desktop-app-btn').onclick = function(e) {
             e.preventDefault();
             showModal(
-                '🖥️ 桌面应用下载',
-                'TodoList Pro 桌面应用正在开发中！\n\n当前支持的平台：Windows、macOS、Linux',
+                '🖥️ 桌面应用演示',
+                '体验完整的桌面端任务管理功能',
                 [
                     {
-                        text: '💻 查看源码',
-                        href: 'https://github.com/add-xylitol/1.Todo-list/tree/main/electron_app',
-                        target: '_blank',
+                        text: '💻 启动桌面演示',
+                        onclick: function() {
+                            hideModal();
+                            showDesktopDemo();
+                        },
                         type: 'primary'
                     },
                     {
-                        text: '📥 下载开发版',
+                        text: '⚙️ 查看功能特性',
                         onclick: function() {
-                            alert('开发版本即将发布，请关注 GitHub 仓库获取最新信息！');
                             hideModal();
+                            showTechInfo('desktop');
                         },
                         type: 'secondary'
                     }
@@ -401,30 +407,215 @@
             );
         };
         
-        // 在线版本按钮
+        // 在线版本按钮 - 提供Web端功能演示
         document.getElementById('web-app-btn').onclick = function(e) {
             e.preventDefault();
             showModal(
-                '🌐 在线版本',
-                'Web 版本正在开发中，将提供完整的在线任务管理功能！\n\n预计功能：',
+                '🌐 在线版本演示',
+                '立即体验Web端任务管理功能',
                 [
                     {
-                        text: '🚀 体验演示版',
+                        text: '🚀 开始在线体验',
                         onclick: function() {
-                            alert('演示版本即将上线，敬请期待！\n\n您可以先查看项目源码了解更多详情。');
                             hideModal();
+                            showWebDemo();
                         },
                         type: 'primary'
                     },
                     {
-                        text: '📖 查看文档',
-                        href: 'https://github.com/add-xylitol/1.Todo-list#readme',
-                        target: '_blank',
+                        text: '🔧 API接口说明',
+                        onclick: function() {
+                            hideModal();
+                            showTechInfo('web');
+                        },
                         type: 'secondary'
                     }
                 ]
             );
         };
+        
+        // 移动端演示功能
+        function showMobileDemo() {
+            showModal(
+                '📱 移动端界面演示',
+                '这是移动端的主要功能界面：',
+                [
+                    {
+                        text: '✅ 添加任务',
+                        onclick: function() {
+                            alert('📝 移动端支持:\n• 快速添加任务\n• 语音输入\n• 拍照记录\n• 位置提醒\n• 手势操作');
+                        },
+                        type: 'primary'
+                    },
+                    {
+                        text: '📊 查看统计',
+                        onclick: function() {
+                            alert('📈 移动端数据统计:\n• 每日完成率\n• 任务分类图表\n• 时间分布分析\n• 效率趋势\n• 成就系统');
+                        },
+                        type: 'secondary'
+                    },
+                    {
+                        text: '🔄 同步数据',
+                        onclick: function() {
+                            alert('☁️ 云端同步功能:\n• 实时数据同步\n• 离线模式支持\n• 多设备协同\n• 数据备份\n• 冲突解决');
+                        },
+                        type: 'secondary'
+                    }
+                ]
+            );
+        }
+        
+        // 桌面端演示功能
+        function showDesktopDemo() {
+            showModal(
+                '🖥️ 桌面端功能演示',
+                '体验完整的桌面端任务管理：',
+                [
+                    {
+                        text: '📋 任务管理',
+                        onclick: function() {
+                            alert('🎯 桌面端任务功能:\n• 拖拽排序\n• 批量操作\n• 快捷键支持\n• 多窗口模式\n• 自定义分类');
+                        },
+                        type: 'primary'
+                    },
+                    {
+                        text: '⏰ 时间管理',
+                        onclick: function() {
+                            alert('⏱️ 时间管理工具:\n• 番茄钟计时\n• 时间追踪\n• 专注模式\n• 休息提醒\n• 效率报告');
+                        },
+                        type: 'secondary'
+                    },
+                    {
+                        text: '🔧 高级设置',
+                        onclick: function() {
+                            alert('⚙️ 桌面端设置:\n• 主题自定义\n• 快捷键配置\n• 通知设置\n• 数据导入导出\n• 插件扩展');
+                        },
+                        type: 'secondary'
+                    }
+                ]
+            );
+        }
+        
+        // Web端演示功能
+        function showWebDemo() {
+            showModal(
+                '🌐 在线版本体验',
+                '立即开始使用Web版任务管理：',
+                [
+                    {
+                        text: '🚀 开始体验',
+                        onclick: function() {
+                            hideModal();
+                            startWebTodoDemo();
+                        },
+                        type: 'primary'
+                    },
+                    {
+                        text: '👥 团队协作',
+                        onclick: function() {
+                            alert('🤝 团队协作功能:\n• 共享任务列表\n• 成员权限管理\n• 实时协作编辑\n• 评论和讨论\n• 进度跟踪');
+                        },
+                        type: 'secondary'
+                    },
+                    {
+                        text: '📊 数据分析',
+                        onclick: function() {
+                            alert('📈 数据分析功能:\n• 个人效率分析\n• 团队绩效报告\n• 任务完成趋势\n• 时间分配统计\n• 自定义报表');
+                        },
+                        type: 'secondary'
+                    }
+                ]
+            );
+        }
+        
+        // 技术信息展示
+        function showTechInfo(platform) {
+            let title, content;
+            
+            switch(platform) {
+                case 'mobile':
+                    title = '📱 移动端技术栈';
+                    content = '🛠️ 技术实现:\n\n• Flutter 跨平台框架\n• Dart 编程语言\n• Provider 状态管理\n• SQLite 本地存储\n• HTTP 网络请求\n• 原生插件集成';
+                    break;
+                case 'desktop':
+                    title = '🖥️ 桌面端技术栈';
+                    content = '⚡ 技术实现:\n\n• Electron 跨平台框架\n• HTML/CSS/JavaScript\n• Node.js 后端集成\n• 原生系统API调用\n• 自动更新机制\n• 系统托盘集成';
+                    break;
+                case 'web':
+                    title = '🌐 Web端技术栈';
+                    content = '🔧 技术实现:\n\n• Node.js + Express 后端\n• RESTful API 设计\n• JWT 身份认证\n• MongoDB 数据库\n• WebSocket 实时通信\n• PWA 渐进式应用';
+                    break;
+            }
+            
+            showModal(title, content, [
+                {
+                    text: '📋 查看源码',
+                    href: 'https://github.com/add-xylitol/1.Todo-list',
+                    target: '_blank',
+                    type: 'primary'
+                },
+                {
+                    text: '🔙 返回',
+                    onclick: hideModal,
+                    type: 'secondary'
+                }
+            ]);
+        }
+        
+        // Web版TodoList演示
+        function startWebTodoDemo() {
+            // 创建演示界面
+            const demoHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 10000; overflow-y: auto;">
+                    <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 2px solid #667eea; padding-bottom: 15px;">
+                            <h2 style="color: #667eea; margin: 0;">🌐 TodoList Pro - Web演示版</h2>
+                            <button onclick="closeTodoDemo()" style="background: #ff4757; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">✕ 关闭演示</button>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                <input type="text" id="demoTaskInput" placeholder="输入新任务..." style="flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px;">
+                                <select id="demoPriority" style="padding: 12px; border: 2px solid #ddd; border-radius: 5px;">
+                                    <option value="low">低优先级</option>
+                                    <option value="medium">中优先级</option>
+                                    <option value="high">高优先级</option>
+                                </select>
+                                <button onclick="addDemoTask()" style="background: #667eea; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">➕ 添加</button>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                            <button onclick="filterDemoTasks('all')" class="demo-filter-btn" style="padding: 8px 16px; border: 2px solid #667eea; background: #667eea; color: white; border-radius: 5px; cursor: pointer;">全部</button>
+                            <button onclick="filterDemoTasks('pending')" class="demo-filter-btn" style="padding: 8px 16px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 5px; cursor: pointer;">待完成</button>
+                            <button onclick="filterDemoTasks('completed')" class="demo-filter-btn" style="padding: 8px 16px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 5px; cursor: pointer;">已完成</button>
+                        </div>
+                        
+                        <div id="demoTaskList" style="min-height: 200px;">
+                            <!-- 任务列表将在这里显示 -->
+                        </div>
+                        
+                        <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; border-left: 4px solid #2196f3;">
+                            <p style="margin: 0; color: #1976d2;">💡 <strong>演示说明：</strong>这是一个功能完整的Web版TodoList演示，支持添加、完成、删除任务，以及优先级设置和筛选功能。</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', demoHTML);
+            
+            // 初始化演示数据
+            window.demoTasks = [
+                {id: 1, text: '完成项目文档', completed: false, priority: 'high'},
+                {id: 2, text: '回复客户邮件', completed: true, priority: 'medium'},
+                {id: 3, text: '准备明天的会议', completed: false, priority: 'high'},
+                {id: 4, text: '整理桌面文件', completed: false, priority: 'low'}
+            ];
+            window.demoTaskId = 5;
+            window.demoFilter = 'all';
+            
+            renderDemoTasks();
+        }
         
         // ESC键关闭弹窗
         document.addEventListener('keydown', function(event) {
@@ -437,9 +628,106 @@
         window.addEventListener('load', function() {
             setTimeout(() => {
                 console.log('🎉 欢迎访问 TodoList Pro！');
-                console.log('📱 移动应用、🖥️ 桌面应用和🌐 在线版本正在开发中...');
-                console.log('⭐ 欢迎关注我们的 GitHub 仓库获取最新进展！');
+                console.log('📱 移动应用、🖥️ 桌面应用和🌐 在线版本演示已就绪！');
+                console.log('🚀 点击按钮开始体验不同平台的功能！');
             }, 1000);
+        });
+        
+        // Web演示相关函数
+        window.closeTodoDemo = function() {
+            const demoElement = document.querySelector('div[style*="position: fixed"]');
+            if (demoElement) {
+                demoElement.remove();
+            }
+        }
+        
+        window.addDemoTask = function() {
+            const input = document.getElementById('demoTaskInput');
+            const priority = document.getElementById('demoPriority');
+            const text = input.value.trim();
+            
+            if (text) {
+                window.demoTasks.push({
+                    id: window.demoTaskId++,
+                    text: text,
+                    completed: false,
+                    priority: priority.value
+                });
+                input.value = '';
+                renderDemoTasks();
+            }
+        }
+        
+        window.toggleDemoTask = function(id) {
+            const task = window.demoTasks.find(t => t.id === id);
+            if (task) {
+                task.completed = !task.completed;
+                renderDemoTasks();
+            }
+        }
+        
+        window.deleteDemoTask = function(id) {
+            window.demoTasks = window.demoTasks.filter(t => t.id !== id);
+            renderDemoTasks();
+        }
+        
+        window.filterDemoTasks = function(filter) {
+            window.demoFilter = filter;
+            
+            // 更新按钮样式
+            document.querySelectorAll('.demo-filter-btn').forEach(btn => {
+                btn.style.background = 'white';
+                btn.style.color = '#667eea';
+            });
+            event.target.style.background = '#667eea';
+            event.target.style.color = 'white';
+            
+            renderDemoTasks();
+        }
+        
+        window.renderDemoTasks = function() {
+            const container = document.getElementById('demoTaskList');
+            if (!container) return;
+            
+            let filteredTasks = window.demoTasks;
+            
+            if (window.demoFilter === 'pending') {
+                filteredTasks = window.demoTasks.filter(t => !t.completed);
+            } else if (window.demoFilter === 'completed') {
+                filteredTasks = window.demoTasks.filter(t => t.completed);
+            }
+            
+            const priorityColors = {
+                high: '#ff4757',
+                medium: '#ffa502',
+                low: '#2ed573'
+            };
+            
+            const priorityNames = {
+                high: '高',
+                medium: '中',
+                low: '低'
+            };
+            
+            container.innerHTML = filteredTasks.map(task => `
+                <div style="display: flex; align-items: center; padding: 15px; margin-bottom: 10px; background: ${task.completed ? '#f1f3f4' : 'white'}; border: 2px solid #e0e0e0; border-radius: 8px; ${task.completed ? 'opacity: 0.7;' : ''}">
+                    <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleDemoTask(${task.id})" style="margin-right: 15px; transform: scale(1.2);">
+                    <span style="flex: 1; ${task.completed ? 'text-decoration: line-through;' : ''} font-size: 16px;">${task.text}</span>
+                    <span style="background: ${priorityColors[task.priority]}; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; margin-right: 10px;">${priorityNames[task.priority]}优先级</span>
+                    <button onclick="deleteDemoTask(${task.id})" style="background: #ff4757; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">🗑️</button>
+                </div>
+            `).join('');
+            
+            if (filteredTasks.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 40px; color: #999; font-size: 18px;">📝 暂无任务</div>';
+            }
+        }
+        
+        // 支持回车键添加任务
+        document.addEventListener('keydown', function(event) {
+            if (event.target.id === 'demoTaskInput' && event.key === 'Enter') {
+                addDemoTask();
+            }
         });
     </script>
 </body>
