@@ -10,10 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   
   # UI Components
   cupertino_icons: ^1.0.6
-  google_fonts: ^6.1.0
+  google_fonts: 5.1.0
   flutter_animate: ^4.2.0
   
   # State Management
@@ -22,15 +24,19 @@ dependencies:
   # Local Storage
   sqflite: ^2.3.0
   path: ^1.8.3
+  shared_preferences: ^2.2.2
   
   # Date & Time
-  intl: ^0.18.1
+  intl: ^0.20.2
   
   # Icons
   flutter_svg: ^2.0.9
   
   # Utils
   uuid: ^4.1.0
+  http: ^1.1.0
+  image_picker: ^1.1.0
+  web: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +49,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/fonts/ # Add this line to include the fonts directory
   
   fonts:
     - family: CustomIcons
