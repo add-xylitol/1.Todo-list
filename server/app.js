@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -5,7 +7,6 @@ const morgan = require('morgan');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
-require('dotenv').config();
 
 const { sequelize, isMock } = require('./config/database');
 const logger = require('./utils/logger');
@@ -19,11 +20,11 @@ const taskRoutes = require('./routes/tasks');
 const categoryRoutes = require('./routes/categories');
 const orderRoutes = require('./routes/orders');
 const subscriptionRoutes = require('./routes/subscriptions');
-// const paymentRoutes = require('./routes/payment'); // 文件不存在，暂时注释
+const paymentRoutes = require('./routes/payment');
 // const adminRoutes = require('./routes/admin'); // 文件不存在，暂时注释
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 const HOST = process.env.HOST || 'localhost';
 
 // 安全中间件
@@ -34,7 +35,7 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com"],
       scriptSrc: ["'self'", "'unsafe-inline'"],
       imgSrc: ["'self'", "data:", "https:"],
-      connectSrc: ["'self'"],
+      connectSrc: ["'self'", "http://localhost:8000", "http://localhost:8080"],
       fontSrc: ["'self'", "https://cdnjs.cloudflare.com"],
     },
   },
@@ -42,7 +43,24 @@ app.use(helmet({
 
 // CORS配置
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ['http://localhost:3001'],
+  origin: function (origin, callback) {
+    // 允许来自 localhost 和 127.0.0.1 的任何端口，以及 process.env.CORS_ORIGIN 中定义的源
+    const allowedOriginsFromEnv = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : [];
+    const defaultAllowedOrigins = [
+      'http://localhost:3001', 
+      'http://localhost:8000', 
+      'http://localhost:9100'
+      // 注意：不再需要硬编码 127.0.0.1 的特定端口，因为下面的逻辑会处理
+    ];
+    const allowedOrigins = [...new Set([...allowedOriginsFromEnv, ...defaultAllowedOrigins])];
+
+    if (!origin || allowedOrigins.some(o => origin.startsWith(o)) || origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:')) {
+      callback(null, true);
+    } else {
+      logger.warn(`CORS: Origin ${origin} not allowed.`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200
 };
@@ -52,11 +70,7 @@ app.use(cors(corsOptions));
 app.use(compression());
 
 // 日志中间件
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-} else {
-  app.use(morgan('combined', { stream: { write: message => logger.info(message.trim()) } }));
-}
+app.use(morgan('combined', { stream: { write: message => logger.info(message.trim()) } }));
 
 // 请求限制
 const limiter = rateLimit({
@@ -76,8 +90,8 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // 静态文件服务
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
-app.use(express.static(path.join(__dirname, '../')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/web', express.static(path.join(__dirname, '../web')));
 
 // 健康检查端点
 app.get('/health', (req, res) => {
@@ -90,6 +104,45 @@ app.get('/health', (req, res) => {
   });
 });
 
+// 启动Electron应用的API端点
+app.post('/api/launch-electron', (req, res) => {
+  const { spawn } = require('child_process');
+  const electronPath = path.join(__dirname, '../electron_app');
+  
+  try {
+    // 检查electron_app目录是否存在
+    const fs = require('fs');
+    if (!fs.existsSync(electronPath)) {
+      return res.status(404).json({
+        error: 'Electron应用目录不存在',
+        path: electronPath
+      });
+    }
+    
+    // 启动Electron应用
+    const electronProcess = spawn('npm', ['start'], {
+      cwd: electronPath,
+      detached: true,
+      stdio: 'ignore'
+    });
+    
+    electronProcess.unref();
+    
+    res.json({
+      success: true,
+      message: 'Electron应用启动中...',
+      pid: electronProcess.pid
+    });
+    
+  } catch (error) {
+    logger.error('启动Electron应用失败:', error);
+    res.status(500).json({
+      error: '启动Electron应用失败',
+      message: error.message
+    });
+  }
+});
+
 // API路由
 app.use('/api/auth', authRoutes);
 app.use('/api/users', authenticateToken, userRoutes);
@@ -97,7 +150,7 @@ app.use('/api/tasks', authenticateToken, taskRoutes);
 app.use('/api/categories', authenticateToken, categoryRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/subscriptions', subscriptionRoutes);
-// app.use('/api/payment', paymentRoutes); // 文件不存在，暂时注释
+app.use('/api/payment', paymentRoutes);
 // app.use('/api/admin', authMiddleware, adminRoutes); // 文件不存在，暂时注释
 
 // API文档 (开发环境) - 暂时注释，需要安装swagger-ui-express
@@ -129,13 +182,17 @@ app.use(errorHandler);
 async function startServer() {
   try {
     // 测试数据库连接
-    await sequelize.authenticate();
-    logger.info('数据库连接成功');
-    
-    // 同步数据库模型
-    if (process.env.NODE_ENV === 'development') {
-      await sequelize.sync({ alter: true });
-      logger.info('数据库模型同步完成');
+    if (sequelize) {
+      await sequelize.authenticate();
+      logger.info('数据库连接成功');
+      
+      // 同步数据库模型
+      if (process.env.NODE_ENV === 'development') {
+        await sequelize.sync();
+        logger.info('数据库模型同步完成');
+      }
+    } else {
+      logger.info('使用模拟数据库模式，跳过数据库连接和同步');
     }
     
     // 启动服务器
@@ -150,28 +207,24 @@ async function startServer() {
       }
     });
     
-    // 优雅关闭
-    process.on('SIGTERM', () => {
-      logger.info('收到SIGTERM信号，开始优雅关闭...');
-      server.close(() => {
-        logger.info('HTTP服务器已关闭');
-        sequelize.close().then(() => {
-          logger.info('数据库连接已关闭');
-          process.exit(0);
+    // 优雅关闭 - 仅在生产环境启用
+    if (process.env.NODE_ENV === 'production') {
+      process.on('SIGTERM', () => {
+        logger.info('收到SIGTERM信号，开始优雅关闭...');
+        server.close(() => {
+          logger.info('HTTP服务器已关闭');
+          if (sequelize && !isMock) {
+            sequelize.close().then(() => {
+              logger.info('数据库连接已关闭');
+              process.exit(0);
+            });
+          } else {
+            logger.info('模拟数据库模式，跳过数据库关闭');
+            process.exit(0);
+          }
         });
       });
-    });
-    
-    process.on('SIGINT', () => {
-      logger.info('收到SIGINT信号，开始优雅关闭...');
-      server.close(() => {
-        logger.info('HTTP服务器已关闭');
-        sequelize.close().then(() => {
-          logger.info('数据库连接已关闭');
-          process.exit(0);
-        });
-      });
-    });
+    }
     
   } catch (error) {
     logger.error('服务器启动失败:', error);
