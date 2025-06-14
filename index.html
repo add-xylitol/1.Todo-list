@@ -6,12 +6,10 @@
     <title>TodoList - 任务管理系统</title>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' http://localhost:8080 http://localhost:8000; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;">
     <script>
-        // 立即重定向到 Flutter Web 应用 (暂时注释掉此脚本进行调试)
-        /*
+        // 立即重定向到 Flutter Web 应用
         if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
             window.location.replace('/flutter_app/web/index.html');
         }
-        */
     </script>
     <style>
         * {
@@ -165,25 +163,22 @@
         <div class="api-info">
             <div class="api-title">🔧 开发者信息</div>
             <div class="api-item">• 后端API: <a href="http://localhost:8000" target="_blank">http://localhost:8000</a></div>
-            <div class="api-item">• API文档: <a href="http://localhost:8000/api-docs" target="_blank">http://localhost:8000/api-docs</a></div>
-            <div class="api-item">• 健康检查: <a href="http://localhost:8000/health" target="_blank">http://localhost:8000/health</a></div>
+            <div class="api-item">• API文档: <a href="http://localhost:8000/docs" target="_blank">http://localhost:8000/docs</a></div>
+            <div class="api-item">• Flutter Web: <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> (本地开发)</div>
         </div>
-        
+
         <div class="test-user">
-            <div class="test-user-title">🧪 测试用户</div>
-            <div>用户名: <strong>testuser</strong></div>
-            <div>密码: <strong>testpassword123</strong></div>
+            <div class="test-user-title">🧪 测试账户</div>
+            <div>邮箱: test@example.com</div>
+            <div>密码: testpassword</div>
         </div>
     </div>
-    
+
     <script>
+        // 启动 Electron 应用的函数
         function openElectron() {
             console.log('🔧 [DEBUG] openElectron函数被调用');
-            alert('🔧 [DEBUG] openElectron函数开始执行');
-            
-            // 尝试启动Electron应用
-            console.log('🔧 [DEBUG] 准备发送POST请求到 /api/launch-electron');
-            fetch('/api/launch-electron', {
+            fetch('http://localhost:8000/open-electron', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -193,10 +188,10 @@
                 console.log('🔧 [DEBUG] 收到响应:', response.status, response.statusText);
                 if (response.ok) {
                     alert('✅ 正在启动桌面应用...');
-                    return response.json();
+                    return response.json(); 
                 } else {
                     console.log('🔧 [DEBUG] 响应不成功，状态码:', response.status);
-                    alert('❌ 无法自动启动桌面应用\n\n请手动在 electron_app 目录下运行:\nnpm install\nnpm start');
+                    alert('❌ 无法自动启动桌面应用。\n请确保后端服务和Electron应用配置正确，并尝试手动在 electron_app 目录下运行:\nnpm install\nnpm start');
                     throw new Error('Response not ok');
                 }
             })
@@ -208,26 +203,22 @@
                 alert('❌ 无法自动启动桌面应用\n\n错误: ' + error.message + '\n\n请手动在 electron_app 目录下运行:\nnpm install\nnpm start');
             });
         }
-        
+
+        // 打开 Flutter Web 应用的函数
         function openFlutter() {
             console.log('🔧 [DEBUG] openFlutter函数被调用');
-            // alert('🔧 [DEBUG] openFlutter函数开始执行'); // 已移除此调试提示
-            
             // 直接打开相对路径的Web应用
             console.log('🔧 [DEBUG] 准备打开Web应用: flutter_app/web/index.html');
-            // 对于Netlify部署，我们假设flutter_app/web/index.html是可访问的
-            // 如果Netlify的发布目录直接是flutter_app/web，那么可以直接用 /index.html 或者 /
-            // 为了更明确，我们使用 flutter_app/web/index.html
             window.open('flutter_app/web/index.html', '_blank');
         }
-        
+
         // 检查各个服务的状态
         function checkServices() {
             const services = [
                 { name: 'Flutter Web', url: 'http://localhost:8080', element: 'flutter-status' },
                 { name: 'API服务', url: 'http://localhost:8000/health', element: 'api-status' }
             ];
-            
+
             services.forEach(service => {
                 fetch(service.url)
                     .then(response => {
@@ -240,12 +231,11 @@
                     });
             });
         }
-        
+
         // 页面加载时检查服务状态和绑定事件
         window.onload = function() {
             console.log('🔧 [DEBUG] 页面加载完成，开始绑定事件');
-            
-            // 绑定桌面应用卡片点击事件
+
             const desktopCard = document.getElementById('desktop-card');
             if (desktopCard) {
                 desktopCard.addEventListener('click', function() {
@@ -254,19 +244,17 @@
                 });
                 console.log('🔧 [DEBUG] 桌面应用卡片事件绑定成功');
             }
-            
-            // 绑定桌面应用按钮点击事件
+
             const desktopBtn = document.getElementById('desktop-btn');
             if (desktopBtn) {
                 desktopBtn.addEventListener('click', function(event) {
-                    event.stopPropagation();
+                    event.stopPropagation(); 
                     console.log('🔧 [DEBUG] 桌面应用按钮被点击');
                     openElectron();
                 });
                 console.log('🔧 [DEBUG] 桌面应用按钮事件绑定成功');
             }
-            
-            // 绑定Web应用卡片点击事件
+
             const webCard = document.getElementById('web-card');
             if (webCard) {
                 webCard.addEventListener('click', function() {
@@ -275,12 +263,11 @@
                 });
                 console.log('🔧 [DEBUG] Web应用卡片事件绑定成功');
             }
-            
-            // 绑定Web应用按钮点击事件
+
             const webBtn = document.getElementById('web-btn');
             if (webBtn) {
                 webBtn.addEventListener('click', function(event) {
-                    event.stopPropagation();
+                    event.stopPropagation(); 
                     console.log('🔧 [DEBUG] Web应用按钮被点击');
                     openFlutter();
                 });
