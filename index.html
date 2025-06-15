@@ -1,281 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoList - 任务管理系统</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' http://localhost:8080 http://localhost:8000; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;">
-    <script>
-        // 立即重定向到 Flutter Web 应用
-        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-            window.location.replace('/flutter_app/web/index.html');
-        }
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 600px;
-            width: 90%;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 2.5em;
-        }
-        
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.2em;
-        }
-        
-        .options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .option-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px 20px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .option-card:hover {
-            border-color: #667eea;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .option-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .option-desc {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-        
-        .btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: background 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: #5a6fd8;
-        }
-        
-        .api-info {
-            background: #e3f2fd;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-            text-align: left;
-        }
-        
-        .api-title {
-            font-weight: bold;
-            color: #1976d2;
-            margin-bottom: 10px;
-        }
-        
-        .api-item {
-            margin: 8px 0;
-            color: #333;
-        }
-        
-        .api-item a {
-            color: #1976d2;
-            text-decoration: none;
-        }
-        
-        .api-item a:hover {
-            text-decoration: underline;
-        }
-        
-        .test-user {
-            background: #fff3e0;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-        }
-        
-        .test-user-title {
-            font-weight: bold;
-            color: #f57c00;
-            margin-bottom: 8px;
-        }
-    </style>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="flutter_app">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>flutter_app</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "3730160783";
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 TodoList</h1>
-        <p class="subtitle">选择您喜欢的方式开始使用任务管理系统</p>
-        
-        <div class="options">
-            <div class="option-card" id="desktop-card">
-                <div class="option-title">💻 桌面应用</div>
-                <div class="option-desc">使用 Electron 桌面应用，获得原生体验</div>
-                <button class="btn" id="desktop-btn">启动桌面版</button>
-            </div>
-            
-            <div class="option-card" id="web-card">
-                <div class="option-title">🌐 Web应用</div>
-                <div class="option-desc">使用 Flutter Web 应用，跨平台体验</div>
-                <button class="btn" id="web-btn">打开Web版</button>
-            </div>
-        </div>
-        
-        <div class="api-info">
-            <div class="api-title">🔧 开发者信息</div>
-            <div class="api-item">• 后端API: <a href="http://localhost:8000" target="_blank">http://localhost:8000</a></div>
-            <div class="api-item">• API文档: <a href="http://localhost:8000/docs" target="_blank">http://localhost:8000/docs</a></div>
-            <div class="api-item">• Flutter Web: <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> (本地开发)</div>
-        </div>
-
-        <div class="test-user">
-            <div class="test-user-title">🧪 测试账户</div>
-            <div>邮箱: test@example.com</div>
-            <div>密码: testpassword</div>
-        </div>
-    </div>
-
-    <script>
-        // 启动 Electron 应用的函数
-        function openElectron() {
-            console.log('🔧 [DEBUG] openElectron函数被调用');
-            fetch('http://localhost:8000/open-electron', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => {
-                console.log('🔧 [DEBUG] 收到响应:', response.status, response.statusText);
-                if (response.ok) {
-                    alert('✅ 正在启动桌面应用...');
-                    return response.json(); 
-                } else {
-                    console.log('🔧 [DEBUG] 响应不成功，状态码:', response.status);
-                    alert('❌ 无法自动启动桌面应用。\n请确保后端服务和Electron应用配置正确，并尝试手动在 electron_app 目录下运行:\nnpm install\nnpm start');
-                    throw new Error('Response not ok');
-                }
-            })
-            .then(data => {
-                console.log('🔧 [DEBUG] 响应数据:', data);
-            })
-            .catch(error => {
-                console.error('🔧 [DEBUG] 请求失败:', error);
-                alert('❌ 无法自动启动桌面应用\n\n错误: ' + error.message + '\n\n请手动在 electron_app 目录下运行:\nnpm install\nnpm start');
-            });
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.load({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
         }
-
-        // 打开 Flutter Web 应用的函数
-        function openFlutter() {
-            console.log('🔧 [DEBUG] openFlutter函数被调用');
-            // 直接打开相对路径的Web应用
-            console.log('🔧 [DEBUG] 准备打开Web应用: flutter_app/web/index.html');
-            window.open('flutter_app/web/index.html', '_blank');
-        }
-
-        // 检查各个服务的状态
-        function checkServices() {
-            const services = [
-                { name: 'Flutter Web', url: 'http://localhost:8080', element: 'flutter-status' },
-                { name: 'API服务', url: 'http://localhost:8000/health', element: 'api-status' }
-            ];
-
-            services.forEach(service => {
-                fetch(service.url)
-                    .then(response => {
-                        if (response.ok) {
-                            console.log(`${service.name} 运行正常`);
-                        }
-                    })
-                    .catch(() => {
-                        console.log(`${service.name} 未运行`);
-                    });
-            });
-        }
-
-        // 页面加载时检查服务状态和绑定事件
-        window.onload = function() {
-            console.log('🔧 [DEBUG] 页面加载完成，开始绑定事件');
-
-            const desktopCard = document.getElementById('desktop-card');
-            if (desktopCard) {
-                desktopCard.addEventListener('click', function() {
-                    console.log('🔧 [DEBUG] 桌面应用卡片被点击');
-                    openElectron();
-                });
-                console.log('🔧 [DEBUG] 桌面应用卡片事件绑定成功');
-            }
-
-            const desktopBtn = document.getElementById('desktop-btn');
-            if (desktopBtn) {
-                desktopBtn.addEventListener('click', function(event) {
-                    event.stopPropagation(); 
-                    console.log('🔧 [DEBUG] 桌面应用按钮被点击');
-                    openElectron();
-                });
-                console.log('🔧 [DEBUG] 桌面应用按钮事件绑定成功');
-            }
-
-            const webCard = document.getElementById('web-card');
-            if (webCard) {
-                webCard.addEventListener('click', function() {
-                    console.log('🔧 [DEBUG] Web应用卡片被点击');
-                    openFlutter();
-                });
-                console.log('🔧 [DEBUG] Web应用卡片事件绑定成功');
-            }
-
-            const webBtn = document.getElementById('web-btn');
-            if (webBtn) {
-                webBtn.addEventListener('click', function(event) {
-                    event.stopPropagation(); 
-                    console.log('🔧 [DEBUG] Web应用按钮被点击');
-                    openFlutter();
-                });
-                console.log('🔧 [DEBUG] Web应用按钮事件绑定成功');
-            }
-            
-            checkServices();
-        };
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
