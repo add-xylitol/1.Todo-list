@@ -1,6 +1,6 @@
 [build]
-  publish = "flutter_app/build/web"
-  command = "cd flutter_app && flutter doctor && flutter build web --verbose"
+  publish = "web"
+  command = "flutter config --enable-web && cd flutter_app && flutter doctor && flutter build web --release --verbose && cp -r build/web/* ../web/"
 
 [build.environment]
   FLUTTER_VERSION = "3.10.0"
@@ -21,12 +21,7 @@
     Content-Type = "application/javascript"
 
 [[headers]]
-  for = "/canvaskit.js"
-  [headers.values]
-    Content-Type = "application/javascript"
-
-[[headers]]
-  for = "/canvaskit.wasm"
+  for = "/canvaskit/*"
   [headers.values]
     Content-Type = "application/wasm"
 
