@@ -1,6 +1,6 @@
 [build]
   publish = "flutter_app/build/web"
-  command = "cd flutter_app && flutter doctor && flutter build web --verbose"
+  command = "cd flutter_app && flutter channel stable && flutter doctor && flutter build web --verbose"
 
 [build.environment]
   FLUTTER_VERSION = "3.10.0"
