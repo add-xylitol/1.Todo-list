@@ -92,6 +92,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // 静态文件服务
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/web', express.static(path.join(__dirname, '../web')));
+app.use('/', express.static(path.join(__dirname, '../flutter_app/build/web')));
 
 // 健康检查端点
 app.get('/health', (req, res) => {
@@ -161,7 +162,7 @@ app.use('/api/payment', paymentRoutes);
 // }
 
 // 前端路由处理 (SPA)
-app.get('*', (req, res) => {
+app.get('*', (req, res, next) => {
   // 如果是API请求但没有匹配到路由，返回404
   if (req.path.startsWith('/api/')) {
     return res.status(404).json({
@@ -170,9 +171,16 @@ app.get('*', (req, res) => {
       path: req.path
     });
   }
+
+  // 检查请求是否是针对已知的静态文件扩展名
+  const knownExtensions = ['.js', '.css', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.json', '.map', '.ttf', '.woff', '.woff2', '.otf', '.svg', '.wasm'];
+  if (knownExtensions.some(ext => req.path.endsWith(ext))) {
+    // 如果是静态文件请求但未被 express.static 处理，则传递给下一个错误处理程序（可能返回404）
+    return next(); 
+  }
   
-  // 其他请求返回前端页面
-  res.sendFile(path.join(__dirname, '../index.html'));
+  // 其他所有非API、非已知静态文件扩展名的请求，都返回 Flutter 应用的 index.html
+  res.sendFile(path.join(__dirname, '../flutter_app/build/web/index.html'));
 });
 
 // 错误处理中间件
@@ -199,51 +207,44 @@ async function startServer() {
     const server = app.listen(PORT, HOST, () => {
       logger.info(`服务器运行在 http://${HOST}:${PORT}`);
       logger.info(`环境: ${process.env.NODE_ENV}`);
-      logger.info(`前端地址: ${process.env.FRONTEND_URL}`);
-      
-      if (process.env.NODE_ENV === 'development') {
+      logger.info(`前端地址: http://${HOST}:${PORT}`);
+      if (process.env.NODE_ENV === 'development' && process.env.ENABLE_SWAGGER === 'true') {
         logger.info(`API文档: http://${HOST}:${PORT}/api-docs`);
-        logger.info(`健康检查: http://${HOST}:${PORT}/health`);
+      }
+      logger.info(`健康检查: http://${HOST}:${PORT}/health`);
+
+      // 如果是模拟模式，并且定义了初始化函数，则调用它
+      if (isMock && global.initializeMockData) {
+        global.initializeMockData();
       }
     });
-    
-    // 优雅关闭 - 仅在生产环境启用
-    if (process.env.NODE_ENV === 'production') {
-      process.on('SIGTERM', () => {
-        logger.info('收到SIGTERM信号，开始优雅关闭...');
-        server.close(() => {
-          logger.info('HTTP服务器已关闭');
-          if (sequelize && !isMock) {
-            sequelize.close().then(() => {
-              logger.info('数据库连接已关闭');
-              process.exit(0);
-            });
-          } else {
-            logger.info('模拟数据库模式，跳过数据库关闭');
-            process.exit(0);
-          }
-        });
+
+    // 优雅关闭
+    process.on('SIGTERM', () => {
+      logger.info('收到 SIGTERM 信号，正在关闭服务器...');
+      server.close(() => {
+        logger.info('服务器已关闭');
+        process.exit(0);
       });
-    }
-    
+    });
+
+    process.on('SIGINT', () => {
+      logger.info('收到 SIGINT 信号，正在关闭服务器...');
+      server.close(() => {
+        logger.info('服务器已关闭');
+        process.exit(0);
+      });
+    });
+
   } catch (error) {
-    logger.error('服务器启动失败:', error);
+    logger.error('启动服务器失败:', error);
     process.exit(1);
   }
 }
 
-// 未捕获的异常处理
-process.on('uncaughtException', (error) => {
-  logger.error('未捕获的异常:', error);
-  process.exit(1);
-});
+// 只有在直接运行此文件时才启动服务器
+if (require.main === module) {
+  startServer();
+}
 
-process.on('unhandledRejection', (reason, promise) => {
-  logger.error('未处理的Promise拒绝:', reason);
-  process.exit(1);
-});
-
-// 启动服务器
-startServer();
-
-module.exports = app;
+module.exports = { app, startServer };
