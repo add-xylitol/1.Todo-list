@@ -1,29 +1,9 @@
 [build]
-  publish = "web"
-  command = "flutter config --enable-web && cd flutter_app && flutter doctor && flutter build web --release --verbose && cp -r build/web/* ../web/"
+  publish = "flutter_app/build/web"
+  command = "cd flutter_app && flutter doctor && flutter build web --verbose"
 
 [build.environment]
   FLUTTER_VERSION = "3.10.0"
-
-[[headers]]
-  for = "/flutter.js"
-  [headers.values]
-    Content-Type = "application/javascript"
-
-[[headers]]
-  for = "/main.dart.js"
-  [headers.values]
-    Content-Type = "application/javascript"
-
-[[headers]]
-  for = "/flutter_bootstrap.js"
-  [headers.values]
-    Content-Type = "application/javascript"
-
-[[headers]]
-  for = "/canvaskit/*"
-  [headers.values]
-    Content-Type = "application/wasm"
 
 [[redirects]]
   from = "/*"
