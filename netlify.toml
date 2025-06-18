@@ -1,9 +1,9 @@
 [build]
+  command = 'if ! command -v flutter &> /dev/null; then git clone https://github.com/flutter/flutter.git $HOME/flutter-sdk && export PATH="$PATH:$HOME/flutter-sdk/bin"; fi && flutter --version && cd flutter_app && flutter build web --release'
   publish = "flutter_app/build/web"
-  command = 'cd flutter_app && if ! command -v flutter &> /dev/null; then echo '\''Flutter not found, installing...'\''; git clone https://github.com/flutter/flutter.git --depth 1 --branch stable $HOME/flutter-sdk; export PATH="$HOME/flutter-sdk/bin:$PATH"; flutter --version; else echo '\''Flutter found, using system version.'\''; flutter --version; fi'
 
 [build.environment]
-  FLUTTER_VERSION = "3.10.0"
+  FLUTTER_VERSION = "3.24.5"
 
 [[redirects]]
   from = "/*"
