@@ -3,6 +3,28 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
+# --- Install Flutter ---
+echo "--- Setting up Flutter ---"
+# Use the FLUTTER_VERSION from Netlify's environment variables, or default
+FLUTTER_VERSION_TO_USE=${FLUTTER_VERSION:-"3.10.0"}
+echo "Using Flutter version: $FLUTTER_VERSION_TO_USE"
+
+# We'll install Flutter in a temporary directory within the build environment
+FLUTTER_DIR="/opt/build/flutter"
+mkdir -p $FLUTTER_DIR
+
+# Clone the specified version of Flutter
+git clone https://github.com/flutter/flutter.git --depth 1 --branch $FLUTTER_VERSION_TO_USE $FLUTTER_DIR
+
+# Add Flutter to the PATH for this script
+export PATH="$PATH:$FLUTTER_DIR/bin"
+
+# Run flutter doctor to verify and download any missing tools
+echo "--- Running flutter doctor ---"
+flutter doctor
+# --- End of Flutter Setup ---
+
+
 # Debug: List files in the current directory
 echo "--- Current directory: $(pwd) ---"
 ls -la
