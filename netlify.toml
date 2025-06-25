@@ -1,5 +1,5 @@
 [build]
-  command = 'if ! command -v flutter &> /dev/null; then git clone https://github.com/flutter/flutter.git $HOME/flutter-sdk && export PATH="$PATH:$HOME/flutter-sdk/bin"; fi && flutter --version && cd flutter_app && flutter build web --release'
+  command = "sh build.sh"
   publish = "flutter_app/build/web"
 
 [build.environment]
