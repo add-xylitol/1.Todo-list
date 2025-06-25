@@ -43,7 +43,7 @@ flutter pub get
 
 # Build the Flutter web application
 echo "--- Building Flutter web application ---"
-flutter build web
+flutter build web --verbose
 
 # Debug: Check if the build/web directory exists and list its contents
 echo "--- Checking build/web directory ---"
