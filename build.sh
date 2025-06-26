@@ -13,8 +13,12 @@ echo "Using Flutter version: $FLUTTER_VERSION_TO_USE"
 FLUTTER_DIR="/opt/build/flutter"
 mkdir -p $FLUTTER_DIR
 
-# Clone the specified version of Flutter
-git clone https://github.com/flutter/flutter.git --depth 1 --branch $FLUTTER_VERSION_TO_USE $FLUTTER_DIR
+# Download and extract the specified version of Flutter
+FLUTTER_SDK_URL="https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_${FLUTTER_VERSION_TO_USE}-stable.zip"
+wget -O flutter.zip $FLUTTER_SDK_URL
+unzip flutter.zip -d /opt/build/
+mv /opt/build/flutter $FLUTTER_DIR
+rm flutter.zip
 
 # Add Flutter to the PATH for this script
 export PATH="$PATH:$FLUTTER_DIR/bin"
@@ -37,8 +41,9 @@ cd flutter_app
 echo "--- Current directory: $(pwd) ---"
 ls -la
 
-# Install Flutter dependencies
-echo "--- Installing Flutter dependencies ---"
+# Clean, then install Flutter dependencies
+echo "--- Cleaning and installing Flutter dependencies ---"
+flutter clean
 flutter pub get
 
 # Build the Flutter web application
