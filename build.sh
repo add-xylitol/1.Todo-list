@@ -9,16 +9,14 @@ echo "--- Setting up Flutter ---"
 FLUTTER_VERSION_TO_USE=${FLUTTER_VERSION:-"3.10.0"}
 echo "Using Flutter version: $FLUTTER_VERSION_TO_USE"
 
-# We'll install Flutter in a temporary directory within the build environment
+# We'll install Flutter in /opt/build/flutter
 FLUTTER_DIR="/opt/build/flutter"
-mkdir -p $FLUTTER_DIR
 
 # Download and extract the specified version of Flutter
 FLUTTER_SDK_URL="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION_TO_USE}-stable.tar.xz"
 wget -O flutter.tar.xz $FLUTTER_SDK_URL
-tar xf flutter.tar.xz
-mv flutter/* "$FLUTTER_DIR/"
-rm -rf flutter flutter.tar.xz
+tar xf flutter.tar.xz -C /opt/build
+rm flutter.tar.xz
 
 # Debug: Check Flutter installation
 echo "--- Checking Flutter installation ---"
