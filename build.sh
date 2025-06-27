@@ -14,10 +14,10 @@ FLUTTER_DIR="/opt/build/flutter"
 mkdir -p $FLUTTER_DIR
 
 # Download and extract the specified version of Flutter
-FLUTTER_SDK_URL="https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_${FLUTTER_VERSION_TO_USE}-stable.zip"
-wget -O flutter.zip $FLUTTER_SDK_URL
-unzip flutter.zip -d $FLUTTER_DIR
-rm flutter.zip
+FLUTTER_SDK_URL="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION_TO_USE}-stable.tar.xz"
+wget -O flutter.tar.xz $FLUTTER_SDK_URL
+tar xf flutter.tar.xz -C /opt/build/
+rm flutter.tar.xz
 
 # Add Flutter to the PATH for this script
 export PATH="$PATH:$FLUTTER_DIR/bin"
