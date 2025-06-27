@@ -19,8 +19,15 @@ wget -O flutter.tar.xz $FLUTTER_SDK_URL
 tar xf flutter.tar.xz -C /opt/build/
 rm flutter.tar.xz
 
-# Add Flutter to the PATH for this script
-export PATH="$PATH:$FLUTTER_DIR/bin"
+# Debug: Check Flutter installation
+echo "--- Checking Flutter installation ---"
+ls -la /opt/build/
+ls -la /opt/build/flutter/bin || echo "Flutter bin directory not found!"
+
+# Add Flutter to the PATH for this script (prepend to prioritize)
+export PATH="$FLUTTER_DIR/bin:$PATH"
+echo "Updated PATH: $PATH"
+which flutter || echo "Flutter not found in PATH!"
 
 # Run flutter doctor to verify and download any missing tools
 echo "--- Running flutter doctor ---"
