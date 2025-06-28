@@ -11,11 +11,12 @@ echo "Using Flutter version: $FLUTTER_VERSION_TO_USE"
 
 # We'll install Flutter in /opt/build/flutter
 FLUTTER_DIR="/opt/build/flutter"
+mkdir -p $FLUTTER_DIR
 
 # Download and extract the specified version of Flutter
 FLUTTER_SDK_URL="https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION_TO_USE}-stable.tar.xz"
 wget -O flutter.tar.xz $FLUTTER_SDK_URL
-tar xf flutter.tar.xz -C /opt/build
+tar xf flutter.tar.xz -C $FLUTTER_DIR --strip-components=1
 rm flutter.tar.xz
 
 # Debug: Check Flutter installation
