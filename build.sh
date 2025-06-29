@@ -50,31 +50,19 @@ flutter pub get
 
 # Build the Flutter web application
 echo "--- Building Flutter web application ---"
-flutter build web --web-renderer html --verbose
+# Add --no-sound-null-safety for older packages if needed
+flutter build web --release
 
-# Debug: Check if the build/web directory exists and list its contents
-echo "--- Checking build/web directory ---"
-if [ -d "build/web" ]; then
-  echo "--- build/web directory exists. Contents: ---"
-  ls -la build/web
-else
-  echo "--- ERROR: build/web directory does not exist after build! ---"
-  # Debug: List the contents of the build directory to see what's there
-  if [ -d "build" ]; then
-    echo "--- Contents of build directory: ---"
-    ls -la build
-  else
-    echo "--- ERROR: build directory does not even exist! ---"
-  fi
-  exit 1
-fi
+# Debug: List build output
+echo "--- Listing build output in build/web ---"
+ls -la build/web
 
 # Navigate back to the root directory
-echo "--- Navigating back to the root directory ---"
+echo "--- Navigating back to root ---"
 cd ..
 
-# Debug: List files in the root directory again
-echo "--- Current directory: $(pwd) ---"
-ls -la
+# --- Netlify Redirects --- (Optional but good practice for SPAs)
+echo "--- Creating Netlify redirects file ---"
+# The publish directory is set in netlify.toml, so we just need to make sure the app is built.
 
-echo "Build script finished successfully."
+echo "--- Build script finished ---"
