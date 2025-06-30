@@ -15,6 +15,18 @@ bool isValidUrl(String url) {
   return uri != null && uri.hasAbsolutePath && (uri.scheme == 'http' || uri.scheme == 'https');
 }
 
+bool isValidEmail(String email) {
+  return RegExp(
+          r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+      .hasMatch(email);
+}
+
+bool isValidPhoneNumber(String phoneNumber) {
+  // A simple regex for phone numbers, consider a more robust one for production
+  if (phoneNumber.length < 7 || phoneNumber.length > 15) return false;
+  return RegExp(r'^\+?[0-9. -]+$').hasMatch(phoneNumber);
+}
+
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({Key? key}) : super(key: key);
 
