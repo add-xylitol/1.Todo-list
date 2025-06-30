@@ -10,6 +10,11 @@ import '../../widgets/loading_overlay.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
 
+bool isValidUrl(String url) {
+  final uri = Uri.tryParse(url);
+  return uri != null && uri.hasAbsolutePath && (uri.scheme == 'http' || uri.scheme == 'https');
+}
+
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({Key? key}) : super(key: key);
 
