@@ -94,7 +94,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       }
     } catch (e) {
       if (mounted) {
-        showErrorSnackBar(context, 'Failed to pick image: ${e.toString()}');
+        AppHelpers.showErrorMessage(context, 'Failed to pick image: ${e.toString()}');
       }
     }
   }
@@ -115,7 +115,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       }
     } catch (e) {
       if (mounted) {
-        showErrorSnackBar(context, 'Failed to take photo: ${e.toString()}');
+        AppHelpers.showErrorMessage(context, 'Failed to take photo: ${e.toString()}');
       }
     }
   }
@@ -190,7 +190,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           _isLoading = false;
         });
         
-        showSuccessSnackBar(context, 'Profile updated successfully');
+        AppHelpers.showSuccessMessage(context, 'Profile updated successfully');
         Navigator.of(context).pop(true);
       }
     } catch (e) {
@@ -198,7 +198,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         setState(() {
           _isLoading = false;
         });
-        showErrorSnackBar(context, 'Failed to update profile: ${e.toString()}');
+        AppHelpers.showErrorMessage(context, 'Failed to update profile: ${e.toString()}');
       }
     }
   }
