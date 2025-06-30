@@ -51,7 +51,7 @@ flutter pub get
 # Build the Flutter web application
 echo "--- Building Flutter web application ---"
 # Add --no-sound-null-safety for older packages if needed
-flutter build web --release --verbose
+flutter build web --release --verbose --web-renderer canvaskit
 
 # Debug: List build output
 echo "--- Listing build output in build/web ---"
