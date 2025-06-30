@@ -172,7 +172,7 @@ class User {
 class UserProfile {
   final String? firstName;
   final String? lastName;
-  final String? avatar;
+  final String? avatarUrl;
   final String? bio;
   final String? phone;
   final DateTime? dateOfBirth;
@@ -185,7 +185,7 @@ class UserProfile {
   UserProfile({
     this.firstName,
     this.lastName,
-    this.avatar,
+    this.avatarUrl,
     this.bio,
     this.phone,
     this.dateOfBirth,
@@ -200,7 +200,7 @@ class UserProfile {
     return UserProfile(
       firstName: json['firstName'],
       lastName: json['lastName'],
-      avatar: json['avatar'],
+      avatarUrl: json['avatarUrl'] ?? json['avatar'],
       bio: json['bio'],
       phone: json['phone'],
       dateOfBirth: json['dateOfBirth'] != null 
@@ -218,7 +218,7 @@ class UserProfile {
     return {
       if (firstName != null) 'firstName': firstName,
       if (lastName != null) 'lastName': lastName,
-      if (avatar != null) 'avatar': avatar,
+      if (avatarUrl != null) 'avatarUrl': avatarUrl,
       if (bio != null) 'bio': bio,
       if (phone != null) 'phone': phone,
       if (dateOfBirth != null) 'dateOfBirth': dateOfBirth!.toIso8601String(),
@@ -233,7 +233,7 @@ class UserProfile {
   UserProfile copyWith({
     String? firstName,
     String? lastName,
-    String? avatar,
+    String? avatarUrl,
     String? bio,
     String? phone,
     DateTime? dateOfBirth,
@@ -246,7 +246,7 @@ class UserProfile {
     return UserProfile(
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
-      avatar: avatar ?? this.avatar,
+      avatarUrl: avatarUrl ?? this.avatarUrl,
       bio: bio ?? this.bio,
       phone: phone ?? this.phone,
       dateOfBirth: dateOfBirth ?? this.dateOfBirth,

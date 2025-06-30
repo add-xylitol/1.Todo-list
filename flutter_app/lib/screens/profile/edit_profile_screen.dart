@@ -68,13 +68,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
     final user = authProvider.user;
     
-    if (user != null) {
-      _nameController.text = user.name;
+    if (user != null && user.profile != null) {
+      _nameController.text = user.username;
       _emailController.text = user.email;
-      _phoneController.text = user.profile?.phoneNumber ?? '';
-      _bioController.text = user.profile?.bio ?? '';
-      _locationController.text = user.profile?.location ?? '';
-      _websiteController.text = user.profile?.website ?? '';
+      _phoneController.text = user.profile!.phone ?? '';
+      _bioController.text = user.profile!.bio ?? '';
+      _locationController.text = "${user.profile!.city ?? ''}, ${user.profile!.country ?? ''}";
+      _websiteController.text = ''; // website is not in the model
     }
   }
   
@@ -280,9 +280,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       appBar: AppBar(
         title: const Text('Edit Profile'),
         actions: [
-          TextButton(
+          IconButton(
+            icon: const Icon(Icons.check),
             onPressed: _isLoading ? null : _saveProfile,
-            child: const Text('Save'),
           ),
         ],
       ),
