@@ -3,7 +3,7 @@
   publish = "flutter_app/build/web"
 
 [build.environment]
-  FLUTTER_VERSION = "3.24.5"
+  FLUTTER_VERSION = "3.22.2"
 
 [[redirects]]
   from = "/*"
