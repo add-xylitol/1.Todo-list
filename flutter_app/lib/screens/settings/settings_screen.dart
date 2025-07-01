@@ -411,7 +411,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     subtitle: 'Free up storage space',
                     icon: Icons.cleaning_services,
                     onTap: () {
-                      showInfoSnackBar(context, 'Cache cleared successfully');
+                      AppHelpers.showSnackBar(context, 'Cache cleared successfully');
                     },
                   ),
                 ],
@@ -426,7 +426,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     subtitle: '1.0.0',
                     icon: Icons.info,
                     onTap: () {
-                      showInfoSnackBar(context, 'TodoList App v1.0.0');
+                      AppHelpers.showSnackBar(context, 'TodoList App v1.0.0');
                     },
                   ),
                   const Divider(height: 1),
@@ -435,7 +435,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     subtitle: 'Help us improve by rating the app',
                     icon: Icons.star,
                     onTap: () {
-                      showInfoSnackBar(context, 'Thank you for your feedback!');
+                      AppHelpers.showSnackBar(context, 'Thank you for your feedback!');
                     },
                   ),
                   const Divider(height: 1),
@@ -444,7 +444,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     subtitle: 'Get help or report issues',
                     icon: Icons.support,
                     onTap: () {
-                      showInfoSnackBar(context, 'Support contact coming soon!');
+                      AppHelpers.showSnackBar(context, 'Support contact coming soon!');
                     },
                   ),
                 ],

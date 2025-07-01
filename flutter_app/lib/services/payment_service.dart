@@ -19,21 +19,7 @@ enum SubscriptionType {
 /// 集成微信支付、支付宝支付和应用内购买
 class PaymentService {
   static const String baseUrl = 'http://localhost:3001/api';
-  
-  // 支付方式枚举
-  enum PaymentMethod {
-    wechat,
-    alipay,
-    applePay,
-    googlePay,
-  }
-  
-  // 订阅类型枚举
-  enum SubscriptionType {
-    monthly,
-    yearly,
-  }
-  
+
   /// 初始化支付服务
   static Future<void> initialize() async {
     try {
