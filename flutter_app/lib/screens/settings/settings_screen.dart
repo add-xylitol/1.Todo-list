@@ -43,7 +43,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         setState(() {
           _isLoading = false;
         });
-        showErrorSnackBar(context, 'Failed to load settings: ${e.toString()}');
+        AppHelpers.showErrorMessage(context, 'Failed to load settings: ${e.toString()}');
       }
     }
   }
@@ -60,11 +60,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         setState(() {
           _settings[key] = value;
         });
-        showSuccessSnackBar(context, 'Setting updated');
+        AppHelpers.showSuccessMessage(context, 'Setting updated');
       }
     } catch (e) {
       if (mounted) {
-        showErrorSnackBar(context, 'Failed to update setting: ${e.toString()}');
+        AppHelpers.showErrorMessage(context, 'Failed to update setting: ${e.toString()}');
       }
     }
   }
@@ -75,11 +75,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
       await authProvider.exportUserData();
       
       if (mounted) {
-        showSuccessSnackBar(context, 'Data export initiated. Check your email.');
+        AppHelpers.showSuccessMessage(context, 'Data export initiated. Check your email.');
       }
     } catch (e) {
       if (mounted) {
-        showErrorSnackBar(context, 'Failed to export data: ${e.toString()}');
+        AppHelpers.showErrorMessage(context, 'Failed to export data: ${e.toString()}');
       }
     }
   }
