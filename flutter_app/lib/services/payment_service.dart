@@ -3,6 +3,18 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
+enum PaymentMethod {
+  wechat,
+  alipay,
+  applePay,
+  googlePay,
+}
+
+enum SubscriptionType {
+  monthly,
+  yearly,
+}
+
 /// 支付服务类
 /// 集成微信支付、支付宝支付和应用内购买
 class PaymentService {
@@ -498,8 +510,6 @@ class PaymentConfig {
         return 'Monthly subscription for \$9.99';
       case SubscriptionType.yearly:
         return 'Yearly subscription for \$99.99';
-      default:
-        return 'Unknown subscription type';
     }
   }
   
