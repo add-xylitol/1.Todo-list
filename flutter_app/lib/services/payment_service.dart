@@ -495,14 +495,16 @@ class PaymentConfig {
   static String getPriceDescription(SubscriptionType type) {
     switch (type) {
       case SubscriptionType.monthly:
-        return 'Monthly subscription';
+        return 'Monthly subscription for \$9.99';
       case SubscriptionType.yearly:
-        return 'Yearly subscription';
+        return 'Yearly subscription for \$99.99';
+      default:
+        return 'Unknown subscription type';
     }
   }
   
   /// 获取产品ID
-  static String getProductId(SubscriptionType type, PaymentMethod method) {
+  static String getProductId(PaymentMethod method, SubscriptionType type) {
     switch (method) {
       case PaymentMethod.applePay:
         return type == SubscriptionType.monthly

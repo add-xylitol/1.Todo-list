@@ -499,12 +499,12 @@ class ApiService {
   Future<List<dynamic>> getPaymentHistory() async {
     final response = await _request(
       method: 'GET',
-      endpoint: '/subscriptions/payment-history',
+      endpoint: '/subscriptions/payments',
     );
     
-    return response['data']['paymentHistory'];
+    return response['data']['payments'];
   }
-  
+
   // 获取用户资料
   Future<Map<String, dynamic>> getUserProfile() async {
     final response = await _request(
@@ -514,16 +514,16 @@ class ApiService {
     
     return response['data']['user'];
   }
-  
-  // 更新用户资料
-  Future<Map<String, dynamic>> updateUserProfile(Map<String, dynamic> updates) async {
+
+  // 更新用户信息
+  Future<User> updateUserProfile(Map<String, dynamic> updates) async {
     final response = await _request(
-      method: 'PUT',
+      method: 'PATCH',
       endpoint: '/users/profile',
       body: updates,
     );
-    
-    return response['data']['user'];
+
+    return User.fromJson(response['data']['user']);
   }
   
   // 获取用户设置
