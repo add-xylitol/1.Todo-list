@@ -183,7 +183,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       };
       
       // Update profile
-      await authProvider.updateProfile(profileData, _selectedImage);
+      await authProvider.updateProfile(profileData);
+
       
       if (mounted) {
         setState(() {

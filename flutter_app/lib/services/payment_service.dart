@@ -490,6 +490,16 @@ class PaymentConfig {
     SubscriptionType.monthly: 6.0,
     SubscriptionType.yearly: 60.0,
   };
+
+  /// 获取价格描述
+  static String getPriceDescription(SubscriptionType type) {
+    switch (type) {
+      case SubscriptionType.monthly:
+        return 'Monthly subscription';
+      case SubscriptionType.yearly:
+        return 'Yearly subscription';
+    }
+  }
   
   /// 获取产品ID
   static String getProductId(SubscriptionType type, PaymentMethod method) {
@@ -498,6 +508,8 @@ class PaymentConfig {
         return type == SubscriptionType.monthly
             ? appleMonthlyProductId
             : appleYearlyProductId;
+      default:
+        throw Exception('Unknown payment method: $method');
       case PaymentMethod.googlePay:
         return type == SubscriptionType.monthly
             ? googleMonthlyProductId
