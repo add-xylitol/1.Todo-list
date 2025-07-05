@@ -118,6 +118,35 @@ class AuthProvider with ChangeNotifier {
     
     _setLoading(false);
   }
+
+  // 获取用户设置
+  Future<Map<String, dynamic>> getUserSettings() async {
+    _setLoading(true);
+    _clearError();
+    try {
+      final settings = await _apiService.getUserSettings();
+      return settings;
+    } catch (e) {
+      _setError(_getErrorMessage(e));
+      rethrow;
+    } finally {
+      _setLoading(false);
+    }
+  }
+
+  // 导出用户数据
+  Future<void> exportUserData() async {
+    _setLoading(true);
+    _clearError();
+    try {
+      await _apiService.exportUserData();
+    } catch (e) {
+      _setError(_getErrorMessage(e));
+      rethrow;
+    } finally {
+      _setLoading(false);
+    }
+  }
   
   // 获取当前用户信息
   Future<void> getCurrentUser() async {
@@ -150,7 +179,7 @@ class AuthProvider with ChangeNotifier {
   }
   
   // 更新用户设置
-  Future<bool> updateSettings(Map<String, dynamic> updates) async {
+  Future<bool> updateUserSettings(Map<String, dynamic> updates) async {
     _setLoading(true);
     _clearError();
     

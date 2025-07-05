@@ -26,6 +26,13 @@ flutter_app/.dart_tool/
 flutter_app/.packages
 flutter_app/pubspec.lock
 
+# Flutter SDK (downloaded during build)
+.flutter/
+flutter/
+
+# Build logs
+build_log.txt
+
 # IDE files
 .vscode/
 .idea/

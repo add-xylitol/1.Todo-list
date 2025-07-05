@@ -6,22 +6,28 @@ set -ex
 # --- Install Flutter ---
 echo "--- Setting up Flutter ---"
 # Use the FLUTTER_VERSION from Netlify's environment variables, or default
-FLUTTER_VERSION_TO_USE=${FLUTTER_VERSION:-"3.10.0"}
+FLUTTER_VERSION_TO_USE=${FLUTTER_VERSION:-"3.19.0"}
 echo "Using Flutter version: $FLUTTER_VERSION_TO_USE"
 
-# We'll install Flutter in /opt/build/flutter
-FLUTTER_DIR="/opt/build/flutter"
+# We'll install Flutter in a local directory
+FLUTTER_DIR="$PWD/.flutter"
+rm -rf $FLUTTER_DIR
+FLUTTER_SDK_URL="https://storage.flutter-io.cn/flutter_infra_release/releases/stable/macos/flutter_macos_${FLUTTER_VERSION_TO_USE}-stable.zip"
 
-# Clone the Flutter repository from GitHub
-git clone https://github.com/flutter/flutter.git --depth 1 --branch $FLUTTER_VERSION_TO_USE $FLUTTER_DIR
+# Download and unzip the Flutter SDK
+mkdir -p $FLUTTER_DIR
+curl -L $FLUTTER_SDK_URL -o flutter.zip
+unzip flutter.zip -d $FLUTTER_DIR
+mv $FLUTTER_DIR/flutter $FLUTTER_DIR/flutter-sdk
+rm flutter.zip
 
 # Debug: Check Flutter installation
 echo "--- Checking Flutter installation ---"
 ls -la "$FLUTTER_DIR"
-ls -la "$FLUTTER_DIR/bin" || echo "Flutter bin directory not found!"
+ls -la "$FLUTTER_DIR/flutter-sdk/bin" || echo "Flutter bin directory not found!"
 
 # Add Flutter to the PATH for this script (prepend to prioritize)
-export PATH="$FLUTTER_DIR/bin:$PATH"
+export PATH="$FLUTTER_DIR/flutter-sdk/bin:$PATH"
 echo "Updated PATH: $PATH"
 which flutter || echo "Flutter not found in PATH!"
 
@@ -35,13 +41,12 @@ flutter doctor
 echo "--- Current directory: $(pwd) ---"
 ls -la
 
-# Navigate to the flutter_app directory
-echo "--- Navigating to flutter_app ---"
+# Navigate to the app directory
 cd flutter_app
 
-# Debug: List files in the flutter_app directory
-echo "--- Current directory: $(pwd) ---"
-ls -la
+# Set Flutter mirror
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
 # Clean, then install Flutter dependencies
 echo "--- Cleaning and installing Flutter dependencies ---"
@@ -51,7 +56,7 @@ flutter pub get
 # Build the Flutter web application
 echo "--- Building Flutter web application ---"
 # Add --no-sound-null-safety for older packages if needed
-flutter build web --release --verbose --web-renderer html
+flutter build web --release --verbose --web-renderer html > ../build_log.txt 2>&1
 
 # Debug: List build output
 echo "--- Listing build output in build/web ---"

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:intl/intl.dart';
 
 class AppHelpers {

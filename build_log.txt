@@ -1,0 +1,1361 @@
+[  +28 ms] executing: sw_vers -productName
+[  +39 ms] Exit code 0 from: sw_vers -productName
+[   +2 ms] macOS
+[        ] executing: sw_vers -productVersion
+[  +20 ms] Exit code 0 from: sw_vers -productVersion
+[        ] 14.7.3
+[        ] executing: sw_vers -buildVersion
+[  +19 ms] Exit code 0 from: sw_vers -buildVersion
+[        ] 23H417
+[        ] executing: uname -m
+[  +12 ms] Exit code 0 from: uname -m
+[        ] x86_64
+[  +13 ms] executing: sysctl hw.optional.arm64
+[  +12 ms] Exit code 0 from: sysctl hw.optional.arm64
+[        ] hw.optional.arm64: 1
+[  +30 ms] Unable to locate an Android SDK.
+[ +138 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[   +2 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[   +4 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[  +68 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[   +7 ms] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[ +119 ms] Skipping pub get: version match.
+[  +63 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
+[   +7 ms] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
+[   +5 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
+[   +6 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
+[  +15 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
+[   +2 ms] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
+[   +1 ms] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
+[   +2 ms] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
+[  +17 ms] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
+[   +3 ms] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
+[   +3 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
+[  +22 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
+[   +4 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
+[   +4 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
+[   +3 ms] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
+[   +4 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
+[   +7 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
+[   +1 ms] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
+[   +1 ms] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
+[   +1 ms] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
+[   +2 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
+[   +1 ms] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
+[  +66 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
+[   +2 ms] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
+[   +2 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
+[   +2 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
+[   +9 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
+[   +2 ms] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
+[   +3 ms] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
+[   +1 ms] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
+[   +1 ms] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
+[   +1 ms] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
+[   +2 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
+[   +9 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
+[   +1 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
+[   +1 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
+[   +1 ms] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
+[   +1 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
+[   +4 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
+[   +1 ms] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
+[   +1 ms] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
+[   +1 ms] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
+[   +2 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
+[        ] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
+[  +55 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
+[        ] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
+[   +2 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
+[   +2 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
+[   +4 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
+[        ] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
+[        ] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
+[        ] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
+[        ] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
+[   +1 ms] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
+[   +1 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
+[   +9 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
+[        ] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
+[   +1 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
+[        ] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
+[   +1 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
+[   +3 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
+[        ] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
+[        ] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
+[   +1 ms] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
+[   +1 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
+[   +1 ms] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
+[ +108 ms] Generating /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+[  +55 ms] executing: sysctl hw.optional.arm64
+[  +15 ms] Exit code 0 from: sysctl hw.optional.arm64
+[   +1 ms] hw.optional.arm64: 1
+[        ] executing: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[  +21 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[        ] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
+[   +1 ms] executing: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[  +21 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[        ] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
+[ +149 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
+[   +1 ms] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
+[   +2 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
+[   +2 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
+[   +6 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
+[   +1 ms] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
+[        ] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
+[        ] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
+[   +1 ms] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
+[   +1 ms] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
+[   +3 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
+[  +12 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
+[   +6 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
+[   +7 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
+[   +1 ms] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
+[  +52 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
+[   +4 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
+[        ] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
+[        ] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
+[        ] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
+[   +1 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
+[        ] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
+[  +16 ms] generated_plugin_registrant.dart not found. Skipping.
+[   +2 ms] Compiling lib/main.dart for the Web...
+[  +12 ms] Initializing file store
+[  +43 ms] web_entrypoint: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/packages/flutter_tools/lib/src/build_system/targets/web.dart}
+[   +1 ms] Skipping target: gen_localizations
+[   +4 ms] web_static_assets: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/internal/engine.version}
+[  +39 ms] web_static_assets: Complete
+[  +36 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
+[        ] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
+[   +1 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
+[   +2 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
+[   +3 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
+[        ] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
+[   +1 ms] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
+[        ] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
+[        ] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
+[        ] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
+[   +1 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
+[   +9 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
+[   +1 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
+[        ] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
+[        ] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
+[   +1 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
+[   +4 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
+[   +1 ms] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
+[        ] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
+[        ] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
+[   +1 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
+[   +1 ms] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
+[  +15 ms] web_entrypoint: Complete
+[   +1 ms] dart2js: Starting due to {}
+[  +37 ms] executing: /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/dart-sdk/bin/dart --disable-dart-dev /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/dart-sdk/bin/snapshots/dart2js.dart.snapshot --platform-binaries=/Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/flutter_web_sdk/kernel --invoker=flutter_tool -Ddart.vm.product=true -DFLUTTER_WEB_AUTO_DETECT=false -DFLUTTER_WEB_USE_SKIA=false -DFLUTTER_WEB_CANVASKIT_URL=https://www.gstatic.com/flutter-canvaskit/04817c99c9fd4956f27505204f7e344335810aed/ --native-null-assertions --no-source-maps -o /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/.dart_tool/flutter_build/49c5b010c8402a353c87d5d79f25fd1d/app.dill --packages=.dart_tool/package_config.json --cfe-only /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/.dart_tool/flutter_build/49c5b010c8402a353c87d5d79f25fd1d/main.dart
+[+13812 ms] lib/main.dart:6:8:
+            Error: Error when reading 'lib/screens/splash_screen.dart': Error reading 'lib/screens/splash_screen.dart'  (No such file or directory)
+            import 'screens/splash_screen.dart';
+                   ^
+            lib/utils/helpers.dart:356:1:
+            Error: Directives must appear before any declarations.
+            import 'dart:async';
+            ^^^^^^
+            lib/utils/helpers.dart:357:1:
+            Error: Directives must appear before any declarations.
+            import 'package:flutter/services.dart';
+            ^^^^^^
+            lib/screens/home/home_screen.dart:10:8:
+            Error: Error when reading 'lib/screens/statistics/statistics_screen.dart': Error reading 'lib/screens/statistics/statistics_screen.dart'  (No such file or directory)
+            import '../statistics/statistics_screen.dart';
+                   ^
+            lib/screens/tasks/task_list_screen.dart:7:8:
+            Error: Error when reading 'lib/widgets/task_item.dart': Error reading 'lib/widgets/task_item.dart'  (No such file or directory)
+            import '../../widgets/task_item.dart';
+                   ^
+            lib/screens/tasks/task_list_screen.dart:8:8:
+            Error: Error when reading 'lib/widgets/empty_state.dart': Error reading 'lib/widgets/empty_state.dart'  (No such file or directory)
+            import '../../widgets/empty_state.dart';
+                   ^
+            lib/screens/tasks/task_detail_screen.dart:10:8:
+            Error: Error when reading 'lib/widgets/priority_selector.dart': Error reading 'lib/widgets/priority_selector.dart'  (No such file or directory)
+            import '../../widgets/priority_selector.dart';
+                   ^
+            lib/screens/tasks/task_detail_screen.dart:11:8:
+            Error: Error when reading 'lib/widgets/category_selector.dart': Error reading 'lib/widgets/category_selector.dart'  (No such file or directory)
+            import '../../widgets/category_selector.dart';
+                   ^
+            lib/screens/tasks/task_detail_screen.dart:12:8:
+            Error: Error when reading 'lib/widgets/date_time_picker.dart': Error reading 'lib/widgets/date_time_picker.dart'  (No such file or directory)
+            import '../../widgets/date_time_picker.dart';
+                   ^
+            lib/screens/tasks/task_detail_screen.dart:13:8:
+            Error: Error when reading 'lib/widgets/tag_input.dart': Error reading 'lib/widgets/tag_input.dart'  (No such file or directory)
+            import '../../widgets/tag_input.dart';
+                   ^
+            lib/screens/tasks/task_detail_screen.dart:14:8:
+            Error: Error when reading 'lib/widgets/subtask_list.dart': Error reading 'lib/widgets/subtask_list.dart'  (No such file or directory)
+            import '../../widgets/subtask_list.dart';
+                   ^
+            lib/screens/tasks/task_detail_screen.dart:15:8:
+            Error: Error when reading 'lib/widgets/attachment_list.dart': Error reading 'lib/widgets/attachment_list.dart'  (No such file or directory)
+            import '../../widgets/attachment_list.dart';
+                   ^
+            lib/screens/profile/profile_screen.dart:6:8:
+            Error: Error when reading 'lib/utils/app_helpers.dart': Error reading 'lib/utils/app_helpers.dart'  (No such file or directory)
+            import '../../utils/app_helpers.dart';
+                   ^
+            lib/screens/profile/profile_screen.dart:11:8:
+            Error: Error when reading 'lib/widgets/subscription_card.dart': Error reading 'lib/widgets/subscription_card.dart'  (No such file or directory)
+            import '../../widgets/subscription_card.dart';
+                   ^
+            lib/main.dart:51:39:
+            Error: Couldn't find constructor 'SplashScreen'.
+                          '/': (context) => const SplashScreen(),
+                                                  ^^^^^^^^^^^^
+            lib/providers/auth_provider.dart:171:30:
+            Error: The argument type 'User' can't be assigned to the parameter type 'Map<String, dynamic>'.
+             - 'User' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+             - 'Map' is from 'dart:core'.
+                  _setUser(User.fromJson(updatedUser));
+                                         ^
+            lib/screens/auth/login_screen.dart:45:31:
+            Error: Too many positional arguments: 0 allowed, but 2 found.
+                  await authProvider.login(
+                                          ^
+            lib/screens/auth/register_screen.dart:55:34:
+            Error: Too many positional arguments: 0 allowed, but 3 found.
+                  await authProvider.register(
+                                             ^
+            lib/screens/home/home_screen.dart:28:11:
+            Error: Couldn't find constructor 'StatisticsScreen'.
+                const StatisticsScreen(),
+                      ^^^^^^^^^^^^^^^^
+            lib/screens/tasks/task_list_screen.dart:78:22:
+            Error: The method 'loadMoreTasks' isn't defined for the class 'TaskProvider'.
+             - 'TaskProvider' is from 'package:todolist_flutter/providers/task_provider.dart' ('lib/providers/task_provider.dart').
+                    taskProvider.loadMoreTasks();
+                                 ^^^^^^^^^^^^^
+            lib/screens/tasks/task_list_screen.dart:85:18:
+            Error: The method 'setFilter' isn't defined for the class 'TaskProvider'.
+             - 'TaskProvider' is from 'package:todolist_flutter/providers/task_provider.dart' ('lib/providers/task_provider.dart').
+                taskProvider.setFilter(_currentFilter);
+                             ^^^^^^^^^
+            lib/screens/tasks/task_list_screen.dart:148:57:
+            Error: The argument type 'bool' can't be assigned to the parameter type 'String'.
+                              taskProvider.setSorting(_currentSort, _sortAscending);
+                                                                    ^
+            lib/screens/tasks/task_list_screen.dart:163:48:
+            Error: No named parameter with the name 'task'.
+                    builder: (context) => TaskDetailScreen(task: task),
+                                                           ^^^^
+            lib/screens/tasks/task_detail_screen.dart:22:9:
+            Info: Found this candidate, but the arguments don't match.
+              const TaskDetailScreen({
+                    ^^^^^^^^^^^^^^^^
+            lib/screens/tasks/task_list_screen.dart:171:50:
+            Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                  await taskProvider.toggleTaskComplete(task.id);
+                                                             ^
+            lib/screens/tasks/task_list_screen.dart:176:16:
+            Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                      task.isCompleted ? '任务已完成' : '任务已重新激活',
+                           ^^^^^^^^^^^
+            lib/screens/tasks/task_list_screen.dart:198:44:
+            Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                    await taskProvider.deleteTask(task.id);
+                                                       ^
+            lib/screens/tasks/task_list_screen.dart:284:50:
+            Error: The getter 'filteredTasks' isn't defined for the class 'TaskProvider'.
+             - 'TaskProvider' is from 'package:todolist_flutter/providers/task_provider.dart' ('lib/providers/task_provider.dart').
+                          final filteredTasks = taskProvider.filteredTasks;
+                                                             ^^^^^^^^^^^^^
+            lib/screens/tasks/task_list_screen.dart:287:24:
+            Error: The method 'EmptyState' isn't defined for the class '_TaskListScreenState'.
+             - '_TaskListScreenState' is from 'package:todolist_flutter/screens/tasks/task_list_screen.dart' ('lib/screens/tasks/task_list_screen.dart').
+                            return EmptyState(
+                                   ^^^^^^^^^^
+            lib/screens/tasks/task_list_screen.dart:329:28:
+            Error: The method 'TaskItem' isn't defined for the class '_TaskListScreenState'.
+             - '_TaskListScreenState' is from 'package:todolist_flutter/screens/tasks/task_list_screen.dart' ('lib/screens/tasks/task_list_screen.dart').
+                                return TaskItem(
+                                       ^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:48:39:
+            Error: The method 'getTask' isn't defined for the class 'TaskProvider'.
+             - 'TaskProvider' is from 'package:todolist_flutter/providers/task_provider.dart' ('lib/providers/task_provider.dart').
+                  final task = await taskProvider.getTask(widget.taskId);
+                                                  ^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:61:9:
+            Error: The method 'showErrorSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                    showErrorSnackBar(context, 'Failed to load task: ${e.toString()}');
+                    ^^^^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:71:52:
+            Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                  await taskProvider.toggleTaskComplete(_task!.id);
+                                                               ^
+            lib/screens/tasks/task_detail_screen.dart:77:9:
+            Error: The method 'showSuccessSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                    showSuccessSnackBar(
+                    ^^^^^^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:79:18:
+            Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                      _task!.isCompleted ? 'Task completed!' : 'Task marked as incomplete'
+                             ^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:84:9:
+            Error: The method 'showErrorSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                    showErrorSnackBar(context, 'Failed to update task: ${e.toString()}');
+                    ^^^^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:92:29:
+            Error: The method 'showConfirmationDialog' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                final confirmed = await showConfirmationDialog(
+                                        ^^^^^^^^^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:103:46:
+            Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                    await taskProvider.deleteTask(_task!.id);
+                                                         ^
+            lib/screens/tasks/task_detail_screen.dart:107:11:
+            Error: The method 'showSuccessSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                      showSuccessSnackBar(context, 'Task deleted successfully');
+                      ^^^^^^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:111:11:
+            Error: The method 'showErrorSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                      showErrorSnackBar(context, 'Failed to delete task: ${e.toString()}');
+                      ^^^^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:187:44:
+            Error: Expected an identifier, but got '..'.
+                    if (_task!.description.isNotEmpty) ..[
+                                                       ^^
+            lib/screens/tasks/task_detail_screen.dart:191:12:
+            Error: Expected ']' before this.
+                      ),
+                       ^
+            lib/screens/tasks/task_detail_screen.dart:201:37:
+            Error: Expected an identifier, but got '..'.
+                    if (_task!.dueDate != null) ..[
+                                                ^^
+            lib/screens/tasks/task_detail_screen.dart:207:12:
+            Error: Expected ']' before this.
+                      ),
+                       ^
+            lib/screens/tasks/task_detail_screen.dart:212:42:
+            Error: Expected an identifier, but got '..'.
+                    if (_task!.reminderTime != null) ..[
+                                                     ^^
+            lib/screens/tasks/task_detail_screen.dart:217:12:
+            Error: Expected ']' before this.
+                      ),
+                       ^
+            lib/screens/tasks/task_detail_screen.dart:222:41:
+            Error: Expected an identifier, but got '..'.
+                    if (_task!.category.isNotEmpty) ..[
+                                                    ^^
+            lib/screens/tasks/task_detail_screen.dart:227:12:
+            Error: Expected ']' before this.
+                      ),
+                       ^
+            lib/screens/tasks/task_detail_screen.dart:232:37:
+            Error: Expected an identifier, but got '..'.
+                    if (_task!.tags.isNotEmpty) ..[
+                                                ^^
+            lib/screens/tasks/task_detail_screen.dart:236:12:
+            Error: Expected ']' before this.
+                      ),
+                       ^
+            lib/screens/tasks/task_detail_screen.dart:250:41:
+            Error: Expected an identifier, but got '..'.
+                    if (_task!.subtasks.isNotEmpty) ..[
+                                                    ^^
+            lib/screens/tasks/task_detail_screen.dart:254:12:
+            Error: Expected ']' before this.
+                      ),
+                       ^
+            lib/screens/tasks/task_detail_screen.dart:272:41:
+            Error: Expected an identifier, but got '..'.
+                    if (_task!.subtasks.isNotEmpty) ..[
+                                                    ^^
+            lib/screens/tasks/task_detail_screen.dart:276:12:
+            Error: Expected ']' before this.
+                      ),
+                       ^
+            lib/screens/tasks/task_detail_screen.dart:142:32:
+            Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                        decoration: _task!.isCompleted ? TextDecoration.lineThrough : null,
+                                           ^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:143:27:
+            Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                        color: _task!.isCompleted ? Colors.grey : null,
+                                      ^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:154:47:
+            Error: The getter 'status' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                            color: _getStatusColor(_task!.status),
+                                                          ^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:158:24:
+            Error: The getter 'status' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                            _task!.status.displayName,
+                                   ^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:170:49:
+            Error: The argument type 'String' can't be assigned to the parameter type 'TaskPriority'.
+             - 'TaskPriority' is from 'package:todolist_flutter/utils/constants.dart' ('lib/utils/constants.dart').
+                            color: _getPriorityColor(_task!.priority),
+                                                            ^
+            lib/screens/tasks/task_detail_screen.dart:174:33:
+            Error: The getter 'displayName' isn't defined for the class 'String'.
+                            _task!.priority.displayName,
+                                            ^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:187:32:
+            Error: Property 'isNotEmpty' cannot be accessed on 'String?' because it is potentially null.
+                    if (_task!.description.isNotEmpty) ..[
+                                           ^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:205:20:
+            Error: The method 'formatDateTime' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                        value: formatDateTime(_task!.dueDate!),
+                               ^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:216:20:
+            Error: The method 'formatDateTime' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                        value: formatDateTime(_task!.reminderTime!),
+                               ^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:222:29:
+            Error: Property 'isNotEmpty' cannot be accessed on 'String?' because it is potentially null.
+                    if (_task!.category.isNotEmpty) ..[
+                                        ^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:226:27:
+            Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                        value: _task!.category,
+                                      ^
+            lib/screens/tasks/task_detail_screen.dart:299:18:
+            Error: The method 'formatDateTime' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                      value: formatDateTime(_task!.createdAt),
+                             ^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:305:18:
+            Error: The method 'formatDateTime' isn't defined for the class '_TaskDetailScreenState'.
+             - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                      value: formatDateTime(_task!.updatedAt),
+                             ^^^^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:305:40:
+            Error: The getter 'updatedAt' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                      value: formatDateTime(_task!.updatedAt),
+                                                   ^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:364:25:
+            Error: Member not found: 'urgent'.
+                  case TaskPriority.urgent:
+                                    ^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:375:30:
+            Error: Expected an identifier, but got '..'.
+                      if (_task != null) ..[
+                                         ^^
+            lib/screens/tasks/task_detail_screen.dart:380:14:
+            Error: Expected ']' before this.
+                        ),
+                         ^
+            lib/screens/tasks/task_detail_screen.dart:418:24:
+            Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                            _task!.isCompleted ? Icons.undo : Icons.check,
+                                   ^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:421:24:
+            Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                            _task!.isCompleted ? 'Mark Incomplete' : 'Mark Complete',
+                                   ^^^^^^^^^^^
+            lib/screens/tasks/task_detail_screen.dart:423:39:
+            Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+             - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                          backgroundColor: _task!.isCompleted
+                                                  ^^^^^^^^^^^
+            lib/screens/tasks/add_task_screen.dart:51:28:
+            Warning: Operand of null-aware operation '??' has type 'List<String>' which excludes null.
+             - 'List' is from 'dart:core'.
+                _tags = List.from(task.tags ?? []);
+                                       ^
+            lib/screens/tasks/add_task_screen.dart:52:32:
+            Warning: Operand of null-aware operation '??' has type 'List<Subtask>' which excludes null.
+             - 'List' is from 'dart:core'.
+             - 'Subtask' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                _subtasks = List.from(task.subtasks ?? []);
+                                           ^
+            lib/screens/tasks/add_task_screen.dart:126:11:
+            Error: No named parameter with the name 'status'.
+                      status: 'pending',
+                      ^^^^^^
+            lib/models/task.dart:37:3:
+            Info: Found this candidate, but the arguments don't match.
+              Task({
+              ^^^^
+            lib/screens/tasks/add_task_screen.dart:104:11:
+            Error: No named parameter with the name 'updatedAt'.
+                      updatedAt: DateTime.now(),
+                      ^^^^^^^^^
+            lib/screens/tasks/add_task_screen.dart:107:38:
+            Error: Too few positional arguments: 2 required, 1 given.
+                    await taskProvider.updateTask(updatedTask);
+                                                 ^
+            lib/screens/tasks/add_task_screen.dart:313:23:
+            Error: No named parameter with the name 'isCompleted'.
+                                  isCompleted: false,
+                                  ^^^^^^^^^^^
+            lib/models/task.dart:295:3:
+            Info: Found this candidate, but the arguments don't match.
+              Subtask({
+              ^^^^^^^
+            lib/screens/tasks/add_task_screen.dart:331:40:
+            Error: The getter 'isCompleted' isn't defined for the class 'Subtask'.
+             - 'Subtask' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                    isCompleted: !_subtasks[index].isCompleted,
+                                                   ^^^^^^^^^^^
+            lib/screens/tasks/add_task_screen.dart:331:9:
+            Error: No named parameter with the name 'isCompleted'.
+                    isCompleted: !_subtasks[index].isCompleted,
+                    ^^^^^^^^^^^
+            lib/screens/tasks/add_task_screen.dart:560:37:
+            Error: Expected an identifier, but got '..'.
+                          if (_dueDate != null) ..[
+                                                ^^
+            lib/screens/tasks/add_task_screen.dart:561:43:
+            Error: Expected ']' before this.
+                            const SizedBox(height: 16),
+                                                      ^
+            lib/screens/tasks/add_task_screen.dart:595:37:
+            Error: Expected an identifier, but got '..'.
+                          if (_tags.isNotEmpty) ..[
+                                                ^^
+            lib/screens/tasks/add_task_screen.dart:596:42:
+            Error: Expected ']' before this.
+                            const SizedBox(height: 8),
+                                                     ^
+            lib/screens/tasks/add_task_screen.dart:627:41:
+            Error: Expected an identifier, but got '..'.
+                          if (_subtasks.isNotEmpty) ..[
+                                                    ^^
+            lib/screens/tasks/add_task_screen.dart:628:42:
+            Error: Expected ']' before this.
+                            const SizedBox(height: 8),
+                                                     ^
+            lib/screens/profile/profile_screen.dart:52:9:
+            Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                    AppHelpers.showErrorMessage(context, 'Failed to load profile: ${e.toString()}');
+                    ^^^^^^^^^^
+            lib/screens/profile/profile_screen.dart:79:11:
+            Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                      AppHelpers.showErrorMessage(context, 'Failed to logout: ${e.toString()}');
+                      ^^^^^^^^^^
+            lib/screens/profile/profile_screen.dart:151:13:
+            Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                        AppHelpers.showSuccessMessage(context, 'Account deleted successfully');
+                        ^^^^^^^^^^
+            lib/screens/profile/profile_screen.dart:155:13:
+            Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                        AppHelpers.showErrorMessage(context, 'Failed to delete account: ${e.toString()}');
+                        ^^^^^^^^^^
+            lib/screens/profile/profile_screen.dart:185:25:
+            Warning: Operand of null-aware operation '?.' has type 'UserProfile' which excludes null.
+             - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                        child: user.profile?.avatar != null
+                                    ^
+            lib/screens/profile/profile_screen.dart:185:34:
+            Error: The getter 'avatar' isn't defined for the class 'UserProfile'.
+             - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                        child: user.profile?.avatar != null
+                                             ^^^^^^
+            lib/screens/profile/profile_screen.dart:189:28:
+            Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+             - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                  user.profile!.avatar!,
+                                       ^
+            lib/screens/profile/profile_screen.dart:189:37:
+            Error: The getter 'avatar' isn't defined for the class 'UserProfile'.
+             - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                  user.profile!.avatar!,
+                                                ^^^^^^
+            lib/screens/profile/profile_screen.dart:212:18:
+            Error: The getter 'name' isn't defined for the class 'User'.
+             - 'User' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                        user.name,
+                             ^^^^
+            lib/screens/profile/profile_screen.dart:231:29:
+            Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                        'Member since ${AppHelpers.formatDate(user.createdAt)}',
+                                        ^^^^^^^^^^
+            lib/screens/profile/profile_screen.dart:261:33:
+            Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+             - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                value: user.usage?.tasksCreated.toString() ?? '0',
+                                            ^
+            lib/screens/profile/profile_screen.dart:269:33:
+            Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+             - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                value: user.usage?.tasksCompleted.toString() ?? '0',
+                                            ^
+            lib/screens/profile/profile_screen.dart:283:36:
+            Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+             - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                value: '${user.usage?.tasksCompleted ?? 0} tasks',
+                                               ^
+            lib/screens/profile/profile_screen.dart:291:33:
+            Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+             - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                value: user.usage?.tasksCreated == 0 
+                                            ^
+            lib/screens/profile/profile_screen.dart:293:37:
+            Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+             - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                    : '${((user.usage?.tasksCompleted ?? 0) / (user.usage?.tasksCreated ?? 1) * 100).toInt()}%',
+                                                ^
+            lib/screens/profile/profile_screen.dart:293:73:
+            Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+             - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                    : '${((user.usage?.tasksCompleted ?? 0) / (user.usage?.tasksCreated ?? 1) * 100).toInt()}%',
+                                                                                    ^
+            lib/screens/profile/profile_screen.dart:365:19:
+            Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                              AppHelpers.showInfoMessage(context, 'Subscription feature coming soon!');
+                              ^^^^^^^^^^
+            lib/screens/profile/profile_screen.dart:377:14:
+            Error: The method 'SubscriptionCard' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                  child: SubscriptionCard(
+                         ^^^^^^^^^^^^^^^^
+            lib/screens/profile/profile_screen.dart:378:21:
+            Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+             - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                    title: user.subscription!.type.toUpperCase(),
+                                ^
+            lib/screens/profile/profile_screen.dart:379:21:
+            Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+             - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                    price: user.subscription!.type == 'free' ? 'Free' : '\$9.99',
+                                ^
+            lib/screens/profile/profile_screen.dart:380:22:
+            Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+             - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                    period: user.subscription!.type == 'free' ? 'Forever' : 'Monthly',
+                                 ^
+            lib/screens/profile/profile_screen.dart:381:24:
+            Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+             - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                    features: user.subscription!.type == 'free' 
+                                   ^
+            lib/screens/profile/profile_screen.dart:384:24:
+            Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+             - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                    isActive: user.subscription!.status == 'active',
+                                   ^
+            lib/screens/profile/profile_screen.dart:434:15:
+            Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                          AppHelpers.showInfoMessage(context, 'Help & Support coming soon!');
+                          ^^^^^^^^^^
+            lib/screens/profile/profile_screen.dart:444:15:
+            Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                          AppHelpers.showInfoMessage(context, 'Privacy Policy coming soon!');
+                          ^^^^^^^^^^
+            lib/screens/profile/profile_screen.dart:454:15:
+            Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+             - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                          AppHelpers.showInfoMessage(context, 'Terms of Service coming soon!');
+                          ^^^^^^^^^^
+            lib/utils/helpers.dart:245:36:
+            Error: Member not found: 'ltr'.
+                  textDirection: TextDirection.ltr,
+                                               ^^^
+            lib/screens/profile/edit_profile_screen.dart:74:36:
+            Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+             - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                  _phoneController.text = user.profile!.phone ?? '';
+                                               ^
+            lib/screens/profile/edit_profile_screen.dart:75:34:
+            Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+             - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                  _bioController.text = user.profile!.bio ?? '';
+                                             ^
+            lib/screens/profile/edit_profile_screen.dart:76:42:
+            Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+             - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                  _locationController.text = "${user.profile!.city ?? ''}, ${user.profile!.country ?? ''}";
+                                                     ^
+            lib/screens/profile/edit_profile_screen.dart:76:71:
+            Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+             - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                  _locationController.text = "${user.profile!.city ?? ''}, ${user.profile!.country ?? ''}";
+                                                                                  ^
+            lib/screens/profile/edit_profile_screen.dart:231:33:
+            Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+             - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                      user!.profile!.avatarUrl!,
+                                            ^
+            Error: Compilation failed.
+[  +13 ms] Persisting file store
+[   +4 ms] Done persisting file store
+[   +5 ms] Target dart2js failed: ProcessException: Process exited abnormally with exit code 1:
+           lib/main.dart:6:8:
+           Error: Error when reading 'lib/screens/splash_screen.dart': Error reading 'lib/screens/splash_screen.dart'  (No such file or directory)
+           import 'screens/splash_screen.dart';
+                  ^
+           lib/utils/helpers.dart:356:1:
+           Error: Directives must appear before any declarations.
+           import 'dart:async';
+           ^^^^^^
+           lib/utils/helpers.dart:357:1:
+           Error: Directives must appear before any declarations.
+           import 'package:flutter/services.dart';
+           ^^^^^^
+           lib/screens/home/home_screen.dart:10:8:
+           Error: Error when reading 'lib/screens/statistics/statistics_screen.dart': Error reading 'lib/screens/statistics/statistics_screen.dart'  (No such file or directory)
+           import '../statistics/statistics_screen.dart';
+                  ^
+           lib/screens/tasks/task_list_screen.dart:7:8:
+           Error: Error when reading 'lib/widgets/task_item.dart': Error reading 'lib/widgets/task_item.dart'  (No such file or directory)
+           import '../../widgets/task_item.dart';
+                  ^
+           lib/screens/tasks/task_list_screen.dart:8:8:
+           Error: Error when reading 'lib/widgets/empty_state.dart': Error reading 'lib/widgets/empty_state.dart'  (No such file or directory)
+           import '../../widgets/empty_state.dart';
+                  ^
+           lib/screens/tasks/task_detail_screen.dart:10:8:
+           Error: Error when reading 'lib/widgets/priority_selector.dart': Error reading 'lib/widgets/priority_selector.dart'  (No such file or directory)
+           import '../../widgets/priority_selector.dart';
+                  ^
+           lib/screens/tasks/task_detail_screen.dart:11:8:
+           Error: Error when reading 'lib/widgets/category_selector.dart': Error reading 'lib/widgets/category_selector.dart'  (No such file or directory)
+           import '../../widgets/category_selector.dart';
+                  ^
+           lib/screens/tasks/task_detail_screen.dart:12:8:
+           Error: Error when reading 'lib/widgets/date_time_picker.dart': Error reading 'lib/widgets/date_time_picker.dart'  (No such file or directory)
+           import '../../widgets/date_time_picker.dart';
+                  ^
+           lib/screens/tasks/task_detail_screen.dart:13:8:
+           Error: Error when reading 'lib/widgets/tag_input.dart': Error reading 'lib/widgets/tag_input.dart'  (No such file or directory)
+           import '../../widgets/tag_input.dart';
+                  ^
+           lib/screens/tasks/task_detail_screen.dart:14:8:
+           Error: Error when reading 'lib/widgets/subtask_list.dart': Error reading 'lib/widgets/subtask_list.dart'  (No such file or directory)
+           import '../../widgets/subtask_list.dart';
+                  ^
+           lib/screens/tasks/task_detail_screen.dart:15:8:
+           Error: Error when reading 'lib/widgets/attachment_list.dart': Error reading 'lib/widgets/attachment_list.dart'  (No such file or directory)
+           import '../../widgets/attachment_list.dart';
+                  ^
+           lib/screens/profile/profile_screen.dart:6:8:
+           Error: Error when reading 'lib/utils/app_helpers.dart': Error reading 'lib/utils/app_helpers.dart'  (No such file or directory)
+           import '../../utils/app_helpers.dart';
+                  ^
+           lib/screens/profile/profile_screen.dart:11:8:
+           Error: Error when reading 'lib/widgets/subscription_card.dart': Error reading 'lib/widgets/subscription_card.dart'  (No such file or directory)
+           import '../../widgets/subscription_card.dart';
+                  ^
+           lib/main.dart:51:39:
+           Error: Couldn't find constructor 'SplashScreen'.
+                         '/': (context) => const SplashScreen(),
+                                                 ^^^^^^^^^^^^
+           lib/providers/auth_provider.dart:171:30:
+           Error: The argument type 'User' can't be assigned to the parameter type 'Map<String, dynamic>'.
+            - 'User' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+            - 'Map' is from 'dart:core'.
+                 _setUser(User.fromJson(updatedUser));
+                                        ^
+           lib/screens/auth/login_screen.dart:45:31:
+           Error: Too many positional arguments: 0 allowed, but 2 found.
+                 await authProvider.login(
+                                         ^
+           lib/screens/auth/register_screen.dart:55:34:
+           Error: Too many positional arguments: 0 allowed, but 3 found.
+                 await authProvider.register(
+                                            ^
+           lib/screens/home/home_screen.dart:28:11:
+           Error: Couldn't find constructor 'StatisticsScreen'.
+               const StatisticsScreen(),
+                     ^^^^^^^^^^^^^^^^
+           lib/screens/tasks/task_list_screen.dart:78:22:
+           Error: The method 'loadMoreTasks' isn't defined for the class 'TaskProvider'.
+            - 'TaskProvider' is from 'package:todolist_flutter/providers/task_provider.dart' ('lib/providers/task_provider.dart').
+                   taskProvider.loadMoreTasks();
+                                ^^^^^^^^^^^^^
+           lib/screens/tasks/task_list_screen.dart:85:18:
+           Error: The method 'setFilter' isn't defined for the class 'TaskProvider'.
+            - 'TaskProvider' is from 'package:todolist_flutter/providers/task_provider.dart' ('lib/providers/task_provider.dart').
+               taskProvider.setFilter(_currentFilter);
+                            ^^^^^^^^^
+           lib/screens/tasks/task_list_screen.dart:148:57:
+           Error: The argument type 'bool' can't be assigned to the parameter type 'String'.
+                             taskProvider.setSorting(_currentSort, _sortAscending);
+                                                                   ^
+           lib/screens/tasks/task_list_screen.dart:163:48:
+           Error: No named parameter with the name 'task'.
+                   builder: (context) => TaskDetailScreen(task: task),
+                                                          ^^^^
+           lib/screens/tasks/task_detail_screen.dart:22:9:
+           Info: Found this candidate, but the arguments don't match.
+             const TaskDetailScreen({
+                   ^^^^^^^^^^^^^^^^
+           lib/screens/tasks/task_list_screen.dart:171:50:
+           Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                 await taskProvider.toggleTaskComplete(task.id);
+                                                            ^
+           lib/screens/tasks/task_list_screen.dart:176:16:
+           Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                     task.isCompleted ? '任务已完成' : '任务已重新激活',
+                          ^^^^^^^^^^^
+           lib/screens/tasks/task_list_screen.dart:198:44:
+           Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                   await taskProvider.deleteTask(task.id);
+                                                      ^
+           lib/screens/tasks/task_list_screen.dart:284:50:
+           Error: The getter 'filteredTasks' isn't defined for the class 'TaskProvider'.
+            - 'TaskProvider' is from 'package:todolist_flutter/providers/task_provider.dart' ('lib/providers/task_provider.dart').
+                         final filteredTasks = taskProvider.filteredTasks;
+                                                            ^^^^^^^^^^^^^
+           lib/screens/tasks/task_list_screen.dart:287:24:
+           Error: The method 'EmptyState' isn't defined for the class '_TaskListScreenState'.
+            - '_TaskListScreenState' is from 'package:todolist_flutter/screens/tasks/task_list_screen.dart' ('lib/screens/tasks/task_list_screen.dart').
+                           return EmptyState(
+                                  ^^^^^^^^^^
+           lib/screens/tasks/task_list_screen.dart:329:28:
+           Error: The method 'TaskItem' isn't defined for the class '_TaskListScreenState'.
+            - '_TaskListScreenState' is from 'package:todolist_flutter/screens/tasks/task_list_screen.dart' ('lib/screens/tasks/task_list_screen.dart').
+                               return TaskItem(
+                                      ^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:48:39:
+           Error: The method 'getTask' isn't defined for the class 'TaskProvider'.
+            - 'TaskProvider' is from 'package:todolist_flutter/providers/task_provider.dart' ('lib/providers/task_provider.dart').
+                 final task = await taskProvider.getTask(widget.taskId);
+                                                 ^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:61:9:
+           Error: The method 'showErrorSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                   showErrorSnackBar(context, 'Failed to load task: ${e.toString()}');
+                   ^^^^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:71:52:
+           Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                 await taskProvider.toggleTaskComplete(_task!.id);
+                                                              ^
+           lib/screens/tasks/task_detail_screen.dart:77:9:
+           Error: The method 'showSuccessSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                   showSuccessSnackBar(
+                   ^^^^^^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:79:18:
+           Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                     _task!.isCompleted ? 'Task completed!' : 'Task marked as incomplete'
+                            ^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:84:9:
+           Error: The method 'showErrorSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                   showErrorSnackBar(context, 'Failed to update task: ${e.toString()}');
+                   ^^^^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:92:29:
+           Error: The method 'showConfirmationDialog' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+               final confirmed = await showConfirmationDialog(
+                                       ^^^^^^^^^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:103:46:
+           Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                   await taskProvider.deleteTask(_task!.id);
+                                                        ^
+           lib/screens/tasks/task_detail_screen.dart:107:11:
+           Error: The method 'showSuccessSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                     showSuccessSnackBar(context, 'Task deleted successfully');
+                     ^^^^^^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:111:11:
+           Error: The method 'showErrorSnackBar' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                     showErrorSnackBar(context, 'Failed to delete task: ${e.toString()}');
+                     ^^^^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:187:44:
+           Error: Expected an identifier, but got '..'.
+                   if (_task!.description.isNotEmpty) ..[
+                                                      ^^
+           lib/screens/tasks/task_detail_screen.dart:191:12:
+           Error: Expected ']' before this.
+                     ),
+                      ^
+           lib/screens/tasks/task_detail_screen.dart:201:37:
+           Error: Expected an identifier, but got '..'.
+                   if (_task!.dueDate != null) ..[
+                                               ^^
+           lib/screens/tasks/task_detail_screen.dart:207:12:
+           Error: Expected ']' before this.
+                     ),
+                      ^
+           lib/screens/tasks/task_detail_screen.dart:212:42:
+           Error: Expected an identifier, but got '..'.
+                   if (_task!.reminderTime != null) ..[
+                                                    ^^
+           lib/screens/tasks/task_detail_screen.dart:217:12:
+           Error: Expected ']' before this.
+                     ),
+                      ^
+           lib/screens/tasks/task_detail_screen.dart:222:41:
+           Error: Expected an identifier, but got '..'.
+                   if (_task!.category.isNotEmpty) ..[
+                                                   ^^
+           lib/screens/tasks/task_detail_screen.dart:227:12:
+           Error: Expected ']' before this.
+                     ),
+                      ^
+           lib/screens/tasks/task_detail_screen.dart:232:37:
+           Error: Expected an identifier, but got '..'.
+                   if (_task!.tags.isNotEmpty) ..[
+                                               ^^
+           lib/screens/tasks/task_detail_screen.dart:236:12:
+           Error: Expected ']' before this.
+                     ),
+                      ^
+           lib/screens/tasks/task_detail_screen.dart:250:41:
+           Error: Expected an identifier, but got '..'.
+                   if (_task!.subtasks.isNotEmpty) ..[
+                                                   ^^
+           lib/screens/tasks/task_detail_screen.dart:254:12:
+           Error: Expected ']' before this.
+                     ),
+                      ^
+           lib/screens/tasks/task_detail_screen.dart:272:41:
+           Error: Expected an identifier, but got '..'.
+                   if (_task!.subtasks.isNotEmpty) ..[
+                                                   ^^
+           lib/screens/tasks/task_detail_screen.dart:276:12:
+           Error: Expected ']' before this.
+                     ),
+                      ^
+           lib/screens/tasks/task_detail_screen.dart:142:32:
+           Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                       decoration: _task!.isCompleted ? TextDecoration.lineThrough : null,
+                                          ^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:143:27:
+           Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                       color: _task!.isCompleted ? Colors.grey : null,
+                                     ^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:154:47:
+           Error: The getter 'status' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                           color: _getStatusColor(_task!.status),
+                                                         ^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:158:24:
+           Error: The getter 'status' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                           _task!.status.displayName,
+                                  ^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:170:49:
+           Error: The argument type 'String' can't be assigned to the parameter type 'TaskPriority'.
+            - 'TaskPriority' is from 'package:todolist_flutter/utils/constants.dart' ('lib/utils/constants.dart').
+                           color: _getPriorityColor(_task!.priority),
+                                                           ^
+           lib/screens/tasks/task_detail_screen.dart:174:33:
+           Error: The getter 'displayName' isn't defined for the class 'String'.
+                           _task!.priority.displayName,
+                                           ^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:187:32:
+           Error: Property 'isNotEmpty' cannot be accessed on 'String?' because it is potentially null.
+                   if (_task!.description.isNotEmpty) ..[
+                                          ^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:205:20:
+           Error: The method 'formatDateTime' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                       value: formatDateTime(_task!.dueDate!),
+                              ^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:216:20:
+           Error: The method 'formatDateTime' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                       value: formatDateTime(_task!.reminderTime!),
+                              ^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:222:29:
+           Error: Property 'isNotEmpty' cannot be accessed on 'String?' because it is potentially null.
+                   if (_task!.category.isNotEmpty) ..[
+                                       ^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:226:27:
+           Error: The argument type 'String?' can't be assigned to the parameter type 'String' because 'String?' is nullable and 'String' isn't.
+                       value: _task!.category,
+                                     ^
+           lib/screens/tasks/task_detail_screen.dart:299:18:
+           Error: The method 'formatDateTime' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                     value: formatDateTime(_task!.createdAt),
+                            ^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:305:18:
+           Error: The method 'formatDateTime' isn't defined for the class '_TaskDetailScreenState'.
+            - '_TaskDetailScreenState' is from 'package:todolist_flutter/screens/tasks/task_detail_screen.dart' ('lib/screens/tasks/task_detail_screen.dart').
+                     value: formatDateTime(_task!.updatedAt),
+                            ^^^^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:305:40:
+           Error: The getter 'updatedAt' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                     value: formatDateTime(_task!.updatedAt),
+                                                  ^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:364:25:
+           Error: Member not found: 'urgent'.
+                 case TaskPriority.urgent:
+                                   ^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:375:30:
+           Error: Expected an identifier, but got '..'.
+                     if (_task != null) ..[
+                                        ^^
+           lib/screens/tasks/task_detail_screen.dart:380:14:
+           Error: Expected ']' before this.
+                       ),
+                        ^
+           lib/screens/tasks/task_detail_screen.dart:418:24:
+           Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                           _task!.isCompleted ? Icons.undo : Icons.check,
+                                  ^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:421:24:
+           Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                           _task!.isCompleted ? 'Mark Incomplete' : 'Mark Complete',
+                                  ^^^^^^^^^^^
+           lib/screens/tasks/task_detail_screen.dart:423:39:
+           Error: The getter 'isCompleted' isn't defined for the class 'Task'.
+            - 'Task' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                         backgroundColor: _task!.isCompleted
+                                                 ^^^^^^^^^^^
+           lib/screens/tasks/add_task_screen.dart:51:28:
+           Warning: Operand of null-aware operation '??' has type 'List<String>' which excludes null.
+            - 'List' is from 'dart:core'.
+               _tags = List.from(task.tags ?? []);
+                                      ^
+           lib/screens/tasks/add_task_screen.dart:52:32:
+           Warning: Operand of null-aware operation '??' has type 'List<Subtask>' which excludes null.
+            - 'List' is from 'dart:core'.
+            - 'Subtask' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+               _subtasks = List.from(task.subtasks ?? []);
+                                          ^
+           lib/screens/tasks/add_task_screen.dart:126:11:
+           Error: No named parameter with the name 'status'.
+                     status: 'pending',
+                     ^^^^^^
+           lib/models/task.dart:37:3:
+           Info: Found this candidate, but the arguments don't match.
+             Task({
+             ^^^^
+           lib/screens/tasks/add_task_screen.dart:104:11:
+           Error: No named parameter with the name 'updatedAt'.
+                     updatedAt: DateTime.now(),
+                     ^^^^^^^^^
+           lib/screens/tasks/add_task_screen.dart:107:38:
+           Error: Too few positional arguments: 2 required, 1 given.
+                   await taskProvider.updateTask(updatedTask);
+                                                ^
+           lib/screens/tasks/add_task_screen.dart:313:23:
+           Error: No named parameter with the name 'isCompleted'.
+                                 isCompleted: false,
+                                 ^^^^^^^^^^^
+           lib/models/task.dart:295:3:
+           Info: Found this candidate, but the arguments don't match.
+             Subtask({
+             ^^^^^^^
+           lib/screens/tasks/add_task_screen.dart:331:40:
+           Error: The getter 'isCompleted' isn't defined for the class 'Subtask'.
+            - 'Subtask' is from 'package:todolist_flutter/models/task.dart' ('lib/models/task.dart').
+                   isCompleted: !_subtasks[index].isCompleted,
+                                                  ^^^^^^^^^^^
+           lib/screens/tasks/add_task_screen.dart:331:9:
+           Error: No named parameter with the name 'isCompleted'.
+                   isCompleted: !_subtasks[index].isCompleted,
+                   ^^^^^^^^^^^
+           lib/screens/tasks/add_task_screen.dart:560:37:
+           Error: Expected an identifier, but got '..'.
+                         if (_dueDate != null) ..[
+                                               ^^
+           lib/screens/tasks/add_task_screen.dart:561:43:
+           Error: Expected ']' before this.
+                           const SizedBox(height: 16),
+                                                     ^
+           lib/screens/tasks/add_task_screen.dart:595:37:
+           Error: Expected an identifier, but got '..'.
+                         if (_tags.isNotEmpty) ..[
+                                               ^^
+           lib/screens/tasks/add_task_screen.dart:596:42:
+           Error: Expected ']' before this.
+                           const SizedBox(height: 8),
+                                                    ^
+           lib/screens/tasks/add_task_screen.dart:627:41:
+           Error: Expected an identifier, but got '..'.
+                         if (_subtasks.isNotEmpty) ..[
+                                                   ^^
+           lib/screens/tasks/add_task_screen.dart:628:42:
+           Error: Expected ']' before this.
+                           const SizedBox(height: 8),
+                                                    ^
+           lib/screens/profile/profile_screen.dart:52:9:
+           Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                   AppHelpers.showErrorMessage(context, 'Failed to load profile: ${e.toString()}');
+                   ^^^^^^^^^^
+           lib/screens/profile/profile_screen.dart:79:11:
+           Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                     AppHelpers.showErrorMessage(context, 'Failed to logout: ${e.toString()}');
+                     ^^^^^^^^^^
+           lib/screens/profile/profile_screen.dart:151:13:
+           Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                       AppHelpers.showSuccessMessage(context, 'Account deleted successfully');
+                       ^^^^^^^^^^
+           lib/screens/profile/profile_screen.dart:155:13:
+           Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                       AppHelpers.showErrorMessage(context, 'Failed to delete account: ${e.toString()}');
+                       ^^^^^^^^^^
+           lib/screens/profile/profile_screen.dart:185:25:
+           Warning: Operand of null-aware operation '?.' has type 'UserProfile' which excludes null.
+            - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                       child: user.profile?.avatar != null
+                                   ^
+           lib/screens/profile/profile_screen.dart:185:34:
+           Error: The getter 'avatar' isn't defined for the class 'UserProfile'.
+            - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                       child: user.profile?.avatar != null
+                                            ^^^^^^
+           lib/screens/profile/profile_screen.dart:189:28:
+           Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+            - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                 user.profile!.avatar!,
+                                      ^
+           lib/screens/profile/profile_screen.dart:189:37:
+           Error: The getter 'avatar' isn't defined for the class 'UserProfile'.
+            - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                 user.profile!.avatar!,
+                                               ^^^^^^
+           lib/screens/profile/profile_screen.dart:212:18:
+           Error: The getter 'name' isn't defined for the class 'User'.
+            - 'User' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                       user.name,
+                            ^^^^
+           lib/screens/profile/profile_screen.dart:231:29:
+           Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                       'Member since ${AppHelpers.formatDate(user.createdAt)}',
+                                       ^^^^^^^^^^
+           lib/screens/profile/profile_screen.dart:261:33:
+           Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+            - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                               value: user.usage?.tasksCreated.toString() ?? '0',
+                                           ^
+           lib/screens/profile/profile_screen.dart:269:33:
+           Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+            - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                               value: user.usage?.tasksCompleted.toString() ?? '0',
+                                           ^
+           lib/screens/profile/profile_screen.dart:283:36:
+           Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+            - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                               value: '${user.usage?.tasksCompleted ?? 0} tasks',
+                                              ^
+           lib/screens/profile/profile_screen.dart:291:33:
+           Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+            - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                               value: user.usage?.tasksCreated == 0 
+                                           ^
+           lib/screens/profile/profile_screen.dart:293:37:
+           Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+            - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                   : '${((user.usage?.tasksCompleted ?? 0) / (user.usage?.tasksCreated ?? 1) * 100).toInt()}%',
+                                               ^
+           lib/screens/profile/profile_screen.dart:293:73:
+           Warning: Operand of null-aware operation '?.' has type 'UserUsage' which excludes null.
+            - 'UserUsage' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                   : '${((user.usage?.tasksCompleted ?? 0) / (user.usage?.tasksCreated ?? 1) * 100).toInt()}%',
+                                                                                   ^
+           lib/screens/profile/profile_screen.dart:365:19:
+           Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                             AppHelpers.showInfoMessage(context, 'Subscription feature coming soon!');
+                             ^^^^^^^^^^
+           lib/screens/profile/profile_screen.dart:377:14:
+           Error: The method 'SubscriptionCard' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                 child: SubscriptionCard(
+                        ^^^^^^^^^^^^^^^^
+           lib/screens/profile/profile_screen.dart:378:21:
+           Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+            - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                   title: user.subscription!.type.toUpperCase(),
+                               ^
+           lib/screens/profile/profile_screen.dart:379:21:
+           Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+            - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                   price: user.subscription!.type == 'free' ? 'Free' : '\$9.99',
+                               ^
+           lib/screens/profile/profile_screen.dart:380:22:
+           Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+            - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                   period: user.subscription!.type == 'free' ? 'Forever' : 'Monthly',
+                                ^
+           lib/screens/profile/profile_screen.dart:381:24:
+           Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+            - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                   features: user.subscription!.type == 'free' 
+                                  ^
+           lib/screens/profile/profile_screen.dart:384:24:
+           Warning: Operand of null-aware operation '!' has type 'UserSubscription' which excludes null.
+            - 'UserSubscription' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                   isActive: user.subscription!.status == 'active',
+                                  ^
+           lib/screens/profile/profile_screen.dart:434:15:
+           Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                         AppHelpers.showInfoMessage(context, 'Help & Support coming soon!');
+                         ^^^^^^^^^^
+           lib/screens/profile/profile_screen.dart:444:15:
+           Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                         AppHelpers.showInfoMessage(context, 'Privacy Policy coming soon!');
+                         ^^^^^^^^^^
+           lib/screens/profile/profile_screen.dart:454:15:
+           Error: The getter 'AppHelpers' isn't defined for the class '_ProfileScreenState'.
+            - '_ProfileScreenState' is from 'package:todolist_flutter/screens/profile/profile_screen.dart' ('lib/screens/profile/profile_screen.dart').
+                         AppHelpers.showInfoMessage(context, 'Terms of Service coming soon!');
+                         ^^^^^^^^^^
+           lib/utils/helpers.dart:245:36:
+           Error: Member not found: 'ltr'.
+                 textDirection: TextDirection.ltr,
+                                              ^^^
+           lib/screens/profile/edit_profile_screen.dart:74:36:
+           Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+            - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                 _phoneController.text = user.profile!.phone ?? '';
+                                              ^
+           lib/screens/profile/edit_profile_screen.dart:75:34:
+           Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+            - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                 _bioController.text = user.profile!.bio ?? '';
+                                            ^
+           lib/screens/profile/edit_profile_screen.dart:76:42:
+           Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+            - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                 _locationController.text = "${user.profile!.city ?? ''}, ${user.profile!.country ?? ''}";
+                                                    ^
+           lib/screens/profile/edit_profile_screen.dart:76:71:
+           Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+            - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                 _locationController.text = "${user.profile!.city ?? ''}, ${user.profile!.country ?? ''}";
+                                                                                 ^
+           lib/screens/profile/edit_profile_screen.dart:231:33:
+           Warning: Operand of null-aware operation '!' has type 'UserProfile' which excludes null.
+            - 'UserProfile' is from 'package:todolist_flutter/models/user.dart' ('lib/models/user.dart').
+                                     user!.profile!.avatarUrl!,
+                                           ^
+           Error: Compilation failed.
+             Command: /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/dart-sdk/bin/dart --disable-dart-dev /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/dart-sdk/bin/snapshots/dart2js.dart.snapshot --platform-binaries=/Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/flutter_web_sdk/kernel --invoker=flutter_tool -Ddart.vm.product=true -DFLUTTER_WEB_AUTO_DETECT=false -DFLUTTER_WEB_USE_SKIA=false -DFLUTTER_WEB_CANVASKIT_URL=https://www.gstatic.com/flutter-canvaskit/04817c99c9fd4956f27505204f7e344335810aed/ --native-null-assertions --no-source-maps -o /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/.dart_tool/flutter_build/49c5b010c8402a353c87d5d79f25fd1d/app.dill --packages=.dart_tool/package_config.json --cfe-only /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/.dart_tool/flutter_build/49c5b010c8402a353c87d5d79f25fd1d/main.dart
+           #0      RunResult.throwException (package:flutter_tools/src/base/process.dart:127:5)
+           #1      _DefaultProcessUtils.run (package:flutter_tools/src/base/process.dart:326:19)
+           <asynchronous suspension>
+           #2      Dart2JSTarget.build (package:flutter_tools/src/build_system/targets/web.dart:188:5)
+           <asynchronous suspension>
+           #3      _BuildInstance._invokeInternal (package:flutter_tools/src/build_system/build_system.dart:861:9)
+           <asynchronous suspension>
+           #4      Future.wait.<anonymous closure> (dart:async/future.dart:518:21)
+           <asynchronous suspension>
+           #5      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:799:32)
+           <asynchronous suspension>
+           #6      Future.wait.<anonymous closure> (dart:async/future.dart:518:21)
+           <asynchronous suspension>
+           #7      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:799:32)
+           <asynchronous suspension>
+           #8      FlutterBuildSystem.build (package:flutter_tools/src/build_system/build_system.dart:628:16)
+           <asynchronous suspension>
+           #9      WebBuilder.buildWeb (package:flutter_tools/src/web/compile.dart:93:34)
+           <asynchronous suspension>
+           #10     BuildWebCommand.runCommand (package:flutter_tools/src/commands/build_web.dart:200:5)
+           <asynchronous suspension>
+           #11     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1389:27)
+           <asynchronous suspension>
+           #12     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+           <asynchronous suspension>
+           #13     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+           <asynchronous suspension>
+           #14     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:355:9)
+           <asynchronous suspension>
+           #15     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+           <asynchronous suspension>
+           #16     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:295:5)
+           <asynchronous suspension>
+           #17     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:119:9)
+           <asynchronous suspension>
+           #18     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+           <asynchronous suspension>
+           #19     main (package:flutter_tools/executable.dart:90:3)
+           <asynchronous suspension>
+
+[  +23 ms] Compiling lib/main.dart for the Web... (completed in 14.1s)
+[   +4 ms] "flutter web" took 15,238ms.
+[  +27 ms] Error: Failed to compile application for the Web.
+[        ] 
+           #0      throwToolExit (package:flutter_tools/src/base/common.dart:10:3)
+           #1      WebBuilder.buildWeb (package:flutter_tools/src/web/compile.dart:131:7)
+           <asynchronous suspension>
+           #2      BuildWebCommand.runCommand (package:flutter_tools/src/commands/build_web.dart:200:5)
+           <asynchronous suspension>
+           #3      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1389:27)
+           <asynchronous suspension>
+           #4      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+           <asynchronous suspension>
+           #5      CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+           <asynchronous suspension>
+           #6      FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:355:9)
+           <asynchronous suspension>
+           #7      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+           <asynchronous suspension>
+           #8      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:295:5)
+           <asynchronous suspension>
+           #9      run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:119:9)
+           <asynchronous suspension>
+           #10     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+           <asynchronous suspension>
+           #11     main (package:flutter_tools/executable.dart:90:3)
+           <asynchronous suspension>
+
+
+[   +1 ms] Running 0 shutdown hooks
+[   +7 ms] Shutdown hooks complete
+[ +137 ms] exiting with code 1
