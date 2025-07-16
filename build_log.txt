@@ -1,5 +1,5 @@
-[  +28 ms] executing: sw_vers -productName
-[  +39 ms] Exit code 0 from: sw_vers -productName
+[  +32 ms] executing: sw_vers -productName
+[  +37 ms] Exit code 0 from: sw_vers -productName
 [   +2 ms] macOS
 [        ] executing: sw_vers -productVersion
 [  +20 ms] Exit code 0 from: sw_vers -productVersion
@@ -10,29 +10,29 @@
 [        ] executing: uname -m
 [  +12 ms] Exit code 0 from: uname -m
 [        ] x86_64
-[  +13 ms] executing: sysctl hw.optional.arm64
+[  +12 ms] executing: sysctl hw.optional.arm64
 [  +12 ms] Exit code 0 from: sysctl hw.optional.arm64
 [        ] hw.optional.arm64: 1
 [  +30 ms] Unable to locate an Android SDK.
-[ +138 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
-[   +2 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[ +128 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[   +3 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
 [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
-[   +4 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[   +3 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
-[  +68 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[  +70 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
 [        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
 [        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
-[   +7 ms] Artifact Instance of 'FlutterSdk' is not required, skipping update.
-[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[   +6 ms] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[   +3 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
@@ -46,37 +46,37 @@
 [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
 [        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
-[ +119 ms] Skipping pub get: version match.
-[  +63 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
-[   +7 ms] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
-[   +5 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
-[   +6 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
+[ +125 ms] Skipping pub get: version match.
+[  +61 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
+[   +9 ms] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
+[  +19 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
+[   +8 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
 [  +15 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
 [   +2 ms] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
 [   +1 ms] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
 [   +2 ms] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
-[  +17 ms] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
-[   +3 ms] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
+[   +2 ms] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
+[   +2 ms] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
 [   +3 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
-[  +22 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
-[   +4 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
-[   +4 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
+[  +18 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
+[   +1 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
+[   +2 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
 [   +3 ms] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
-[   +4 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
-[   +7 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
-[   +1 ms] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
-[   +1 ms] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
-[   +1 ms] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
-[   +2 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
+[   +3 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
+[  +13 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
+[   +3 ms] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
+[   +2 ms] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
+[   +3 ms] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
+[   +4 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
 [   +1 ms] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
-[  +66 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
+[  +57 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
 [   +2 ms] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
 [   +2 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
 [   +2 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
-[   +9 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
+[   +6 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
 [   +2 ms] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
-[   +3 ms] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
-[   +1 ms] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
+[   +1 ms] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
+[   +2 ms] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
 [   +1 ms] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
 [   +1 ms] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
 [   +2 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
@@ -84,100 +84,100 @@
 [   +1 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
 [   +1 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
 [   +1 ms] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
-[   +1 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
+[   +2 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
 [   +4 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
 [   +1 ms] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
 [   +1 ms] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
-[   +1 ms] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
-[   +2 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
+[        ] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
+[   +1 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
 [        ] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
-[  +55 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
+[  +54 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
 [        ] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
-[   +2 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
-[   +2 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
-[   +4 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
+[   +1 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
+[   +4 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
+[   +8 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
 [        ] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
 [        ] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
 [        ] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
 [        ] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
 [   +1 ms] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
 [   +1 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
-[   +9 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
+[   +8 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
 [        ] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
 [   +1 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
-[        ] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
-[   +1 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
+[   +1 ms] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
+[   +2 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
 [   +3 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
-[        ] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
-[        ] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
+[   +1 ms] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
+[   +1 ms] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
 [   +1 ms] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
 [   +1 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
-[   +1 ms] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
-[ +108 ms] Generating /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
-[  +55 ms] executing: sysctl hw.optional.arm64
+[        ] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
+[ +110 ms] Generating /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+[  +53 ms] executing: sysctl hw.optional.arm64
 [  +15 ms] Exit code 0 from: sysctl hw.optional.arm64
 [   +1 ms] hw.optional.arm64: 1
 [        ] executing: /usr/bin/arch -arm64e xcrun xcodebuild -version
 [  +21 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
 [        ] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
 [   +1 ms] executing: /usr/bin/arch -arm64e xcrun xcodebuild -version
-[  +21 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
+[  +20 ms] Exit code 72 from: /usr/bin/arch -arm64e xcrun xcodebuild -version
 [        ] xcrun: error: unable to find utility "xcodebuild", not a developer tool or in PATH
-[ +149 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
+[ +154 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
 [   +1 ms] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
-[   +2 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
-[   +2 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
-[   +6 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
+[   +3 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
+[   +3 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
+[   +5 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
 [   +1 ms] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
 [        ] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
-[        ] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
+[   +1 ms] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
 [   +1 ms] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
-[   +1 ms] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
-[   +3 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
-[  +12 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
-[   +6 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
-[   +7 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
-[   +1 ms] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
-[  +52 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
-[   +4 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
-[        ] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
-[        ] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
-[        ] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
-[   +1 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
+[        ] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
+[   +2 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
+[  +25 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
+[  +51 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
+[   +2 ms] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
+[   +4 ms] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
+[   +3 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
+[   +6 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
+[   +1 ms] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
+[   +1 ms] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
+[   +1 ms] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
+[   +2 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
 [        ] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
-[  +16 ms] generated_plugin_registrant.dart not found. Skipping.
+[  +19 ms] generated_plugin_registrant.dart not found. Skipping.
 [   +2 ms] Compiling lib/main.dart for the Web...
-[  +12 ms] Initializing file store
-[  +43 ms] web_entrypoint: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/packages/flutter_tools/lib/src/build_system/targets/web.dart}
+[  +11 ms] Initializing file store
+[  +41 ms] web_entrypoint: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/packages/flutter_tools/lib/src/build_system/targets/web.dart}
 [   +1 ms] Skipping target: gen_localizations
 [   +4 ms] web_static_assets: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/internal/engine.version}
-[  +39 ms] web_static_assets: Complete
+[  +42 ms] web_static_assets: Complete
 [  +36 ms] Found plugin file_selector_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_linux-0.9.2+1/
 [        ] Found plugin file_selector_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_macos-0.9.3+3/
 [   +1 ms] Found plugin file_selector_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/file_selector_windows-0.9.3+1/
 [   +2 ms] Found plugin flutter_plugin_android_lifecycle at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.17/
-[   +3 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
+[   +2 ms] Found plugin image_picker at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker-1.0.7/
 [        ] Found plugin image_picker_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.9+3/
 [   +1 ms] Found plugin image_picker_for_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-3.0.2/
 [        ] Found plugin image_picker_ios at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.9+1/
 [        ] Found plugin image_picker_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_linux-0.2.1+1/
 [        ] Found plugin image_picker_macos at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_macos-0.2.1+1/
 [   +1 ms] Found plugin image_picker_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/image_picker_windows-0.2.1+1/
-[   +9 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
-[   +1 ms] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
+[  +10 ms] Found plugin path_provider at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.2/
+[        ] Found plugin path_provider_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.2/
 [        ] Found plugin path_provider_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.3.2/
 [        ] Found plugin path_provider_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-2.2.1/
 [   +1 ms] Found plugin path_provider_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.2.1/
-[   +4 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
+[   +3 ms] Found plugin shared_preferences at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-2.2.2/
 [   +1 ms] Found plugin shared_preferences_android at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.2.1/
 [        ] Found plugin shared_preferences_foundation at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_foundation-2.3.5/
-[        ] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
+[   +1 ms] Found plugin shared_preferences_linux at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-2.3.2/
 [   +1 ms] Found plugin shared_preferences_web at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-2.2.1/
-[   +1 ms] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
-[  +15 ms] web_entrypoint: Complete
+[        ] Found plugin shared_preferences_windows at /Users/liuyinghao/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-2.3.2/
+[  +13 ms] web_entrypoint: Complete
 [   +1 ms] dart2js: Starting due to {}
-[  +37 ms] executing: /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/dart-sdk/bin/dart --disable-dart-dev /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/dart-sdk/bin/snapshots/dart2js.dart.snapshot --platform-binaries=/Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/flutter_web_sdk/kernel --invoker=flutter_tool -Ddart.vm.product=true -DFLUTTER_WEB_AUTO_DETECT=false -DFLUTTER_WEB_USE_SKIA=false -DFLUTTER_WEB_CANVASKIT_URL=https://www.gstatic.com/flutter-canvaskit/04817c99c9fd4956f27505204f7e344335810aed/ --native-null-assertions --no-source-maps -o /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/.dart_tool/flutter_build/49c5b010c8402a353c87d5d79f25fd1d/app.dill --packages=.dart_tool/package_config.json --cfe-only /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/.dart_tool/flutter_build/49c5b010c8402a353c87d5d79f25fd1d/main.dart
-[+13812 ms] lib/main.dart:6:8:
+[   +9 ms] executing: /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/dart-sdk/bin/dart --disable-dart-dev /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/dart-sdk/bin/snapshots/dart2js.dart.snapshot --platform-binaries=/Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/.flutter/flutter-sdk/bin/cache/flutter_web_sdk/kernel --invoker=flutter_tool -Ddart.vm.product=true -DFLUTTER_WEB_AUTO_DETECT=false -DFLUTTER_WEB_USE_SKIA=false -DFLUTTER_WEB_CANVASKIT_URL=https://www.gstatic.com/flutter-canvaskit/04817c99c9fd4956f27505204f7e344335810aed/ --native-null-assertions --no-source-maps -o /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/.dart_tool/flutter_build/49c5b010c8402a353c87d5d79f25fd1d/app.dill --packages=.dart_tool/package_config.json --cfe-only /Users/liuyinghao/Desktop/Trae/Vibe/1.Todolist/flutter_app/.dart_tool/flutter_build/49c5b010c8402a353c87d5d79f25fd1d/main.dart
+[+13851 ms] lib/main.dart:6:8:
             Error: Error when reading 'lib/screens/splash_screen.dart': Error reading 'lib/screens/splash_screen.dart'  (No such file or directory)
             import 'screens/splash_screen.dart';
                    ^
@@ -730,9 +730,9 @@
                                       user!.profile!.avatarUrl!,
                                             ^
             Error: Compilation failed.
-[  +13 ms] Persisting file store
+[  +14 ms] Persisting file store
 [   +4 ms] Done persisting file store
-[   +5 ms] Target dart2js failed: ProcessException: Process exited abnormally with exit code 1:
+[   +4 ms] Target dart2js failed: ProcessException: Process exited abnormally with exit code 1:
            lib/main.dart:6:8:
            Error: Error when reading 'lib/screens/splash_screen.dart': Error reading 'lib/screens/splash_screen.dart'  (No such file or directory)
            import 'screens/splash_screen.dart';
@@ -1327,9 +1327,9 @@
            #19     main (package:flutter_tools/executable.dart:90:3)
            <asynchronous suspension>
 
-[  +23 ms] Compiling lib/main.dart for the Web... (completed in 14.1s)
-[   +4 ms] "flutter web" took 15,238ms.
-[  +27 ms] Error: Failed to compile application for the Web.
+[  +22 ms] Compiling lib/main.dart for the Web... (completed in 14.1s)
+[   +3 ms] "flutter web" took 15,270ms.
+[  +28 ms] Error: Failed to compile application for the Web.
 [        ] 
            #0      throwToolExit (package:flutter_tools/src/base/common.dart:10:3)
            #1      WebBuilder.buildWeb (package:flutter_tools/src/web/compile.dart:131:7)
@@ -1357,5 +1357,5 @@
 
 
 [   +1 ms] Running 0 shutdown hooks
-[   +7 ms] Shutdown hooks complete
-[ +137 ms] exiting with code 1
+[  +11 ms] Shutdown hooks complete
+[ +143 ms] exiting with code 1

@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node server/app.js",
     "dev": "nodemon server/app.js",
+    "build": "mkdir -p dist && cp index.html manifest.json favicon.svg dist/ && echo 'Web app built successfully'",
     "build:desktop": "cd electron_app && npm run build",
-    "build:mobile": "cd flutter_app && flutter build apk",
-    "init:db": "node server/scripts/initDatabase.js",
+    "init-db": "node server/scripts/initDatabase.js",
     "test": "jest",
     "lint": "eslint server/"
   },
