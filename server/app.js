@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -13,12 +14,27 @@ app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
 app.use('/api/auth', authRoutes);
 app.use('/api/users', authenticateToken, userRoutes);
 app.use('/api/tasks', authenticateToken, taskRoutes);
+app.get('/', (req, res) => {
+  res.send('<html><body><h1>Welcome to TodoList API</h1></body></html>');
+});
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+const { sequelize } = require('./config/database');
+
+sequelize.sync({ force: false }).then(() => {
+  console.log('Database synced');
+  if (require.main === module) {
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  }
+}).catch(err => {
+  console.error('Unable to sync database:', err);
 });
 
 module.exports = app;

@@ -9,9 +9,7 @@ class MockDatabase {
     this.userIdCounter = 1;
     this.taskIdCounter = 1;
     this.sessionIdCounter = 1;
-    
-    // 初始化一些测试数据
-    this.initTestData();
+    // this.initTestData(); // Comment out to avoid conflicts in tests
   }
   
   initTestData() {

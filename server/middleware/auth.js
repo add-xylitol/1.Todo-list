@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken');
-const mockDB = require('../services/mockDatabase');
+const { User } = require('../models/index');
 
 // JWT认证中间件
 const authenticateToken = async (req, res, next) => {
+  console.log(`AuthenticateToken called for path: ${req.path}`);
   try {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
@@ -15,7 +16,7 @@ const authenticateToken = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'default-secret');
     
     // 查找用户
-    const user = await mockDB.findUserById(decoded.userId);
+    const user = await User.findByPk(decoded.userId);
 
     if (!user) {
       return res.status(401).json({ error: 'User not found' });

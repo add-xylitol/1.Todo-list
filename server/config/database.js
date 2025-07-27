@@ -1,9 +1,18 @@
+console.log('Loading database.js');
 const logger = require('../utils/logger');
 
-// 始终使用模拟数据库
-console.log('🔧 使用模拟数据库模式');
+const { Sequelize } = require('sequelize');
+const path = require('path');
+
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: path.join(__dirname, '..', '..', 'database.sqlite'),
+  logging: (msg) => logger.info(msg)
+});
+
+
+
 module.exports = {
-  sequelize: null,
-  mockDB: require('../services/mockDatabase'),
-  isMock: true
+  sequelize,
+  isMock: false
 };
