@@ -6,7 +6,7 @@ const { authenticateToken } = require('./middleware/auth');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const taskRoutes = require('./routes/tasks');
-const { sequelize } = require('./config/database');
+
 const app = express();
 const PORT = 8000;
 
@@ -24,15 +24,27 @@ app.get('/', (req, res) => {
 });
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
-sequelize.sync({ force: false }).then(() => {
-  console.log('Database synced');
+// Conditional database setup
+if (!process.env.NETLIFY) {
+  const { sequelize } = require('./config/database');
+  sequelize.sync({ force: false }).then(() => {
+    console.log('Database synced');
+    if (require.main === module) {
+      app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+      });
+    }
+  }).catch(err => {
+    console.error('Unable to sync database:', err);
+  });
+} else {
+  // For Netlify, use mock database, no sync needed
+  console.log('Running on Netlify, using mock database');
   if (require.main === module) {
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
   }
-}).catch(err => {
-  console.error('Unable to sync database:', err);
-});
+}
 
 module.exports = app;
