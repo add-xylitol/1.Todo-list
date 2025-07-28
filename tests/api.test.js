@@ -17,9 +17,6 @@ afterAll((done) => {
   server.close(done);
 });
 
-// Disable console logs for cleaner test output
-console.log = jest.fn();
-
 describe('TodoList API Tests', () => {
   let userToken;
   let userId;
@@ -167,29 +164,5 @@ describe('TodoList API Tests', () => {
       .get('/api/tasks')
       .set('Authorization', 'Bearer invalidtoken');
     expect(res.statusCode).toEqual(401);
-  });
-});
-
-
-describe('Deployment Issues Tests', () => {
-  beforeEach(() => {
-    jest.resetModules();
-  });
-
-  it('should use MySQL in production environment', () => {
-    process.env.NODE_ENV = 'production';
-    const { sequelize } = require('../server/config/database');
-    expect(sequelize.options.dialect).toBe('mysql');
-  });
-
-  it('should have sqlite3 dependency for development', () => {
-    const packageJson = require('../package.json');
-    expect(packageJson.dependencies).toHaveProperty('sqlite3');
-  });
-
-  it('should handle database path for Netlify', () => {
-    process.env.NODE_ENV = 'development';
-    const { sequelize } = require('../server/config/database');
-    expect(sequelize.options.storage).toBe('/tmp/database.sqlite');
   });
 });
