@@ -9,7 +9,9 @@
     "build": "mkdir -p dist && cp index.html manifest.json favicon.svg dist/ && echo 'Web app built successfully'",
     "build:desktop": "cd electron_app && npm run build",
     "init-db": "node server/scripts/initDatabase.js",
-    "test": "jest",
+    "test": "npm run test:api && npm run test:ui",
+    "test:api": "jest tests/api.test.js",
+    "test:ui": "npx playwright test tests/ui.test.js",
     "lint": "eslint server/"
   },
   "keywords": [
