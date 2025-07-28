@@ -1,38 +1,18 @@
 // 模拟数据库服务
 // 用于开发环境，无需真实数据库连接
-import { getStore } from '@netlify/blobs';
 
 class MockDatabase {
   constructor() {
-    this.usersStore = getStore('users');
-    this.tasksStore = getStore('tasks');
-    this.sessionsStore = getStore('sessions');
-    this.countersStore = getStore('counters');
-    // 初始化计数器
-    this.initCounters();
+    this.users = new Map();
+    this.tasks = new Map();
+    this.sessions = new Map();
+    this.userIdCounter = 1;
+    this.taskIdCounter = 1;
+    this.sessionIdCounter = 1;
     // this.initTestData(); // Comment out to avoid conflicts in tests
   }
-
-  async initCounters() {
-    const counters = await this.countersStore.get('counters', { type: 'json' }) || {
-      userIdCounter: 1,
-      taskIdCounter: 1,
-      sessionIdCounter: 1
-    };
-    this.userIdCounter = counters.userIdCounter;
-    this.taskIdCounter = counters.taskIdCounter;
-    this.sessionIdCounter = counters.sessionIdCounter;
-  }
-
-  async saveCounters() {
-    await this.countersStore.setJSON('counters', {
-      userIdCounter: this.userIdCounter,
-      taskIdCounter: this.taskIdCounter,
-      sessionIdCounter: this.sessionIdCounter
-    });
-  }
-
-  async initTestData() {
+  
+  initTestData() {
     // 创建测试用户
     const testUser = {
       id: this.userIdCounter++,
@@ -40,11 +20,10 @@ class MockDatabase {
       email: 'test@example.com',
       password_hash: '$2b$10$rOvHdKzjbQlqzjKzjKzjKOvHdKzjbQlqzjKzjKOvHdKzjbQlqzj', // 'password123'
       is_active: true,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      createdAt: new Date(),
+      updatedAt: new Date()
     };
-    await this.usersStore.setJSON(`user:${testUser.id}`, testUser);
-    await this.saveCounters();
+    this.users.set(testUser.id, testUser);
     
     // 创建测试任务
     const testTask = {
@@ -53,11 +32,10 @@ class MockDatabase {
       description: '这是一个示例任务',
       completed: false,
       userId: testUser.id,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      createdAt: new Date(),
+      updatedAt: new Date()
     };
-    await this.tasksStore.setJSON(`task:${testTask.id}`, testTask);
-    await this.saveCounters();
+    this.tasks.set(testTask.id, testTask);
   }
   
   // 用户相关方法
@@ -65,18 +43,15 @@ class MockDatabase {
     const user = {
       id: this.userIdCounter++,
       ...userData,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      createdAt: new Date(),
+      updatedAt: new Date()
     };
-    await this.usersStore.setJSON(`user:${user.id}`, user);
-    await this.saveCounters();
+    this.users.set(user.id, user);
     return user;
   }
   
   async findUserByEmail(email) {
-    const keys = await this.usersStore.list();
-    for (const key of keys.keys) {
-      const user = await this.usersStore.getJSON(key);
+    for (const user of this.users.values()) {
       if (user.email === email) {
         return user;
       }
@@ -85,9 +60,7 @@ class MockDatabase {
   }
 
   async findUserByUsername(username) {
-    const keys = await this.usersStore.list();
-    for (const key of keys.keys) {
-      const user = await this.usersStore.getJSON(key);
+    for (const user of this.users.values()) {
       if (user.username === username) {
         return user;
       }
@@ -96,19 +69,19 @@ class MockDatabase {
   }
   
   async findUserById(id) {
-    return await this.usersStore.getJSON(`user:${id}`) || null;
+    return this.users.get(id) || null;
   }
   
   async updateUser(id, updates) {
-    const user = await this.findUserById(id);
+    const user = this.users.get(id);
     if (!user) return null;
     
     const updatedUser = {
       ...user,
       ...updates,
-      updatedAt: new Date().toISOString()
+      updatedAt: new Date()
     };
-    await this.usersStore.setJSON(`user:${id}`, updatedUser);
+    this.users.set(id, updatedUser);
     return updatedUser;
   }
 
@@ -117,21 +90,18 @@ class MockDatabase {
     const session = {
       id: this.sessionIdCounter++,
       ...sessionData,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
-    await this.sessionsStore.setJSON(`session:${session.id}`, session);
-    await this.saveCounters();
+    this.sessions.set(session.id, session);
     return session;
   }
 
   async cleanupExpiredSessions(userId) {
     const now = new Date();
-    const keys = await this.sessionsStore.list();
-    for (const key of keys.keys) {
-      const session = await this.sessionsStore.getJSON(key);
-      if (session.userId === userId && new Date(session.expiresAt) < now) {
-        await this.sessionsStore.delete(key);
+    for (const [sessionId, session] of this.sessions.entries()) {
+      if (session.userId === userId && session.expiresAt < now) {
+        this.sessions.delete(sessionId);
       }
     }
   }
@@ -141,19 +111,16 @@ class MockDatabase {
     const task = {
       id: this.taskIdCounter++,
       ...taskData,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      createdAt: new Date(),
+      updatedAt: new Date()
     };
-    await this.tasksStore.setJSON(`task:${task.id}`, task);
-    await this.saveCounters();
+    this.tasks.set(task.id, task);
     return task;
   }
   
   async findTasksByUserId(userId) {
     const userTasks = [];
-    const keys = await this.tasksStore.list();
-    for (const key of keys.keys) {
-      const task = await this.tasksStore.getJSON(key);
+    for (const task of this.tasks.values()) {
       if (task.userId === userId) {
         userTasks.push(task);
       }
@@ -162,27 +129,27 @@ class MockDatabase {
   }
   
   async findTaskById(id) {
-    return await this.tasksStore.getJSON(`task:${id}`) || null;
+    return this.tasks.get(id) || null;
   }
   
   async updateTask(id, updates) {
-    const task = await this.findTaskById(id);
+    const task = this.tasks.get(id);
     if (!task) return null;
     
     const updatedTask = {
       ...task,
       ...updates,
-      updatedAt: new Date().toISOString()
+      updatedAt: new Date()
     };
-    await this.tasksStore.setJSON(`task:${id}`, updatedTask);
+    this.tasks.set(id, updatedTask);
     return updatedTask;
   }
   
   async deleteTask(id) {
-    const task = await this.findTaskById(id);
+    const task = this.tasks.get(id);
     if (!task) return false;
     
-    await this.tasksStore.delete(`task:${id}`);
+    this.tasks.delete(id);
     return true;
   }
   
