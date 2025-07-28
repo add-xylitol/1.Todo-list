@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Conditional database setup
-if (!process.env.NETLIFY) {
+if (!process.env.AWS_LAMBDA_FUNCTION_NAME) {
   const { sequelize } = require('./config/database');
   sequelize.sync({ force: false }).then(() => {
     console.log('Database synced');

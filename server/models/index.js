@@ -1,4 +1,4 @@
-if (process.env.NETLIFY) {
+if (process.env.AWS_LAMBDA_FUNCTION_NAME) {
   const mockDB = require('../services/mockDatabase');
 
   const User = {
