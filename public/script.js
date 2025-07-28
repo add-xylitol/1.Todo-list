@@ -1,5 +1,5 @@
 let token = localStorage.getItem('token') || '';
-const apiBase = 'http://localhost:8000/api';
+const apiBase = window.location.hostname === 'localhost' ? 'http://localhost:8000/api' : '/api';
 let currentEditId = null;
 let currentDeleteId = null;
 const editModal = new bootstrap.Modal(document.getElementById('editModal'));
