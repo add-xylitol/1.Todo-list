@@ -58,3 +58,20 @@ li {
   text-decoration: line-through;
   color: gray;
 }
+
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 10px;
+  }
+  input[type="text"] {
+    width: 100%;
+  }
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  li button {
+    margin-top: 10px;
+  }
+}
