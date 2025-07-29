@@ -5,8 +5,8 @@ const { Sequelize } = require('sequelize');
 const path = require('path');
 
 const sequelize = new Sequelize({
-  dialect: process.env.CONTEXT === 'production' ? 'mysql' : 'sqlite',
-  storage: process.env.CONTEXT !== 'production' ? '/tmp/database.sqlite' : undefined,
+  dialect: process.env.AWS_LAMBDA_FUNCTION_NAME ? 'mysql' : 'sqlite',
+  storage: process.env.AWS_LAMBDA_FUNCTION_NAME ? undefined : '/tmp/database.sqlite',
   host: process.env.DB_HOST,
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
