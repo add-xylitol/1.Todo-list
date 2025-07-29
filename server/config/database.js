@@ -5,8 +5,8 @@ const { Sequelize } = require('sequelize');
 const path = require('path');
 
 const sequelize = new Sequelize({
-  dialect: process.env.NODE_ENV === 'production' ? 'mysql' : 'sqlite',
-  storage: process.env.NODE_ENV !== 'production' ? '/tmp/database.sqlite' : undefined,
+  dialect: process.env.CONTEXT === 'production' ? 'mysql' : 'sqlite',
+  storage: process.env.CONTEXT !== 'production' ? '/tmp/database.sqlite' : undefined,
   host: process.env.DB_HOST,
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
