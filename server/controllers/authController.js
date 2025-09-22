@@ -2,18 +2,19 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { User } = require('../models/index');
 
+const jwtSecret = process.env.JWT_SECRET || 'insecure-dev-secret';
+
 // 用户注册
 const register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    console.log('JWT_SECRET during register:', process.env.JWT_SECRET);
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(400).json({ success: false, message: '邮箱已被注册' });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({ username, email, password_hash: hashedPassword });
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '24h' });
+    const token = jwt.sign({ userId: user.id }, jwtSecret, { expiresIn: '24h' });
     res.status(201).json({ data: { user: { id: user.id }, token } });
   } catch (error) {
     console.error('Register error:', error);
@@ -25,20 +26,15 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log('JWT_SECRET during login:', process.env.JWT_SECRET);
     const user = await User.findOne({ where: { email } });
-    console.log('User found:', !!user, 'Email:', email);
     if (!user) {
-      console.log('User not found for email:', email);
       return res.status(401).json({ success: false, message: '用户不存在' });
     }
     const isMatch = await bcrypt.compare(password, user.password_hash);
-    console.log('Password match:', isMatch, 'Provided password:', password);
     if (!isMatch) {
-      console.log('Password mismatch for user:', user.id);
       return res.status(401).json({ success: false, message: '密码错误' });
     }
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '24h' });
+    const token = jwt.sign({ userId: user.id }, jwtSecret, { expiresIn: '24h' });
     res.json({ data: { token } });
   } catch (error) {
     console.error('Login error:', error);

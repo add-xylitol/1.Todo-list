@@ -34,9 +34,7 @@ exports.changePassword = async (req, res) => {
     const isMatch = await bcrypt.compare(currentPassword, user.password_hash);
     if (!isMatch) return res.status(400).json({ success: false, message: '当前密码错误' });
     const newHash = await bcrypt.hash(newPassword, 10);
-    console.log('New password hash:', newHash);
     const [updated] = await User.update({ password_hash: newHash }, { where: { id: user.id } });
-    console.log('Password update result:', updated);
     if (updated === 0) return res.status(404).json({ success: false, message: '无法更新密码' });
     res.json({ success: true, message: 'Password updated successfully' });
   } catch (error) {

@@ -18,6 +18,11 @@ h1, h2 {
   text-align: center;
 }
 
+#auth-section .form-control,
+#todo-section .form-control {
+  width: 100%;
+}
+
 input[type="text"] {
   width: calc(100% - 20px);
   margin-bottom: 10px;
@@ -52,6 +57,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 
 .completed {

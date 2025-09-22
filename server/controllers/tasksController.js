@@ -1,9 +1,11 @@
 const { Task } = require('../models/index');
-console.log('Type of Task in controller:', typeof Task, Task ? Task.name : 'undefined');
 
 exports.getTasks = async (req, res) => {
   try {
-    const tasks = await Task.findAll({ where: { userId: req.user.userId } });
+    const tasks = await Task.findAll({
+      where: { userId: req.user.userId },
+      order: [['createdAt', 'DESC']],
+    });
     res.json({ success: true, data: tasks });
   } catch (error) {
     console.error('Task operation error:', error);

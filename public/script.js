@@ -1,9 +1,14 @@
 let token = localStorage.getItem('token') || '';
-const apiBase = window.location.hostname === 'localhost' ? 'http://localhost:8000/api' : '/api';
+const apiBase = `${window.location.origin}/api`;
 let currentEditId = null;
 let currentDeleteId = null;
+
 const editModal = new bootstrap.Modal(document.getElementById('editModal'));
 const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+const welcomeMessage = document.getElementById('welcome-message');
+const taskCounter = document.getElementById('task-counter');
+const taskList = document.getElementById('task-list');
+const emptyState = document.getElementById('empty-state');
 
 window.onload = () => {
   if (token) {
@@ -16,6 +21,7 @@ window.onload = () => {
 function showTodoSection() {
   document.getElementById('auth-section').style.display = 'none';
   document.getElementById('todo-section').style.display = 'block';
+  loadProfile();
   loadTasks();
 }
 
@@ -156,6 +162,29 @@ function logout() {
   token = '';
   document.getElementById('auth-section').style.display = 'block';
   document.getElementById('todo-section').style.display = 'none';
+  welcomeMessage.textContent = '';
+  taskCounter.textContent = '0 tasks';
+  taskList.innerHTML = '';
+  emptyState.style.display = 'none';
+}
+
+async function loadProfile() {
+  try {
+    const res = await fetch(`${apiBase}/users/profile`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (res.status === 401) {
+      logout();
+      return;
+    }
+    if (!res.ok) {
+      return;
+    }
+    const data = await res.json();
+    welcomeMessage.textContent = `Welcome back, ${data.data.username}!`;
+  } catch (err) {
+    console.error('Error loading profile', err);
+  }
 }
 
 async function loadTasks() {
@@ -169,9 +198,12 @@ async function loadTasks() {
       return;
     }
     const data = await res.json();
-    const taskList = document.getElementById('task-list');
     taskList.innerHTML = '';
-    data.data.forEach(task => {
+    const tasks = (data.data || []).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    taskCounter.textContent = tasks.length === 1 ? '1 task' : `${tasks.length} tasks`;
+    emptyState.style.display = tasks.length === 0 ? 'block' : 'none';
+
+    tasks.forEach(task => {
       const li = document.createElement('li');
       li.className = `list-group-item d-flex justify-content-between align-items-start ${task.completed ? 'completed' : ''}`;
       const contentDiv = document.createElement('div');

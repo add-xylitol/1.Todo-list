@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models/index');
 
+const jwtSecret = process.env.JWT_SECRET || 'insecure-dev-secret';
+
 // JWT认证中间件
 const authenticateToken = async (req, res, next) => {
-  console.log(`AuthenticateToken called for path: ${req.path}`);
   try {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
@@ -13,7 +14,7 @@ const authenticateToken = async (req, res, next) => {
     }
 
     // 验证 JWT token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'default-secret');
+    const decoded = jwt.verify(token, jwtSecret);
     
     // 查找用户
     const user = await User.findByPk(decoded.userId);

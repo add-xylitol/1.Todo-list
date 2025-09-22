@@ -10,7 +10,8 @@
     "build:desktop": "cd electron_app && npm run build",
     "init-db": "node server/scripts/initDatabase.js",
     "test": "jest",
-    "lint": "eslint server/"
+    "lint": "eslint server/",
+    "seed:users": "node scripts/createDefaultUsers.js"
   },
   "keywords": [
     "todolist",
@@ -56,6 +57,11 @@
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=8.0.0"
+  },
+  "jest": {
+    "testMatch": [
+      "**/tests/api.test.js"
+    ]
   },
   "repository": {
     "type": "git",
