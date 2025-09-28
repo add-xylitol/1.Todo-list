@@ -17,7 +17,10 @@ if (process.env.NETLIFY) {
   };
 
   const Task = {
-    findAll: async ({ where }) => mockDB.findTasksByUserId(where.userId),
+    findAll: async ({ where }) => {
+      if (where.shareCode) return mockDB.findTasksByShareCode(where.shareCode);
+      return mockDB.findTasksByUserId(where.userId);
+    },
     findByPk: async (id) => mockDB.findTaskById(id),
     create: async (data) => mockDB.createTask(data),
     prototype: {
@@ -33,7 +36,19 @@ if (process.env.NETLIFY) {
   Task.belongsTo = () => {};
   User.hasMany = () => {};
 
-  module.exports = { User, Task };
+  // SharedList and ListChange mock adapters
+  const SharedList = {
+    create: async (data) => mockDB.createSharedList(data),
+    findOne: async ({ where }) => mockDB.findSharedList(where),
+    update: async (updates, { where }) => mockDB.updateSharedList(where, updates)
+  };
+
+  const ListChange = {
+    create: async (data) => mockDB.createListChange(data),
+    findAll: async ({ where, limit, order }) => mockDB.findListChanges(where, { limit, order })
+  };
+
+  module.exports = { User, Task, SharedList, ListChange };
 } else {
   const { DataTypes } = require('sequelize');
   const sequelize = require('../config/database').sequelize;
@@ -89,16 +104,45 @@ if (process.env.NETLIFY) {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    // optional share code for shared lists
+    shareCode: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      index: true
     }
   }, {
     timestamps: true
   });
   console.log('Task model defined');
 
+  // Shared list metadata
+  const SharedList = sequelize.define('SharedList', {
+    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    code: { type: DataTypes.STRING, allowNull: false, unique: true },
+    ownerId: { type: DataTypes.INTEGER, allowNull: false },
+    secondUserId: { type: DataTypes.INTEGER, allowNull: true },
+    version: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 1 },
+    onlyOwnerCanDelete: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false }
+  }, { timestamps: true });
+
+  // Change history for a shared list
+  const ListChange = sequelize.define('ListChange', {
+    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    listCode: { type: DataTypes.STRING, allowNull: false },
+    action: { type: DataTypes.STRING, allowNull: false },
+    taskId: { type: DataTypes.INTEGER, allowNull: true },
+    userId: { type: DataTypes.INTEGER, allowNull: false },
+    version: { type: DataTypes.INTEGER, allowNull: false },
+    details: { type: DataTypes.TEXT, allowNull: true }
+  }, { timestamps: true });
+
   Task.belongsTo(User, { foreignKey: 'userId' });
   User.hasMany(Task, { foreignKey: 'userId' });
 
+  console.log('Task/User associations set');
+
   console.log('Models defined and associated');
 
-  module.exports = { User, Task };
+  module.exports = { User, Task, SharedList, ListChange };
 }

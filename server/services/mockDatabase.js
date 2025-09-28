@@ -9,6 +9,9 @@ class MockDatabase {
     this.userIdCounter = 1;
     this.taskIdCounter = 1;
     this.sessionIdCounter = 1;
+    // Shared lists and change history
+    this.sharedLists = new Map(); // key: code -> {code, ownerId, secondUserId, version, onlyOwnerCanDelete, createdAt, updatedAt}
+    this.listChanges = new Map(); // key: code -> [change]
     // this.initTestData(); // Comment out to avoid conflicts in tests
   }
   
@@ -127,6 +130,14 @@ class MockDatabase {
     }
     return userTasks;
   }
+
+  async findTasksByShareCode(code){
+    const list = [];
+    for (const task of this.tasks.values()) {
+      if (task.shareCode === code) list.push(task);
+    }
+    return list;
+  }
   
   async findTaskById(id) {
     return this.tasks.get(id) || null;
@@ -151,6 +162,49 @@ class MockDatabase {
     
     this.tasks.delete(id);
     return true;
+  }
+
+  // Shared list methods
+  async createSharedList(data){
+    const now = new Date();
+    const rec = { code: data.code, ownerId: data.ownerId, secondUserId: data.secondUserId || null, version: data.version || 1, onlyOwnerCanDelete: !!data.onlyOwnerCanDelete, createdAt: now, updatedAt: now };
+    this.sharedLists.set(rec.code, rec);
+    if (!this.listChanges.has(rec.code)) this.listChanges.set(rec.code, []);
+    return rec;
+  }
+
+  async findSharedList(where){
+    if (where && where.code) {
+      return this.sharedLists.get(where.code) || null;
+    }
+    return null;
+  }
+
+  async updateSharedList(where, updates){
+    const code = where && where.code;
+    if (!code) return [0];
+    const rec = this.sharedLists.get(code);
+    if (!rec) return [0];
+    const updated = { ...rec, ...updates, updatedAt: new Date() };
+    this.sharedLists.set(code, updated);
+    return [1];
+  }
+
+  async createListChange(data){
+    const code = data.listCode;
+    if (!this.listChanges.has(code)) this.listChanges.set(code, []);
+    const arr = this.listChanges.get(code);
+    const change = { id: arr.length + 1, ...data, createdAt: new Date(), updatedAt: new Date() };
+    arr.push(change);
+    return change;
+  }
+
+  async findListChanges(where, { limit = 50, order } = {}){
+    const code = where && where.listCode;
+    const arr = (this.listChanges.get(code) || []).slice();
+    // order: [["createdAt","DESC"]]
+    arr.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+    return arr.slice(0, limit);
   }
   
   // 数据库连接相关方法（模拟）

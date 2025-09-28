@@ -32,6 +32,10 @@
               <input type="email" class="form-control" id="email" placeholder="邮箱">
             </div>
             <div class="input-group">
+              <span class="input-group-text">#</span>
+              <input type="text" class="form-control" id="auth-share-code" placeholder="共享码（可选）">
+            </div>
+            <div class="input-group">
               <span class="input-group-text">🔒</span>
               <input type="password" class="form-control" id="password" placeholder="密码">
             </div>
@@ -53,6 +57,28 @@
               <input type="search" id="search-input" class="form-control form-control-sm" placeholder="搜索任务...">
             </div>
           </div>
+          <!-- Shared List Bar -->
+          <div class="share-bar mb-3">
+            <div class="left d-flex gap-2 align-items-center flex-wrap">
+              <input type="text" id="share-code-input" class="form-control form-control-sm" placeholder="输入共享码或留空创建随机码" style="max-width:260px;" list="share-codes">
+              <datalist id="share-codes"></datalist>
+              <button class="btn btn-sm btn-primary" id="btn-create-share">创建共享</button>
+              <button class="btn btn-sm btn-success" id="btn-join-share">加入共享</button>
+              <button class="btn btn-sm btn-outline-secondary" id="btn-refresh">刷新</button>
+              <button class="btn btn-sm btn-outline-secondary" id="btn-history">历史记录</button>
+            </div>
+            <div class="right d-flex align-items-center gap-2">
+              <div id="share-status" class="share-status d-none">未共享</div>
+              <button class="btn btn-sm btn-outline-secondary d-none" id="btn-copy-code" title="复制共享码">复制码</button>
+              <button class="btn btn-sm btn-outline-danger d-none" id="btn-leave" title="退出当前共享">退出共享</button>
+              <div id="perm-area" class="d-none">
+                <div class="form-check form-switch m-0">
+                  <input class="form-check-input" type="checkbox" role="switch" id="perm-only-owner">
+                  <label class="form-check-label" for="perm-only-owner">仅创建者可删除</label>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="task-input mb-3">
             <input type="text" class="form-control" id="new-task-title" placeholder="任务标题，例如：和团队同步需求">
             <input type="text" class="form-control" id="new-task-desc" placeholder="补充说明（可选）">
@@ -68,7 +94,7 @@
             </div>
           </div>
           <div class="footer d-flex justify-content-between align-items-center">
-            <div>实时协作已开启</div>
+            <div id="realtime-indicator">实时协作已开启</div>
             <button id="clear-completed" class="btn btn-sm btn-outline-secondary">清除已完成</button>
           </div>
         </div>
@@ -120,9 +146,27 @@
         </div>
     </div>
 
+    <!-- History Modal -->
+    <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="historyModalLabel">修改历史</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul id="history-list" class="list-group small"></ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">关闭</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Toasts -->
     <div aria-live="polite" aria-atomic="true" class="position-fixed top-0 end-0 p-3" style="z-index:1080;">
-      <div id="toast-container" class="toast-container"></div>
+      <div id="toast-container" class="toast-container position-fixed top-0 start-50 translate-middle-x p-3" style="right: auto; z-index: 1080;"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

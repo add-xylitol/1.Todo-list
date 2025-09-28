@@ -14,12 +14,100 @@
 - 🖥️ **桌面应用**：Electron 桌面客户端
 - 🔧 **RESTful API**：完整的后端服务
 
+## 📦 版本 1 发布说明（当前）
+
+宗旨：当前版本已可在本地稳定运行，并可一键打包为压缩包进行分发；支持通过临时公网隧道进行联合验证。如需长期公网访问，推荐部署到自有服务器（可投入少量成本）。
+
+### 运行环境
+- Node.js >= 16（已在 Node 23 验证）
+- npm >= 8
+- 操作系统：macOS / Linux / Windows
+
+### 本地快速运行
+1) 安装依赖
+- 在项目根目录执行：
+  - `npm install`
+
+2) 启动开发服务（含热重载）
+- `npm run dev`
+- 后端默认监听：`http://localhost:8000`
+- 前端静态页面由同一进程静态服务于根路径
+
+3) 启动生产服务
+- `npm start`
+- 同样监听 `http://localhost:8000`
+
+4) 健康检查
+- `GET /healthz` 与 `GET /readyz` 返回 200 代表服务健康
+
+### 一键暴露到公网（短期验证）
+- 使用内置脚本基于 localhost.run 建立临时隧道：
+  - 开发模式：`npm run dev:pub`
+  - 生产模式：`npm run start:pub`
+- 终端会输出一个形如 `https://xxxxxxxxxxxxxx.lhr.life` 的临时公网地址。
+- 注意：这是免费隧道，可能随机器休眠/网络波动中断，断开后需重新运行脚本获取新地址。
+
+### 端到端冒烟测试（可对公网地址）
+- 脚本：`tests/smoke.mjs`
+- 默认基址可通过环境变量覆盖：`SMOKE_BASE="https://your-subdomain.lhr.life"`
+- 示例：
+  - `SMOKE_BASE="https://xxxx.lhr.life" node tests/smoke.mjs`
+- 覆盖范围：主页、静态资源、Socket 客户端、健康检查、注册、登录、任务创建与验证。
+
+### 打包为压缩包分发（版本 1）
+- 推荐打包内容：
+  - 保留：项目全部源码、package.json、package-lock.json、public/、server/、tests/ 等
+  - 可排除：`node_modules/`、`.git/`、`*.log`、`dist/`（如需精简体积）
+- 建议命名：`todolist-pro-v1.zip`
+- 解压后执行：
+  - `npm install`
+  - `npm run dev` 或 `npm start`
+
+### 自有服务器部署（长期稳定访问，推荐）
+以下为最低可行方案，约几十元/月即可：
+
+1) 服务器建议
+- 1 核 CPU / 1GB 内存 / 20GB 磁盘 的轻量云服务器
+- Ubuntu 22.04 LTS
+
+2) 系统准备
+- 安装 Node.js（建议通过 nvm 安装 >=16）
+- 安装 pm2：`npm i -g pm2`
+
+3) 拉取与安装
+- `git clone <你的仓库地址>`
+- `cd 1.Todo-list-main && npm install`
+
+4) 使用 pm2 常驻运行
+- `pm2 start server/app.js --name todolist-pro`
+- `pm2 save && pm2 startup`（开机自启）
+
+5) 通过 Nginx 暴露 80/443 端口（可选但推荐）
+- Nginx 反向代理到 `http://127.0.0.1:8000`
+- 开启 gzip、缓存静态资源
+- 申请并配置 Let’s Encrypt TLS 证书（如使用 certbot）
+
+6) 健康检查与日志
+- 健康检查：`/healthz`、`/readyz`
+- 日志：`pm2 logs todolist-pro`
+
+7) 数据与持久化
+- 当前使用 SQLite 自动建表，数据文件位于项目根（或 server/config 指定目录）
+- 生产可迁移至 MySQL/PostgreSQL（Sequelize 已支持），需配置环境变量并执行迁移
+
+### 常见问题
+- 8000 端口被占用：终止占用进程或修改 `PORT` 环境变量
+- 公网隧道断开：重新执行 `npm run dev:pub` 或 `npm run start:pub`
+- 静态资源/Socket 加载失败：确认通过同一域名访问，客户端已通过 `<script src="/socket.io/socket.io.js"></script>` 引入
+
+---
+
 ## 📁 项目结构
 
 ```
 TodoList/
 ├── server/                    # Node.js 后端服务
-│   ├── app.js                # 服务器入口文件
+│   ├── app.js                # 服务器入口文件 
 │   ├── config/               # 配置文件
 │   │   └── database.js       # 数据库配置
 │   ├── controllers/          # 控制器
@@ -42,595 +130,30 @@ TodoList/
 │   └── utils/               # 工具函数
 │       ├── logger.js        # 日志工具
 │       └── validation.js    # 验证工具
-├── flutter_app/             # Flutter 移动应用
-│   ├── lib/
-│   │   ├── main.dart        # 应用入口
-│   │   ├── models/          # 数据模型
-│   │   ├── screens/         # 界面页面
-│   │   ├── services/        # 服务层
-│   │   ├── providers/       # 状态管理
-│   │   ├── widgets/         # 自定义组件
-│   │   └── utils/           # 工具函数
-│   └── pubspec.yaml         # Flutter 依赖
-├── electron_app/            # Electron 桌面应用
-│   ├── main.js              # 主进程
-│   ├── renderer/            # 渲染进程
-│   │   ├── index.html       # 主界面
-│   │   ├── renderer.js      # 渲染逻辑
-│   │   └── style.css        # 样式文件
-│   ├── assets/              # 应用图标
-│   └── package.json         # 桌面应用依赖
-├── package.json             # 项目依赖
+├── public/                  # Web 静态资源（本项目主要前端）
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── tests/                   # 测试脚本（含 E2E 冒烟）
+├── package.json             # 项目依赖与脚本
 └── README.md                # 项目说明（本文件）
 ```
 
 ## 🛠️ 技术栈
 
-### 后端
-- **Node.js + Express**：RESTful API 服务
-- **Sequelize + SQLite**：数据存储和ORM
-- **JWT**：用户认证
-- **Helmet**：安全防护
-- **CORS**：跨域支持
-
-### 移动端（Flutter）
-- **Flutter**：跨平台移动开发
-- **Provider**：状态管理
-- **SQLite**：本地数据存储
-- **HTTP**：网络请求
-- **国际化**：多语言支持
-
-### 桌面端（Electron）
-- **Electron**：跨平台桌面应用
-- **HTML/CSS/JavaScript**：前端界面
-- **IPC**：进程间通信
-
-## 🚀 快速开始
-
-### 环境要求
-
-- Node.js 16+
-- Flutter 3.0+
-- Electron 20+
-
-### 1. 克隆项目
-
-```bash
-git clone <repository-url>
-cd TodoList
-npm install
-```
-
-### 2. 启动后端服务
-
-```bash
-cd server
-npm install
-npm start
-# 后端服务运行在 http://localhost:3000
-```
-
-### 3. 启动移动应用（Flutter）
-
-```bash
-cd flutter_app
-flutter pub get
-flutter run
-```
-
-### 4. 启动桌面应用（Electron）
-
-```bash
-cd electron_app
-npm install
-npm start
-```
-
-## 📖 API 文档
-
-### 主要 API 端点
-
-#### 认证相关
-- `POST /api/auth/register` - 用户注册
-- `POST /api/auth/login` - 用户登录
-- `GET /api/auth/profile` - 获取用户信息
-
-#### 任务管理
-- `GET /api/tasks` - 获取任务列表
-- `POST /api/tasks` - 创建新任务
-- `PUT /api/tasks/:id` - 更新任务
-- `DELETE /api/tasks/:id` - 删除任务
-
-#### 用户管理
-- `GET /api/users/profile` - 获取用户资料
-- `PUT /api/users/profile` - 更新用户资料
-
-## 🔧 开发工具
-
-### 代码规范
-
-项目使用 ESLint 进行代码规范检查：
-
-```bash
-# 检查代码规范
-npm run lint
-
-# 自动修复代码格式
-npm run lint:fix
-```
-
-### 构建命令
-
-```bash
-# 构建移动应用
-npm run build:mobile
-
-# 构建桌面应用
-npm run build:desktop
-
-# 启动开发服务器
-npm run dev
-```
-
-## 📱 移动端开发
-
-### Flutter 环境配置
-
-1. **安装 Flutter SDK**
-   ```bash
-   # 参考 flutter_app/INSTALL_FLUTTER.md
-   ```
-
-2. **获取依赖**
-   ```bash
-   cd flutter_app
-   flutter pub get
-   ```
-
-3. **运行应用**
-   ```bash
-   # Web 版本
-   flutter run -d web-server --web-port 8080
-   
-   # iOS 模拟器
-   flutter run -d ios
-   
-   # Android 模拟器
-   flutter run -d android
-   ```
-
-## 🖥️ 桌面应用
-
-### Electron 应用特性
-
-- ✅ 原生桌面体验
-- ✅ 系统托盘集成
-- ✅ 快捷键支持
-- ✅ 自动更新机制
-- ✅ 跨平台支持（Windows、macOS、Linux）
-
-### 打包发布
-
-```bash
-cd electron_app
-
-# 安装打包工具
-npm install -g electron-builder
-
-# 打包当前平台
-npm run build
-
-# 打包所有平台
-npm run build:all
-```
-
-## 💳 支付集成
-
-项目已集成多种支付方式，支持订阅模式：
-
-### 支持的支付方式
-
-- **微信支付**：适用于中国用户
-- **支付宝**：适用于中国用户
-- **Apple Pay**：iOS 应用内购买
-- **Google Pay**：Android 应用内购买
-
-### 支付服务配置
-
-参考 `flutter_app/lib/services/payment_service.dart` 文件进行配置。
-
-## 🚀 部署指南
-
-详细的部署指南请参考 [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)，包含：
-
-- 🌐 **Web 部署**：Vercel、Netlify、传统服务器
-- 📱 **移动端发布**：App Store、Google Play
-- 🖥️ **桌面应用分发**：官网下载、应用商店
-- 💰 **商业化策略**：定价、营销、运营
-
-## 📋 详细开发步骤记录
-
-### 第一阶段：项目初始化
-
-1. **创建项目结构**
-   - 初始化 Node.js 后端项目
-   - 创建 Flutter 移动应用
-   - 设置 Electron 桌面应用
-
-2. **配置开发环境**
-   - 安装必要的依赖包
-   - 配置 ESLint 和 Prettier
-   - 设置 Git 忽略文件
-
-### 第二阶段：后端开发
-
-1. **数据库设计**
-   - 用户模型（User.js）
-   - 任务模型（Task.js）
-   - MongoDB 连接配置
-
-2. **API 开发**
-   - 用户认证系统
-   - 任务 CRUD 操作
-   - 订阅管理功能
-
-3. **安全和中间件**
-   - JWT 认证中间件
-   - CORS 配置
-   - 请求限制和安全头
-
-### 第三阶段：前端开发
-
-1. **Flutter 应用**
-   - 页面路由设置
-   - 状态管理（Provider）
-   - API 服务封装
-
-2. **Electron 应用**
-   - 主进程和渲染进程
-   - 原生菜单和托盘
-   - 窗口管理
-
-### 第四阶段：支付集成
-
-1. **支付服务开发**
-   - 微信支付 SDK 集成
-   - 支付宝 SDK 集成
-   - 应用内购买配置
-
-2. **订阅系统**
-   - 订阅计划管理
-   - 支付回调处理
-   - 订阅状态同步
-
-### 第五阶段：工具和部署
-
-1. **开发工具**
-   - 一键启动脚本
-   - 端口管理工具
-   - 服务监控脚本
-
-2. **部署准备**
-   - Docker 配置
-   - CI/CD 流水线
-   - 环境变量管理
-
-## 🕳️ 开发过程中的坑和解决方案
-
-### 1. 端口冲突问题
-
-**问题**：多次启动服务导致端口被占用
-
-**解决方案**：
-- 开发了专门的端口管理工具 `port_manager.sh`
-- 在启动脚本中加入自动端口检测和释放功能
-- 实现优雅关闭和强制终止的两阶段处理
-
-### 2. MongoDB 连接问题
-
-**问题**：本地 MongoDB 服务未启动或连接配置错误
-
-**解决方案**：
-- 在启动脚本中加入 MongoDB 状态检查
-- 提供多种 MongoDB 启动方式（本地安装、Docker）
-- 详细的错误提示和解决建议
-
-### 3. Flutter Web 构建问题
-
-**问题**：Flutter Web 构建失败或运行缓慢
-
-**解决方案**：
-- 优化 Flutter Web 配置
-- 提供开发服务器和生产构建两种模式
-- 添加构建状态检查和错误处理
-
-### 4. Electron 打包问题
-
-**问题**：不同平台打包配置复杂
-
-**解决方案**：
-- 使用 electron-builder 统一打包流程
-- 配置自动签名和公证（macOS）
-- 提供多平台构建脚本
-
-### 5. API 文档同步问题
-
-**问题**：API 变更后文档未及时更新
-
-**解决方案**：
-- 集成 Swagger 自动生成文档
-- 在代码中添加详细的 API 注释
-- 设置开发环境自动启用文档服务
-
-## 🏗️ 标准软件开发流程
-
-基于本项目的经验，总结出以下标准开发流程：
-
-### 1. 项目规划阶段
-
-- **需求分析**：明确功能需求和技术需求
-- **技术选型**：选择合适的技术栈和架构
-- **项目结构设计**：设计清晰的目录结构
-- **开发计划**：制定详细的开发时间表
-
-### 2. 环境搭建阶段
-
-- **开发环境配置**：统一团队开发环境
-- **代码规范设置**：ESLint、Prettier、Git hooks
-- **CI/CD 流水线**：自动化测试和部署
-- **文档框架**：建立项目文档结构
-
-### 3. 核心开发阶段
-
-- **数据库设计**：设计数据模型和关系
-- **API 设计**：RESTful API 设计和文档
-- **核心功能开发**：按优先级开发核心功能
-- **单元测试**：编写和维护测试用例
-
-### 4. 集成测试阶段
-
-- **接口联调**：前后端接口对接
-- **功能测试**：完整功能流程测试
-- **性能测试**：负载和压力测试
-- **安全测试**：安全漏洞扫描
-
-### 5. 部署上线阶段
-
-- **生产环境配置**：服务器和数据库配置
-- **域名和证书**：HTTPS 和域名配置
-- **监控告警**：服务监控和日志收集
-- **备份策略**：数据备份和恢复方案
-
-### 6. 运营维护阶段
-
-- **用户反馈收集**：建立反馈渠道
-- **版本迭代**：定期功能更新
-- **性能优化**：持续性能改进
-- **安全更新**：及时修复安全问题
-
-## 🚀 架构改进建议
-
-### 当前架构的优点
-
-- ✅ **模块化设计**：清晰的目录结构和职责分离
-- ✅ **多平台支持**：一套后端支持多个前端
-- ✅ **自动化工具**：完善的开发和部署工具
-- ✅ **文档完善**：详细的开发和部署文档
-
-### 可以改进的方面
-
-#### 1. 微服务架构
-
-**当前**：单体后端应用
-
-**改进建议**：
-- 拆分为用户服务、任务服务、支付服务
-- 使用 API Gateway 统一入口
-- 引入服务发现和负载均衡
-
-#### 2. 数据库优化
-
-**当前**：单一 MongoDB 数据库
-
-**改进建议**：
-- 读写分离：主从复制配置
-- 缓存层：Redis 缓存热点数据
-- 分库分表：支持大规模用户
-
-#### 3. 前端架构
-
-**当前**：多个独立前端项目
-
-**改进建议**：
-- 组件库：统一 UI 组件库
-- 状态管理：全局状态管理方案
-- 代码共享：共享业务逻辑代码
-
-#### 4. 监控和日志
-
-**当前**：基础日志记录
-
-**改进建议**：
-- APM 监控：应用性能监控
-- 链路追踪：分布式链路追踪
-- 实时告警：异常实时通知
-
-#### 5. 安全加固
-
-**当前**：基础安全措施
-
-**改进建议**：
-- OAuth 2.0：第三方登录集成
-- 数据加密：敏感数据加密存储
-- 安全审计：操作日志审计
-
-### 推荐的技术栈升级
-
-#### 后端技术栈
-
-- **框架**：Node.js + Express.js → Node.js + NestJS
-- **数据库**：MongoDB → MongoDB + Redis + PostgreSQL
-- **消息队列**：无 → Redis/RabbitMQ
-- **监控**：基础日志 → Prometheus + Grafana
-
-#### 前端技术栈
-
-- **状态管理**：Provider → Redux Toolkit/Zustand
-- **UI 框架**：原生组件 → 统一设计系统
-- **构建工具**：默认配置 → Webpack/Vite 优化
-- **测试框架**：无 → Jest + Cypress
-
-#### DevOps 工具链
-
-- **容器化**：无 → Docker + Kubernetes
-- **CI/CD**：无 → GitHub Actions/GitLab CI
-- **监控**：基础检查 → ELK Stack
-- **部署**：手动部署 → 自动化部署
-
-## 🤝 贡献指南
-
-欢迎提交 Issue 和 Pull Request！
-
-### 开发流程
-
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开 Pull Request
-
-### 代码规范
-
-- 使用 ESLint 进行代码检查
-- 遵循 Conventional Commits 规范
-- 添加适当的测试用例
-- 更新相关文档
-
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
-
----
-
-⭐ 如果这个项目对你有帮助，请给个 Star！
-
-
----
-
-## 🌐 公网访问与一键启动（无需 ngrok）
-
-为了在每次开机后快速把本地 8000 端口的服务暴露到公网，本项目内置了基于 SSH 反向隧道的脚本，开箱即用，无需额外安装。
-
-- 一键开发模式（推荐）
-  - 命令：`npm run dev:pub`
-  - 作用：同时启动本地开发服务（nodemon 监听 server/app.js）和公网隧道。
-  - 预期输出：终端会打印一个形如 `https://xxxxx.lhr.life` 的公网地址。
-
-- 一键生产模式
-  - 命令：`npm run start:pub`
-  - 作用：以 `node` 启动后端并同时打开公网隧道（无文件变更监听）。
-
-- 仅启动隧道（若服务已在本地 8000 端口运行）
-  - 命令：`npm run tunnel`
-
-使用步骤（每次开机后）
-1) 打开终端，进入项目根目录（本仓库）
-2) 运行 `npm install`（仅首次需要）
-3) 运行 `npm run dev:pub`（或 `npm run start:pub`）
-4) 观察终端输出，复制形如 `https://xxxxx.lhr.life` 的公网地址
-5) 健康检查：
-   - `GET <公网地址>/healthz` 应返回 `{"ok": true}`
-   - `GET <公网地址>/` 应返回首页
-   - `GET <公网地址>/socket.io/socket.io.js` 应返回 200（用于实时能力）
-6) 保持“隧道”所在的终端窗口运行（关闭则公网地址失效）。
-
-注意事项
-- 公网地址是临时的，每次启动隧道都会变化；若需固定域名，建议后续接入更稳定的隧道/反代方案。
-- 如 8000 端口被占用，请先关闭占用该端口的进程，或调整 `server/app.js` 的 `PORT` 环境变量。
-- 安全提示：公网可访问后，建议仅暴露必要接口，不要上传敏感数据；如需白名单或鉴权，请在网关层加固。
-
-常见问题
-- 看到错误“端口已被占用”：请更换端口或结束占用进程后重试。
-- 终端没有出现 `https://xxxxx.lhr.life`：请确认网络可用，或重新运行 `npm run tunnel`。
-
----
-
-## 📄 PRD（产品需求文档）
-
-版本：MVP v1.0（针对当前后端实现：Node.js + Express + Sequelize + SQLite，默认监听 8000 端口）
-
-1. 目标与范围
-- 提供一个跨平台可用的任务管理服务，支持用户注册登录、任务 CRUD、实时同步（Socket.IO）。
-- MVP 范围：账号体系（注册/登录/JWT）、任务列表（增删改查）、基础统计（数量/完成率）、实时刷新、基础日志。
-
-2. 用户与角色
-- 未登录用户：可访问公开页面（如根路径 /），不能操作受保护 API。
-- 注册用户：登录后可进行自己的任务管理操作；数据隔离以用户维度进行。
-
-3. 关键用户故事（User Stories）与验收标准
-- 注册：
-  - 当我提交邮箱/密码到 POST /api/auth/register 时，若校验通过，返回 201；重复邮箱返回 409。
-- 登录：
-  - 当我提交邮箱/密码到 POST /api/auth/login 时，若认证通过，返回 200 并携带 JWT；错误凭证返回 401。
-- 查看任务：
-  - GET /api/tasks 携带有效 JWT 时返回 200 和当前用户的任务数组；未带或无效 JWT 返回 401。
-- 创建任务：
-  - POST /api/tasks 携带有效 JWT、合法 body（title 必填）时返回 201 和新任务；非法数据返回 400。
-- 更新任务：
-  - PUT /api/tasks/:id 携带有效 JWT 且任务归属为本人时，允许更新并返回 200；越权返回 403；不存在返回 404。
-- 删除任务：
-  - DELETE /api/tasks/:id 携带有效 JWT 且任务归属为本人时，允许删除并返回 204；越权 403；不存在 404。
-- 实时同步：
-  - 当创建/更新/删除任务后，其他连接同一账户的客户端在 1s 内通过 Socket.IO 收到变更事件并同步列表。
-
-4. 非功能性需求（NFR）
-- 可用性：
-  - /healthz 返回 200 且 `{ ok: true }`；/readyz 返回 200 当数据库可用。
-- 性能：
-  - 在单用户轻负载下，核心接口 p95 响应 < 200ms（本地环境）。
-- 安全：
-  - 所有受保护路由必须验证 JWT；密码使用 bcrypt 哈希；启用 CORS 控制；Helmet 基础安全头。
-- 可维护性：
-  - 日志使用 winston；错误统一通过中间件处理；路由、控制器、模型分层清晰。
-
-5. 接口清单（概览）
-- 认证：
-  - POST /api/auth/register
-  - POST /api/auth/login
-  - GET  /api/auth/profile
-- 任务：
-  - GET    /api/tasks
-  - POST   /api/tasks
-  - PUT    /api/tasks/:id
-  - DELETE /api/tasks/:id
-- 用户：
-  - GET /api/users/profile
-  - PUT /api/users/profile
-- 运维：
-  - GET /healthz
-  - GET /readyz
-
-6. 事件与实时交互
-- Socket.IO 连接在根服务建立，客户端连接后接收任务变更事件（如 task.created、task.updated、task.deleted）。
-
-7. 数据与存储
-- 默认 SQLite（本地开发），通过 Sequelize 管理；可切换 MySQL2（已包含依赖）。
-
-8. 约束与假设
-- 单服务进程模式；前置反代或隧道（如本 README 的一键公网方案）。
-- 前端使用静态资源（public 下 index.html 等），通过 Express 静态服务托管。
-
-9. 里程碑与验收
-- 里程碑：
-  - M1：账号与任务 CRUD（完成）
-  - M2：实时同步（完成）
-  - M3：联调与公网访问（通过本 README 脚本）
-- 验收：按“关键用户故事与验收标准”逐条验证，通过率 100%。
-
----
-
-## 🔗 项目仓库
-
-- GitHub：https://github.com/add-xylitol/1.Todo-list
-
-// ... existing code ...
+- 后端：Express + Sequelize + SQLite + JWT + Socket.IO
+- 前端：原生 HTML/CSS/JS + Bootstrap（CDN）
+- 工具：nodemon、jest、playwright、pm2（部署推荐）
+
+## 🚀 快速开始（补充）
+
+- 安装依赖：`npm install`
+- 开发模式：`npm run dev`
+- 生产服务：`npm start`
+- 公网隧道：`npm run dev:pub` 或 `npm run start:pub`
+- E2E 冒烟：`SMOKE_BASE="https://xxxx.lhr.life" node tests/smoke.mjs`
+
+## 📖 API（节选）
+- 认证：`POST /api/auth/register`、`POST /api/auth/login`
+- 任务：`GET/POST/PUT/DELETE /api/tasks`
+- 健康：`GET /healthz`、`GET /readyz`
