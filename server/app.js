@@ -63,7 +63,14 @@ if (!process.env.NETLIFY) {
         await sequelize.query(`ALTER TABLE "Tasks" ADD COLUMN "shareCode" VARCHAR(255)`);
         console.log('Column Tasks.shareCode added');
       }
-
+      // ensure folder column exists
+      const hasFolder = Array.isArray(taskColumns) && taskColumns.some(c => c.name === 'folder');
+      if (!hasFolder) {
+        console.log('Adding missing column Tasks.folder via ALTER TABLE');
+        await sequelize.query(`ALTER TABLE "Tasks" ADD COLUMN "folder" VARCHAR(255)`);
+        console.log('Column Tasks.folder added');
+      }
+      
       // 检查SharedLists缺失列（secondUserId, version, onlyOwnerCanDelete）并补齐
       const [sharedListCols] = await sequelize.query(`PRAGMA table_info('SharedLists');`);
       const colNames = Array.isArray(sharedListCols) ? sharedListCols.map(c => c.name) : [];

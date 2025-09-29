@@ -18,8 +18,9 @@ if (process.env.NETLIFY) {
 
   const Task = {
     findAll: async ({ where }) => {
-      if (where.shareCode) return mockDB.findTasksByShareCode(where.shareCode);
-      return mockDB.findTasksByUserId(where.userId);
+      // Support filtering by shareCode/userId and optional folder
+      const list = await mockDB.findTasks(where || {});
+      return list;
     },
     findByPk: async (id) => mockDB.findTaskById(id),
     create: async (data) => mockDB.createTask(data),
@@ -107,6 +108,12 @@ if (process.env.NETLIFY) {
     },
     // optional share code for shared lists
     shareCode: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      index: true
+    },
+    // optional folder name for grouping
+    folder: {
       type: DataTypes.STRING,
       allowNull: true,
       index: true

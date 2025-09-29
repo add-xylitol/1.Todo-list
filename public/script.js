@@ -23,6 +23,7 @@ let listVersion = Number(localStorage.getItem('listVersion') || 0);
 let onlyOwnerCanDelete = false;
 let historyModal;
 let socket; // Socket.IO client instance
+let currentFolder = localStorage.getItem('currentFolder') || '';
 
 // ensure toggleLoading exists once
 if (typeof toggleLoading !== 'function') {
@@ -227,7 +228,9 @@ async function addTask() {
     toggleLoading(true);
     const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
     if (shareCode){ headers['X-Share-Code'] = shareCode; headers['X-List-Version'] = String(listVersion||0); }
-    const res = await fetch(`${apiBase}/tasks`, { method: 'POST', headers, body: JSON.stringify({ title, description }) });
+    const body = { title, description };
+    if (currentFolder) body.folder = currentFolder;
+    const res = await fetch(`${apiBase}/tasks`, { method: 'POST', headers, body: JSON.stringify(body) });
     const data = await res.json().catch(() => ({}));
     if (res.ok) {
       document.getElementById('new-task-title').value = '';
@@ -264,7 +267,10 @@ async function saveEdit() {
     toggleLoading(true);
     const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
     if (shareCode){ headers['X-Share-Code'] = shareCode; headers['X-List-Version'] = String(listVersion||0); }
-    const res = await fetch(`${apiBase}/tasks/${currentEditId}`, { method: 'PUT', headers, body: JSON.stringify({ title: newTitle, description: newDesc }) });
+    const payload = { title: newTitle, description: newDesc };
+    // 保持任务在当前文件夹（仅当设置了文件夹时）
+    if (currentFolder) payload.folder = currentFolder;
+    const res = await fetch(`${apiBase}/tasks/${currentEditId}`, { method: 'PUT', headers, body: JSON.stringify(payload) });
     const data = await res.json().catch(()=>({}));
     if (res.ok) {
       const btnEl = document.getElementById('saveEdit'); btnEl && btnEl.blur();
@@ -328,6 +334,26 @@ function initApp(){
   filterCompletedBtn && filterCompletedBtn.addEventListener('click', () => setFilter('completed'));
   const searchInput = document.getElementById('search-input');
   searchInput && searchInput.addEventListener('input', (e) => { searchKeyword = e.target.value.trim().toLowerCase(); renderTasks(); });
+  // 绑定文件夹输入
+  const folderInput = document.getElementById('folder-input');
+  if (folderInput){
+    folderInput.value = currentFolder || '';
+    folderInput.addEventListener('change', async (e) => {
+      currentFolder = e.target.value.trim();
+      localStorage.setItem('currentFolder', currentFolder);
+      await loadTasks();
+      // 更新datalist
+      populateFolderDatalist();
+    });
+    folderInput.addEventListener('keyup', async (e) => {
+      if (e.key === 'Enter'){
+        currentFolder = e.target.value.trim();
+        localStorage.setItem('currentFolder', currentFolder);
+        await loadTasks();
+        populateFolderDatalist();
+      }
+    });
+  }
   const clearCompletedBtn = document.getElementById('clear-completed');
   clearCompletedBtn && clearCompletedBtn.addEventListener('click', clearCompleted);
   const titleInput = document.getElementById('new-task-title');
@@ -402,7 +428,10 @@ async function loadTasks() {
     toggleLoading(true);
     const headers = { 'Authorization': `Bearer ${token}` };
     if (shareCode){ headers['X-Share-Code'] = shareCode; }
-    const res = await fetch(`${apiBase}/tasks`, { headers });
+    const qs = new URLSearchParams();
+    if (currentFolder) qs.set('folder', currentFolder);
+    const url = `${apiBase}/tasks${qs.toString() ? ('?' + qs.toString()) : ''}`;
+    const res = await fetch(url, { headers });
     if (res.status === 401) {
       logout();
       showToast('登录已过期，请重新登录', 'warning');
@@ -411,12 +440,8 @@ async function loadTasks() {
     const data = await res.json();
     if (res.ok){
       tasksCache = data.data || [];
-      if (data.meta && typeof data.meta.version === 'number'){
-        listVersion = data.meta.version;
-        localStorage.setItem('listVersion', String(listVersion));
-        onlyOwnerCanDelete = !!data.meta.onlyOwnerCanDelete;
-        window.__sharedOwnerId = data.meta.ownerId;
-      }
+      // 自动从任务中提取文件夹列表，填充datalist
+      populateFolderDatalist();
       updateShareUI();
       renderTasks();
     } else {
@@ -425,6 +450,18 @@ async function loadTasks() {
   } catch (err) {
     showToast('加载失败：' + err.message, 'error');
   } finally { toggleLoading(false); }
+}
+
+function populateFolderDatalist(){
+  try{
+    const folderInput = document.getElementById('folder-input');
+    const dl = document.getElementById('folder-list');
+    if (!folderInput || !dl) return;
+    const set = new Set();
+    tasksCache.forEach(t => { if (t.folder) set.add(t.folder); });
+    const values = Array.from(set).sort();
+    dl.innerHTML = values.map(v => `<option value="${v}"></option>`).join('');
+  }catch(e){ console.warn('populateFolderDatalist error', e); }
 }
 
 function renderTasks(){
@@ -461,7 +498,13 @@ function renderTasks(){
     descDiv.textContent = task.description || '';
     contentDiv.appendChild(titleDiv);
     contentDiv.appendChild(descDiv);
-
+    // 在标题右侧显示folder标签
+    if (task.folder){
+      const tag = document.createElement('span');
+      tag.className = 'badge rounded-pill text-bg-light ms-2';
+      tag.textContent = task.folder;
+      titleDiv.appendChild(tag);
+    }
     left.appendChild(checkbox);
     left.appendChild(contentDiv);
 

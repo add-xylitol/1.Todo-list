@@ -164,6 +164,25 @@ class MockDatabase {
     return true;
   }
 
+  // 通用任务查询，支持 where.userId / where.shareCode 与 where.folder 过滤
+  async findTasks(where = {}){
+    const results = [];
+    for (const task of this.tasks.values()) {
+      // 基本范围：shareCode 或 userId
+      if (where.shareCode && task.shareCode !== where.shareCode) continue;
+      if (!where.shareCode && where.userId && task.userId !== where.userId) continue;
+      // 文件夹过滤：字符串匹配或空/未设置
+      if (Object.prototype.hasOwnProperty.call(where, 'folder')){
+        const target = where.folder; // 可能是字符串或 null
+        const hasFolder = typeof task.folder === 'string' && task.folder.trim() !== '';
+        if (target === null){ if (hasFolder) continue; }
+        else { if (!hasFolder || task.folder.trim() !== String(target).trim()) continue; }
+      }
+      results.push(task);
+    }
+    return results;
+  }
+  
   // Shared list methods
   async createSharedList(data){
     const now = new Date();
